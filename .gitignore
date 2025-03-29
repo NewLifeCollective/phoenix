@@ -1,0 +1,9 @@
+server/*
+!server/.gitkeep
+server-data/cache/
+server-data/db/
+server-data/resources/\[assets]/*
+!server-data/resources/\[assets]/.gitkeep
+server-data/env.cfg
+server-data/.replxx_history
+server-data/server.cfg.bkp
