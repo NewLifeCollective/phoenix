@@ -351,6 +351,28 @@ return {
                 }
             },
         },
+        busdriver = {
+            label = 'Bus Driver',
+            vehicleType = VehicleType.CAR,
+            groups = 'bus',
+            accessPoints = {
+                {
+                    coords = vec4(433.2, -605.86, 28.5, 258.82),
+                    spawn = vec4(423.48, -605.7, 28.5, 176.26)
+                }
+            }
+        },
+        taxi = {
+            label = 'Taxi',
+            vehicleType = VehicleType.CAR,
+            groups = 'taxi',
+            accessPoints = {
+                {
+                    coords = vec4(920.81, -163.52, 74.86, 285.23),
+                    spawn = vec4(915.44, -162.86, 74.68, 147.91),
+                }
+            },
+        },
 
         -- Gang Garages
         ballas = {
