@@ -116,7 +116,10 @@ return {
                 vec3(-195.26, -1314.11, 30.85),
             }
         },
-        {
+        { 
+            freeRepair = { 'police' }, -- Provides free repairs to specified job
+            freeMods = { 'police' }, -- provides free modifications to specified job
+            job = { 'police' }, -- Restricts customs access to a specific job (useful for restricting to mechanics, police, ambulance, etc)
             hideBlip = true,
             blip = {
                 sprite = 72,
@@ -143,4 +146,4 @@ return {
         [15] = { 0, 300, 600, 900, 1200, 1500 }, -- Suspension
         [18] = 1000                                  -- Turbo
     }
-}
+} 

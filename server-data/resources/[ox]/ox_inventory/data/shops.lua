@@ -8,6 +8,7 @@ return {
 			{ name = 'water', price = 5 },
 			{ name = 'sprunk', price = 10 },
 			{ name = 'coffee', price = 10 },
+			{ name = 'radio', price = 250}
 		}, locations = {
 			vec3(25.7, -1347.3, 29.49),
 			vec3(-3038.71, 585.9, 7.9),
@@ -60,13 +61,27 @@ return {
 			{ loc = vec3(1393.0, 3605.95, 35.11), length = 0.6, width = 0.6, heading = 200.0, minZ = 35.0, maxZ = 35.4, distance = 1.5 }
 		}
 	},
+	MegaMall = {
+		name = 'Mega Mall',
+		blip = {
+			id = 59, colour = 69, scale = 0.8
+		}, inventory = {
+			{ name = 'lockpick', price = 30},
+			{ name = 'repairkit', price = 100}
+		}, locations = {
+			vec3(46.65, -1749.71, 29.63)
+		}, targets = {
+			{ loc = vec3(47.04, -1750.01, 29.53), length = 0.6, width = 3.0, heading = 234, minZ = 55, maxZ = 56.8, distance = 3.0}
+		}
+	},
 
 	YouTool = {
 		name = 'YouTool',
 		blip = {
 			id = 402, colour = 69, scale = 0.8
 		}, inventory = {
-			{ name = 'lockpick', price = 10 }
+			{ name = 'lockpick', price = 10 },
+			{ name = 'radio', price = 150}
 		}, locations = {
 			vec3(2748.0, 3473.0, 55.67),
 			vec3(342.99, -1298.26, 32.51)

@@ -58,7 +58,7 @@ return {
         ---@type table<string, {coords: vector3, checkIn?: vector3|vector3[], beds: Bed[]}>
         hospitals = {
             pillbox = {
-                coords = vec3(350, -580, 43),
+                coords = vec3(362.08, -590.74, 28.67),
                 checkIn = vec3(350.77, -588.43, 28.8),
                 beds = {
                     {coords = vec4(359.33, -585.95, 43.1, 336.32), model = 1631638868},

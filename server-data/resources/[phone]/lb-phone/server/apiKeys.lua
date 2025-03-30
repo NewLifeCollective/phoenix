@@ -5,20 +5,20 @@ BIRDY_WEBHOOK = "https://discord.com/api/webhooks/"
 
 -- Discord webhook for server logs
 LOGS = {
-    Default = "https://discord.com/api/webhooks/", -- set to false to disable
-    Calls = "https://discord.com/api/webhooks/",
-    Messages = "https://discord.com/api/webhooks/",
-    InstaPic = "https://discord.com/api/webhooks/",
-    Birdy = "https://discord.com/api/webhooks/",
-    YellowPages = "https://discord.com/api/webhooks/",
-    Marketplace = "https://discord.com/api/webhooks/",
-    Mail = "https://discord.com/api/webhooks/",
-    Wallet = "https://discord.com/api/webhooks/",
-    DarkChat = "https://discord.com/api/webhooks/",
-    Services = "https://discord.com/api/webhooks/",
-    Crypto = "https://discord.com/api/webhooks/",
-    Trendy = "https://discord.com/api/webhooks/",
-    Uploads = "https://discord.com/api/webhooks/" -- all camera uploads will go here
+    Default = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU", -- set to false to disable
+    Calls = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    Messages = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    InstaPic = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    Birdy = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    YellowPages = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    Marketplace = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    Mail = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    Wallet = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    DarkChat = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    Services = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    Crypto = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    Trendy = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU",
+    Uploads = "https://discord.com/api/webhooks/1352694820619157534/l6u19j153sErZtYg1rDSI6Og4_8H7vgp3utLTVBgrDZmTXwUJFWUDVfhOb3TwVhqcdwU" -- all camera uploads will go here
 }
 
 DISCORD_TOKEN = nil -- you can set a discord bot token here to get the players discord avatar for logs
@@ -30,7 +30,7 @@ DISCORD_TOKEN = nil -- you can set a discord bot token here to get the players d
 -- You can get your API keys from https://fivemanage.com/
 -- A video tutorial for how to set up Fivemanage can be found here: https://www.youtube.com/watch?v=y3bCaHS6Moc
 API_KEYS = {
-    Video = "API_KEY_HERE",
-    Image = "API_KEY_HERE",
-    Audio = "API_KEY_HERE",
+    Video = GetConvar("fivemanage_api_key", ""),
+    Image = GetConvar("fivemanage_api_key", ""),
+    Audio = GetConvar("fivemanage_api_key", ""),
 }

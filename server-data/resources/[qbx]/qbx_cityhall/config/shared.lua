@@ -6,7 +6,7 @@ return {
             blip = {
                 label = 'City Hall',
                 shortRange = true,
-                sprite = 487,
+                sprite = 182,
                 display = 4,
                 scale = 0.65,
                 colour = 0,
@@ -35,7 +35,7 @@ return {
             blip = {
                 label = 'City Hall',
                 shortRange = true,
-                sprite = 487,
+                sprite = 182,
                 display = 4,
                 scale = 0.65,
                 colour = 0,

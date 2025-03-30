@@ -1,6 +1,6 @@
 return {
     commandPerms = {
-        useMenu = 'mod',
+        useMenu = 'staff',
         reportReply = 'mod',
         noclip = 'mod',
         names = 'mod',

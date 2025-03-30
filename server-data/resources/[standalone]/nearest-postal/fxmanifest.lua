@@ -1,7 +1,3 @@
-shared_script '@WaveShield/resource/waveshield.lua' --this line was automatically written by WaveShield
-
-
-
 -- the postal map to read from
 -- change it to whatever model you want that is in this directory
 local postalFile = 'ocrp-postals.json'

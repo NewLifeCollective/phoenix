@@ -25,7 +25,7 @@ Config.DatabaseChecker.Enabled = true -- if true, the phone will check the datab
 Config.DatabaseChecker.AutoFix = true
 
 --[[ FRAMEWORK OPTIONS ]] --
-Config.Framework = "auto"
+Config.Framework = "qbox"
 --[[
     Supported frameworks:
         * auto: auto-detect framework
@@ -117,7 +117,7 @@ Config.Companies = {}
 Config.Companies.Enabled = true -- allow players to call companies?
 Config.Companies.MessageOffline = true -- if true, players can message companies even if no one in the company is online
 Config.Companies.DefaultCallsDisabled = false -- should receiving company calls be disabled by default?
-Config.Companies.AllowAnonymous = false -- allow players to call companies with "hide caller id" enabled?
+Config.Companies.AllowAnonymous = true -- allow players to call companies with "hide caller id" enabled?
 Config.Companies.SeeEmployees = "everyone" -- who should be able to see employees? they will see name, online status & phone number. options are: "everyone", "employees" or "none"
 Config.Companies.DeleteConversations = true -- allow employees to delete conversations?
 Config.Companies.Services = {
@@ -227,7 +227,7 @@ Config.HouseScript = "auto" --[[
 --[[ VOICE OPTIONS ]] --
 Config.Voice = {}
 Config.Voice.CallEffects = false -- enable call effects while on speaker mode? (NOTE: This may create sound-issues if you have too many submixes registered in your server)
-Config.Voice.System = "auto"
+Config.Voice.System = "pma"
 --[[
     Supported voice systems:
         * pma: pma-voice - HIGHLY RECOMMENDED
@@ -397,7 +397,7 @@ Config.EnableVoiceMessages = true -- Allow players to send voice messages?
 Config.EnableGIFs = true
 
 Config.CityName = "Los Santos" -- The name that's being used in the weather app etc.
-Config.RealTime = true -- if true, the time will use real life time depending on where the user lives, if false, the time will be the ingame time.
+Config.RealTime = false -- if true, the time will use real life time depending on where the user lives, if false, the time will be the ingame time.
 Config.CustomTime = false -- NOTE: disable Config.RealTime if using this. you can set this to a function that returns custom time, as a table: { hour = 0-24, minute = 0-60 }
 
 Config.EmailDomain = "lbscripts.com"
@@ -575,7 +575,7 @@ Config.Crypto.Enabled = true
 Config.Crypto.Coins = {"bitcoin","ethereum","tether","binancecoin","usd-coin","ripple","binance-usd","cardano","dogecoin","solana","shiba-inu","polkadot","litecoin","bitcoin-cash"}
 Config.Crypto.Currency = "usd" -- currency to use for crypto prices. https://api.coingecko.com/api/v3/simple/supported_vs_currencies
 Config.Crypto.Refresh = 5 * 60 * 1000 -- how often should the crypto prices be refreshed (client cache)? (Default 5 minutes)
-Config.Crypto.QBit = true -- support QBit? (requires qb-crypto & qb-core)
+Config.Crypto.QBit = false -- support QBit? (requires qb-crypto & qb-core)
 Config.Crypto.Limits = {}
 Config.Crypto.Limits.Buy = 1000000 -- how much ($) you can buy for at once
 Config.Crypto.Limits.Sell = 1000000 -- how much ($) you can sell at once

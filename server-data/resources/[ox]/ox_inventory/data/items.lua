@@ -132,24 +132,20 @@ return {
         weight = 160,
     },
 
-    ['phone'] = {
-        label = 'Phone',
+    ["phone"] = {
+        label = "Phone",
         weight = 190,
         stack = false,
         consume = 0,
-        -- client = {
-        --     add = function(total)
-        --         if total > 0 then
-        --             pcall(function() return exports.npwd:setPhoneDisabled(false) end)
-        --         end
-        --     end,
--- 
-        --     remove = function(total)
-        --         if total < 1 then
-        --             pcall(function() return exports.npwd:setPhoneDisabled(true) end)
-        --         end
-        --     end
-        -- }
+        client = {
+            export = "lb-phone.UsePhoneItem",
+            remove = function()
+                TriggerEvent("lb-phone:itemRemoved")
+            end,
+            add = function()
+                TriggerEvent("lb-phone:itemAdded")
+            end
+        }
     },
 
     ['mustard'] = {
@@ -245,19 +241,60 @@ return {
         weight = 500,
     },
 
-    ['cleaningkit'] = {
-        label = 'Cleaning Kit',
-        weight = 500,
+    ["cleaningkit"] = {
+        label = "Cleaning Kit",
+        weight = 250,
+        stack = true,
+        close = true,
+        description = "A microfiber cloth with some soap will let your car sparkle again!",
+        client = {
+            image = "cleaningkit.png",
+        },
+        server = {
+            export = 'vehiclehandler.cleaningkit'
+        }
     },
 
-    ['repairkit'] = {
-        label = 'Repair Kit',
+    ["tirekit"] = {
+        label = "Tire Kit",
+        weight = 250,
+        stack = true,
+        close = true,
+        description = "A nice toolbox with stuff to repair your tire",
+        client = {
+            image = "tirekit.png",
+        },
+        server = {
+            export = 'vehiclehandler.tirekit'
+        }
+    },
+
+    ["repairkit"] = {
+        label = "Repairkit",
         weight = 2500,
+        stack = true,
+        close = true,
+        description = "A nice toolbox with stuff to repair your vehicle",
+        client = {
+            image = "repairkit.png",
+        },
+        server = {
+            export = 'vehiclehandler.repairkit',
+        }
     },
 
-    ['advancedrepairkit'] = {
-        label = 'Advanced Repair Kit',
-        weight = 4000,
+    ["advancedrepairkit"] = {
+        label = "Advanced Repairkit",
+        weight = 5000,
+        stack = true,
+        close = true,
+        description = "A nice toolbox with stuff to repair your vehicle",
+        client = {
+            image = "advancedrepairkit.png",
+        },
+        server = {
+            export = 'vehiclehandler.advancedrepairkit',
+        }
     },
 
     ['diamond_ring'] = {

@@ -75,7 +75,19 @@ return {
                 [`police2`] = true, -- Vehicle model
                 [`police3`] = true,
                 [`police5`] = true, -- Vehicle model
+                [`policet`] = true,
                 [`polgauntlet`] = true, -- Vehicle model
+                ['2vd_acavalcade3'] = true,
+                ['2vd_buffalo4'] = true,
+                ['2vd_dvigerozx'] = true,
+                ['2vd_gauntlet4'] = true,
+                ['2vd_gresley'] = true,
+                ['2vd_gstsemxl1'] = true,
+                ['2vd_hakuchou'] = true,
+                ['2vd_hr680'] = true,
+                ['2vd_scout'] = true,
+                ['2vd_vcaracara'] = true,
+                ['2vd_vscout'] = true
             }
         },
         ambulance = {

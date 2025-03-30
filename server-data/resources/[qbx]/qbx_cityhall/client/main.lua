@@ -187,7 +187,7 @@ local function spawnPeds()
                 name = 'open_cityhall' .. i,
                 icon = 'fa-solid fa-city',
                 label = locale('info.target_open_cityhall'),
-                distance = 1.5,
+                distance = 5,
                 debug = true,
                 onSelect = function()
                     inRangeCityhall = true

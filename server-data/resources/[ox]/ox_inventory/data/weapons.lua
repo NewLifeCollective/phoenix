@@ -716,6 +716,11 @@ return {
 			weight = 600,
 			throwable = true,
 		},
+		['WEAPON_STUNROD'] = {
+			label = 'Stun Rod',
+			weight = 1000,
+			durability = 0.1,
+		}
 	},
 
 	Components = {

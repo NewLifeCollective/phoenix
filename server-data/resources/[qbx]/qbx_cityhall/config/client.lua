@@ -1,6 +1,6 @@
 return {
-    useTarget = false,
-    debugPoly = false,
+    useTarget = true,
+    debugPoly = true,
 
     peds = {
         { -- Cityhall Ped
@@ -11,7 +11,7 @@ return {
             zoneOptions = { -- Used for when UseTarget is false
                 length = 50.0,
                 width = 50.0,
-                debugPoly = false,
+                debugPoly = true,
             },
         },
         { -- Cityhall Ped
@@ -22,7 +22,7 @@ return {
         zoneOptions = { -- Used for when UseTarget is false
             length = 150.0,
             width = 150.0,
-            debugPoly = false,
+            debugPoly = true,
         },
         }
     },
