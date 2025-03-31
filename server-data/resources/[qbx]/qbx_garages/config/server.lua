@@ -198,8 +198,8 @@ return {
                         sprite = 357,
                         color = 3,
                     },
-                    coords = vec4(1726.9, 3710.38, 34.26, 22.54),
-                    spawn = vec4(1728.65, 3714.85, 34.18, 21.26),
+                    vec4(1894.57, 3706.0, 32.42, 298.85),
+                    vec4(1886.13, 3702.66, 32.69, 206.97),
                 }
             },
         },
@@ -341,13 +341,24 @@ return {
 
         -- Job Garages
         police = {
-            label = 'Police',
+            label = 'MRPD Garage',
             vehicleType = VehicleType.CAR,
             groups = 'police',
             accessPoints = {
                 {
                     coords = vec4(454.6, -1017.4, 28.4, 0),
                     spawn = vec4(438.4, -1018.3, 27.7, 90.0),
+                }
+            },
+        },
+        police = {
+            label = 'Paleto PD Garage',
+            vehicleType = VehicleType.CAR,
+            groups = 'police',
+            accessPoints = {
+                {
+                    coords = vec4(-479.46, 6028.35, 30.92, 43.52),
+                    spawn = vec4(-482.96, 6025.01, 30.92, 228.41)
                 }
             },
         },
@@ -361,6 +372,28 @@ return {
                     spawn = vec4(423.48, -605.7, 28.5, 176.26)
                 }
             }
+        },
+        mechanic = {
+            label = 'Paleto Mechanic',
+            vehicleType = VehicleType.CAR,
+            groups = 'mechanic',
+            accessPoints = {
+                {
+                    coords = vec4(109.97, 6608.13, 31.42, 136.04),
+                    spawn = vec4(115.22, 6603.98, 31.53, 271.62)
+                }
+            },
+        },
+        garbage = {
+            label = 'Garbage Job',
+            vehicleType = VehicleType.CAR,
+            groups = 'garbage',
+            accessPoints = {
+                {
+                    coords = vec4(-327.47, -1530.16, 27.54, 178.42),
+                    spawn = vec4(-325.16, -1522.67, 27.54, 262.51)
+                }
+            },
         },
         taxi = {
             label = 'Taxi',
