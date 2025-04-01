@@ -25,7 +25,7 @@ return {
 	refillTick = 250,
 
 	-- Fuel cost (Added once every tick)
-	priceTick = 5,
+	priceTick = 2,
 
 	-- Can durability loss per refillTick
 	durabilityTick = 1.3,
@@ -34,8 +34,8 @@ return {
 	petrolCan = {
 		enabled = true,
 		duration = 5000,
-		price = 1000,
-		refillPrice = 800,
+		price = 100,
+		refillPrice = 80,
 	},
 
 	---Modifies the fuel consumption rate of all vehicles - see [`SET_FUEL_CONSUMPTION_RATE_MULTIPLIER`](https://docs.fivem.net/natives/?_0x845F3E5C).
