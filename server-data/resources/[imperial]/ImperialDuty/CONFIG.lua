@@ -1,7 +1,7 @@
 Config = {} -- Don't touch this line
 
 
-Config.GiveLEOWeapons = true -- If you want to give weapons to the players who go on duty as LEO
+Config.GiveLEOWeapons = false -- If you want to give weapons to the players who go on duty as LEO
 
 Config.LEOWeapons = {
     "WEAPON_COMBATPISTOL",
