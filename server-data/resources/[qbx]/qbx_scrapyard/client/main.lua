@@ -122,11 +122,10 @@ local function createListEmail()
     exports.qbx_core:Notify(locale('text.email_sent'), 'success')
     SetTimeout(math.random(15000, 20000), function()
         emailSent = false
-        TriggerServerEvent('qb-phone:server:sendNewMail', {
+        TriggerServerEvent('lb-phone:server:sendMail', {
             sender = locale('email.sender'),
             subject = locale('email.subject'),
-            message = locale('email.message') .. vehicleList,
-            button = {}
+            message = locale('email.message') .. vehicleList
         })
     end)
 end

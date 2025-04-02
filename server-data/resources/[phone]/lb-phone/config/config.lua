@@ -115,7 +115,7 @@ Config.DeleteAccount = {
 
 Config.Companies = {}
 Config.Companies.Enabled = true -- allow players to call companies?
-Config.Companies.MessageOffline = true -- if true, players can message companies even if no one in the company is online
+Config.Companies.MessageOffline = false -- if true, players can message companies even if no one in the company is online
 Config.Companies.DefaultCallsDisabled = false -- should receiving company calls be disabled by default?
 Config.Companies.AllowAnonymous = true -- allow players to call companies with "hide caller id" enabled?
 Config.Companies.SeeEmployees = "everyone" -- who should be able to see employees? they will see name, online status & phone number. options are: "everyone", "employees" or "none"
@@ -370,11 +370,16 @@ Config.PhoneNumber = {}
 Config.PhoneNumber.Format = "({3}) {3}-{4}" -- Don't touch unless you know what you're doing. IMPORTANT: The sum of the numbers needs to be equal to the phone number length + prefix length
 Config.PhoneNumber.Length = 7 -- This is the length of the phone number WITHOUT the prefix.
 Config.PhoneNumber.Prefixes = { -- These are the first numbers of the phone number, usually the area code. They all need to be the same length
-    "205",
-    "907",
-    "480",
-    "520",
-    "602"
+    "404",
+    "470",
+    "478",
+    "678",
+    "706",
+    "762",
+    "770",
+    "912",
+    "943",
+    "555"
 }
 
 Config.Battery = {} -- WITH THESE SETTINGS, A FULL CHARGE WILL LAST AROUND 2 HOURS.
@@ -386,7 +391,7 @@ Config.Battery.DischargeWhenInactive = true -- Should the phone remove battery w
 
 Config.CurrencyFormat = "$%s" -- ($100) Choose the formatting of the currency. %s will be replaced with the amount.
 Config.MaxTransferAmount = 1000000 -- The maximum amount of money that can be transferred at once via wallet / messages.
-Config.TransferOffline = false -- Allow players to transfer money to offline players via the wallet app?
+Config.TransferOffline = true -- Allow players to transfer money to offline players via the wallet app?
 
 Config.TransferLimits = {}
 Config.TransferLimits.Daily = false -- The maximum amount of money that can be transferred in a day. Set to false for unlimited.
@@ -400,7 +405,7 @@ Config.CityName = "Los Santos" -- The name that's being used in the weather app 
 Config.RealTime = false -- if true, the time will use real life time depending on where the user lives, if false, the time will be the ingame time.
 Config.CustomTime = false -- NOTE: disable Config.RealTime if using this. you can set this to a function that returns custom time, as a table: { hour = 0-24, minute = 0-60 }
 
-Config.EmailDomain = "lbscripts.com"
+Config.EmailDomain = "nlc.gov"
 Config.AutoCreateEmail = false -- should the phone automatically create an email for the player when they set up the phone?
 Config.DeleteMail = true -- allow players to delete mails in the mail app?
 Config.ConvertMailToMarkdown = false -- convert mails from html to markdown?
@@ -456,7 +461,7 @@ Config.WordBlacklist.Apps = { -- apps that should use the word blacklist (if Con
     Other = true,
 }
 Config.WordBlacklist.Words = {
-    -- array of blacklisted words, e.g. "badword", "anotherbadword"
+    "nigger", "nigga", "n1gga", "nigg4", "n1gg3r", "nigg3r", "nig", "n i g g e r", "faggot", "f4ggot", "f4gg0t"
 }
 
 Config.AutoFollow = {}
