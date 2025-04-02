@@ -122,7 +122,7 @@ RegisterNetEvent('qbx_storerobbery:server:trySafe', function()
     local leoCount = exports.qbx_core:GetDutyCountType('leo')
 
     if not closestSafeIndex then return end
-    if leoCount < sharedConfig.minimumCops and sharedConfig.notEnoughCopsNotify then
+    if leoCount <= sharedConfig.minimumCops and sharedConfig.notEnoughCopsNotify then
         exports.qbx_core:Notify(source, locale('error.no_police', {Required = config.minimumCops}), 'error')
         return
     end
