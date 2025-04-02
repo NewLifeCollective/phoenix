@@ -45,7 +45,7 @@ local function checkInteractStatus(register)
     end
 
     local leoCount = lib.callback.await('qbx_storerobbery:server:leoCount', false)
-    if leoCount > sharedConfig.minimumCops then
+    if leoCount >= sharedConfig.minimumCops then
         return true
     end
 
