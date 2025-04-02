@@ -347,6 +347,7 @@ end
 ---@param garageInfo GarageConfig
 ---@param accessPoint AccessPoint
 local function createBlips(garageInfo, accessPoint)
+    if accessPoint.coords == nil then return end
     local blip = AddBlipForCoord(accessPoint.coords.x, accessPoint.coords.y, accessPoint.coords.z)
     SetBlipSprite(blip, accessPoint.blip.sprite or 357)
     SetBlipDisplay(blip, 4)
