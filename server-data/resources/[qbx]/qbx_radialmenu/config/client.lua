@@ -14,7 +14,7 @@ return {
                     id = 'givenum',
                     icon = 'address-book',
                     label = 'Give Contact Details',
-                    event = 'qb-phone:client:GiveContactDetails'
+                    event = 'lb-phone:client:GiveContactDetails'
                 },
                 {
                     id = 'getintrunk',

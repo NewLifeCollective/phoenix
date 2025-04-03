@@ -54,7 +54,7 @@ return {
         for i = 1, numCops do
             local copSrc = copSrcs[i]
             TriggerClientEvent('police:client:policeAlert', copSrc, coords, msg)
-            TriggerClientEvent('qb-phone:client:addPoliceAlert', copSrc, alertData)
+            TriggerClientEvent('lb-phone:client:AddPoliceAlert', copSrc, alertData)
         end
     end
 }

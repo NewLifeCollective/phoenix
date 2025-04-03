@@ -1239,7 +1239,7 @@ local function emitMoneyEvents(source, playerMoney, moneyType, amount, actionTyp
     TriggerEvent('QBCore:Server:OnMoneyChange', source, moneyType, amount, actionType, reason)
 
     if moneyType == 'bank' and isRemove then
-        TriggerClientEvent('qb-phone:client:RemoveBankMoney', source, amount)
+        TriggerClientEvent('lb-phone:client:RemoveBankMoney', source, amount)
     end
 
     local oxMoneyType = moneyType == 'cash' and 'money' or moneyType

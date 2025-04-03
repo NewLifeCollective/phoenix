@@ -58,7 +58,7 @@ RegisterNetEvent('police:server:SendTrackerLocation', function(coords, requestId
         description = msg
     }
     TriggerClientEvent('police:client:TrackerMessage', requestId, msg, coords)
-    TriggerClientEvent('qb-phone:client:addPoliceAlert', requestId, alertData)
+    TriggerClientEvent('lb-phone:client:AddPoliceAlert', requestId, alertData)
 end)
 
 -- Items
@@ -173,11 +173,11 @@ RegisterNetEvent('police:server:policeAlert', function(text, camId, playerSource
         if IsLeoAndOnDuty(v) then
             if camId then
                 local alertData = {title = locale('info.new_call'), coords = coords, description = text .. locale('info.camera_id') .. camId}
-                TriggerClientEvent('qb-phone:client:addPoliceAlert', k, alertData)
+                TriggerClientEvent('lb-phone:client:AddPoliceAlert', k, alertData)
                 TriggerClientEvent('police:client:policeAlert', k, coords, text, camId)
             else
                 local alertData = {title = locale('info.new_call'), coords = coords, description = text}
-                TriggerClientEvent('qb-phone:client:addPoliceAlert', k, alertData)
+                TriggerClientEvent('lb-phone:client:AddPoliceAlert', k, alertData)
                 TriggerClientEvent('police:client:policeAlert', k, coords, text)
             end
         end
@@ -336,7 +336,7 @@ RegisterNetEvent('police:server:FlaggedPlateTriggered', function(radar, plate, s
     for i = 1, #players do
         if IsLeoAndOnDuty(players[i]) then
             local alertData = {title = locale('info.new_call'), coords = coords, description = locale('info.plate_triggered', plate, street, radar)}
-            TriggerClientEvent('qb-phone:client:addPoliceAlert', i, alertData)
+            TriggerClientEvent('lb-phone:client:AddPoliceAlert', i, alertData)
             TriggerClientEvent('police:client:policeAlert', i, coords, locale('info.plate_triggered_blip', radar))
         end
     end

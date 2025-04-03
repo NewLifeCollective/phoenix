@@ -170,7 +170,7 @@ RegisterNetEvent('qb-pawnshop:client:startMelting', function(pMeltTimeSeconds)
             return
         end
 
-        TriggerServerEvent('qb-phone:server:sendNewMail', {
+        TriggerServerEvent('lb-phone:server:sendMail', {
             sender = locale('info.title'),
             subject = locale('info.subject'),
             message = locale('info.message'),

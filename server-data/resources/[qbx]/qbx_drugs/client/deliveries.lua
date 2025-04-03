@@ -130,7 +130,7 @@ local function requestDelivery()
         exports.qbx_core:Notify(locale('info.sending_delivery_email'), 'success')
         TriggerServerEvent('qb-drugs:server:giveDeliveryItems', waitingDelivery)
         SetTimeout(2000, function()
-            TriggerServerEvent('qb-phone:server:sendNewMail', {
+            TriggerServerEvent('lb-phone:server:sendMail', {
                 sender = sharedConfig.dealers[currentDealer].name,
                 subject = 'Delivery Location',
                 message = locale('info.delivery_info_email', amount, exports.ox_inventory:Items()[waitingDelivery.itemData.item].label),
@@ -407,19 +407,19 @@ end)
 
 RegisterNetEvent('qb-drugs:client:sendDeliveryMail', function(type, deliveryData)
     if type == 'perfect' then
-        TriggerServerEvent('qb-phone:server:sendNewMail', {
+        TriggerServerEvent('lb-phone:server:sendMail', {
             sender = sharedConfig.dealers[deliveryData.dealer].name,
             subject = 'Delivery',
             message = locale('info.perfect_delivery', sharedConfig.dealers[deliveryData.dealer].name)
         })
     elseif type == 'bad' then
-        TriggerServerEvent('qb-phone:server:sendNewMail', {
+        TriggerServerEvent('lb-phone:server:sendMail', {
             sender = sharedConfig.dealers[deliveryData.dealer].name,
             subject = 'Delivery',
             message = locale('info.bad_delivery')
         })
     elseif type == 'late' then
-        TriggerServerEvent('qb-phone:server:sendNewMail', {
+        TriggerServerEvent('lb-phone:server:sendMail', {
             sender = sharedConfig.dealers[deliveryData.dealer].name,
             subject = 'Delivery',
             message = locale('info.late_delivery')

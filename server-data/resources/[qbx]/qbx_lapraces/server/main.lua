@@ -126,7 +126,7 @@ RegisterNetEvent('qb-lapraces:server:FinishPlayer', function(RaceData, TotalTime
                 }
             }
             MySQL.update('UPDATE lapraces SET records = ? WHERE raceid = ?', {json.encode(Races[RaceData.RaceId].Records), RaceData.RaceId})
-            TriggerClientEvent('qb-phone:client:RaceNotify', src, locale('phonenotif.wonWR', RaceData.RaceName, SecondsToClock(BestLap)))
+            TriggerClientEvent('lb-phone:client:RaceNotify', src, locale('phonenotif.wonWR', RaceData.RaceName, SecondsToClock(BestLap)))
         end
     else
         Races[RaceData.RaceId].Records = {
@@ -137,7 +137,7 @@ RegisterNetEvent('qb-lapraces:server:FinishPlayer', function(RaceData, TotalTime
             }
         }
         MySQL.update('UPDATE lapraces SET records = ? WHERE raceid = ?', {json.encode(Races[RaceData.RaceId].Records), RaceData.RaceId})
-        TriggerClientEvent('qb-phone:client:RaceNotify', src, locale('phonenotif.wonWR2', RaceData.RaceName, SecondsToClock(BestLap)))
+        TriggerClientEvent('lb-phone:client:RaceNotify', src, locale('phonenotif.wonWR2', RaceData.RaceName, SecondsToClock(BestLap)))
     end
     AvailableRaces[AvailableKey].RaceData = Races[RaceData.RaceId]
     TriggerClientEvent('qb-lapraces:client:PlayerFinishs', -1, RaceData.RaceId, PlayersFinished, Player)
@@ -159,7 +159,7 @@ RegisterNetEvent('qb-lapraces:server:FinishPlayer', function(RaceData, TotalTime
         LastRaces[RaceData.RaceId] = nil
         NotFinished[RaceData.RaceId] = nil
     end
-    TriggerClientEvent('qb-phone:client:UpdateLapraces', -1)
+    TriggerClientEvent('lb-phone:client:UpdateLapraces', -1)
 end)
 
 RegisterNetEvent('qb-lapraces:server:CreateLapRace', function(RaceName)
@@ -200,7 +200,7 @@ RegisterNetEvent('qb-lapraces:server:JoinRace', function(RaceData)
             AvailableRaces[PreviousRaceKey].RaceData = Races[CurrentRace]
             TriggerClientEvent('qb-lapraces:client:LeaveRace', src, Races[CurrentRace])
         end
-        TriggerClientEvent('qb-phone:client:UpdateLapraces', -1)
+        TriggerClientEvent('lb-phone:client:UpdateLapraces', -1)
     end
     Races[RaceId].Waiting = true
     Races[RaceId].Racers[Player.PlayerData.citizenid] = {
@@ -210,10 +210,10 @@ RegisterNetEvent('qb-lapraces:server:JoinRace', function(RaceData)
     }
     AvailableRaces[AvailableKey].RaceData = Races[RaceId]
     TriggerClientEvent('qb-lapraces:client:JoinRace', src, Races[RaceId], AvailableRaces[AvailableKey].Laps)
-    TriggerClientEvent('qb-phone:client:UpdateLapraces', -1)
+    TriggerClientEvent('lb-phone:client:UpdateLapraces', -1)
     local creatorsource = exports.qbx_core:GetPlayerByCitizenId(AvailableRaces[AvailableKey].SetupCitizenId).PlayerData.source
     if creatorsource ~= Player.PlayerData.source then
-        TriggerClientEvent('qb-phone:client:RaceNotify', creatorsource, locale('phonenotif.joinedrace',string.sub(Player.PlayerData.charinfo.firstname, 1, 1), Player.PlayerData.charinfo.lastname))
+        TriggerClientEvent('lb-phone:client:RaceNotify', creatorsource, locale('phonenotif.joinedrace',string.sub(Player.PlayerData.charinfo.firstname, 1, 1), Player.PlayerData.charinfo.lastname))
     end
 end)
 
@@ -225,7 +225,7 @@ RegisterNetEvent('qb-lapraces:server:LeaveRace', function(RaceData)
     local AvailableKey = GetOpenedRaceKey(RaceData.RaceId)
     local creatorsource = exports.qbx_core:GetPlayerByCitizenId(AvailableRaces[AvailableKey].SetupCitizenId)?.PlayerData.source
     if creatorsource ~= Player.PlayerData.source then
-        TriggerClientEvent('qb-phone:client:RaceNotify', creatorsource, locale('phonenotif.LeaveRace',string.sub(Player.PlayerData.charinfo.firstname, 1, 1), Player.PlayerData.charinfo.lastname))
+        TriggerClientEvent('lb-phone:client:RaceNotify', creatorsource, locale('phonenotif.LeaveRace',string.sub(Player.PlayerData.charinfo.firstname, 1, 1), Player.PlayerData.charinfo.lastname))
     end
     local AmountOfRacers = 0
     for _ in pairs(Races[RaceData.RaceId].Racers) do
@@ -284,7 +284,7 @@ RegisterNetEvent('qb-lapraces:server:LeaveRace', function(RaceData)
         AvailableRaces[AvailableKey].RaceData = Races[RaceId]
         TriggerClientEvent('qb-lapraces:client:LeaveRace', src, Races[RaceId])
     end
-    TriggerClientEvent('qb-phone:client:UpdateLapraces', -1)
+    TriggerClientEvent('lb-phone:client:UpdateLapraces', -1)
 end)
 
 RegisterNetEvent('qb-lapraces:server:SetupRace', function(RaceId, Laps)
@@ -299,7 +299,7 @@ RegisterNetEvent('qb-lapraces:server:SetupRace', function(RaceId, Laps)
                     RaceId = RaceId,
                     SetupCitizenId = Player.PlayerData.citizenid
                 }
-                TriggerClientEvent('qb-phone:client:UpdateLapraces', -1)
+                TriggerClientEvent('lb-phone:client:UpdateLapraces', -1)
                 SetTimeout(5 * 60 * 1000, function()
                     if Races[RaceId].Waiting then
                         local AvailableKey = GetOpenedRaceKey(RaceId)
@@ -315,7 +315,7 @@ RegisterNetEvent('qb-lapraces:server:SetupRace', function(RaceId, Laps)
                         Races[RaceId].Started = false
                         Races[RaceId].Waiting = false
                         LastRaces[RaceId] = nil
-                        TriggerClientEvent('qb-phone:client:UpdateLapraces', -1)
+                        TriggerClientEvent('lb-phone:client:UpdateLapraces', -1)
                     end
                 end)
             else
@@ -351,7 +351,7 @@ RegisterNetEvent('qb-lapraces:server:CancelRace', function(raceId)
             Races[raceId].Started = false
             Races[raceId].Waiting = false
             LastRaces[raceId] = nil
-            TriggerClientEvent('qb-phone:client:UpdateLapraces', -1)
+            TriggerClientEvent('lb-phone:client:UpdateLapraces', -1)
         end
     else
         exports.qbx_core:Notify(src, locale('error.racenotopen', raceId), 'error')
@@ -390,7 +390,7 @@ RegisterNetEvent('qb-lapraces:server:StartRace', function(RaceId)
                     TriggerClientEvent('qb-lapraces:client:RaceCountdown', Player.PlayerData.source)
                 end
             end
-            TriggerClientEvent('qb-phone:client:UpdateLapraces', -1)
+            TriggerClientEvent('lb-phone:client:UpdateLapraces', -1)
         else
             exports.qbx_core:Notify(src, locale('error.notcreator'), 'error')
         end
@@ -493,7 +493,7 @@ lib.addCommand('cancelrace', {help = locale('commands.cancelrace')}, function(so
                 Races[RaceId].Started = false
                 Races[RaceId].Waiting = false
                 LastRaces[RaceId] = nil
-                TriggerClientEvent('qb-phone:client:UpdateLapraces', -1)
+                TriggerClientEvent('lb-phone:client:UpdateLapraces', -1)
             else
                 exports.qbx_core:Notify(source, locale('error.notstarted'), 'error')
             end

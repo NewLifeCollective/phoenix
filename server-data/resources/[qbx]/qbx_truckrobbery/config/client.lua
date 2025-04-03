@@ -5,7 +5,7 @@ return {
 
     -- Used for mission notification
     emailNotification = function()
-        TriggerServerEvent('qb-phone:server:sendNewMail', {
+        TriggerServerEvent('lb-phone:server:sendMail', {
             sender = locale('mission.sender'),
             subject = locale('mission.subject'),
             message = locale('mission.message'),

@@ -41,7 +41,7 @@ QBCore.Commands.Add('invoice', 'Invoice A Player', {{
                         'INSERT INTO phone_invoices (citizenid, amount, society, sender, sendercitizenid) VALUES (?, ?, ?, ?, ?)',
                         {customer.PlayerData.citizenid, amount, worker.PlayerData.job.name,
                         worker.PlayerData.charinfo.firstname, worker.PlayerData.citizenid})
-                    TriggerClientEvent('qb-phone:RefreshPhone', customer.PlayerData.source)
+                    TriggerClientEvent('lb-phone:client:RefreshPhone', customer.PlayerData.source)
                     TriggerClientEvent('QBCore:Notify', source, 'Invoice Successfully Sent', 'success')
                     TriggerClientEvent('QBCore:Notify', customer.PlayerData.source, 'New Invoice Received')
                 else

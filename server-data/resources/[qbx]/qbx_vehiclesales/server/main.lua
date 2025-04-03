@@ -136,7 +136,7 @@ RegisterNetEvent('qb-occasions:server:buyVehicle', function(vehicleData)
     TriggerClientEvent('qb-occasions:client:BuyFinished', src, result[1])
     TriggerClientEvent('qb-occasion:client:refreshVehicles', -1)
     MySQL.query('DELETE FROM occasion_vehicles WHERE plate = ? AND occasionid = ?',{result[1].plate, result[1].occasionid})
-    TriggerEvent('qb-phone:server:sendNewMailToOffline', sellerCitizenId, {
+    TriggerEvent('lb-phone:server:sendNewMailToOffline', sellerCitizenId, {
         sender = locale('mail.sender'),
         subject = locale('mail.subject'),
         message = (locale('mail.message'):format(newPrice, VEHICLES[result[1].model].name))
