@@ -67,7 +67,8 @@ return {
 			id = 59, colour = 69, scale = 0.8
 		}, inventory = {
 			{ name = 'lockpick', price = 30},
-			{ name = 'repairkit', price = 100}
+			{ name = 'repairkit', price = 100},
+			{ name = 'customizableplate', price = 2500}
 		}, locations = {
 			vec3(46.65, -1749.71, 29.63)
 		}, targets = {
@@ -81,7 +82,8 @@ return {
 			id = 402, colour = 69, scale = 0.8
 		}, inventory = {
 			{ name = 'lockpick', price = 10 },
-			{ name = 'radio', price = 150}
+			{ name = 'radio', price = 150},
+			{ name = 'customizableplate', price = 1500}
 		}, locations = {
 			vec3(2748.0, 3473.0, 55.67),
 			vec3(342.99, -1298.26, 32.51)
