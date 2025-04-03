@@ -43,6 +43,21 @@ return {
                 sprite = 72,
                 color = 3,
                 scale = 0.8,
+                label = 'Los Santos Customs -- PDM',
+            },
+            points = {
+                vec3(-26.22, -1096.44, 27.32),
+                vec3(-24.3, -1091.12, 27.32),
+                vec3(-20.88, -1092.39, 27.32),
+                vec3(-22.97, -1097.69, 27.33),
+            }
+        },
+        {
+            hideBlip = false,
+            blip = {
+                sprite = 72,
+                color = 3,
+                scale = 0.8,
                 label = 'Los Santos Customs - Airport',
             },
             points = {
