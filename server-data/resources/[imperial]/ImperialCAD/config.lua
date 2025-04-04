@@ -13,8 +13,7 @@ Config.isNat2K15 = false
 Config.resourceName = "framework"
 
 ----QBX Core Frame work, and its configuration - This is meant for base QBCore events, and functions.
-Config.isQBX = false -- NOT FINISHED
-Config.QBXRegCurrent = false -- NOT FINISHED
+Config.isQBX = true
 
 --This will mark them off duty once they leave the game. (Requires a verfified discord ID, and they must be active within your community on the CAD)
 Config.cadkickonleave = true
@@ -25,7 +24,7 @@ Config.requireVerify = false -- NOT FINISHED
 --Should these chat commands exist:
 Config.TsThroughChat = true
 Config.AttachThroughChat = true
-Config.Allow911Command = true -- This literally is for the /911 command, if you dont need it, disable it.
+Config.Allow911Command = true -- This will allow /a911 for Anonymous calls and /911 for normal calls that trys to send a caller based on active civ or username, if you dont need it, disable it.
 
 --Should a radius style blip appear on the map for new 911 calls? (This does require ImperialDuty)
 Config.callBlip = true

@@ -20,32 +20,85 @@ local function getVersionFromManifest()
     return 'unknown'
 end
 
-local currentVersion = getVersionFromManifest()
-local versionUrl = 'https://raw.githubusercontent.com/Zippy01/ImperialCAD/main/version.json'  
+local versionUrl = 'https://raw.githubusercontent.com/Zippy01/ImperialCAD/main/version.json'
+local latestVersion = "0.0.0.0"
 
-function checkForUpdates()
+local function checkForUpdates()
     local currentVersion = getVersionFromManifest()
+    local debugMode = Config.debug and "^2Enabled^7" or "^1Disabled^7"
+
+    local function checkConvarStatus(name)
+        local value = GetConvar(name, "")
+        if not value or value == "" then
+            return "^1Missing^7"
+        elseif #value < 15 then
+            return "^3Present (Possibly Invalid)^7"
+        else
+            return "^2Present (Appears Valid)^7"
+        end
+    end
+
+    local commIdStatus = checkConvarStatus("imperial_community_id")
+    local apiKeyStatus = checkConvarStatus("imperialAPI")
 
     PerformHttpRequest(versionUrl, function(err, responseText, headers)
-        if err == 200 then  
-            local data = json.decode(responseText)
-            if data and data.latestVersion and data.latestVersion ~= currentVersion then
-                print('[Current Version: ' .. currentVersion .. '] Update available! Please download the latest version: ' .. data.latestVersion)
+        local status = "Unknown"
+        local updateAvailable = false
+        local latest = "Unknown"
+
+        if err == 200 and responseText and responseText:match("{") then
+            local success, data = pcall(json.decode, responseText)
+            if success and data and data.latestVersion then
+                latestVersion = data.latestVersion
+                latest = latestVersion
+
+                if latestVersion ~= currentVersion then
+                    status = "^1Update Available^7"
+                    updateAvailable = true
+                else
+                    status = "^2Up to Date^7"
+                end
             else
-                print('ImperialCAD V'..currentVersion..' is up to date!')
+                status = "^3Version Check Failed^7"
             end
         else
-                print('Failed to check for updates.')
+            status = "^1Failed to Reach Update Server^7"
+        end
+
+        print("\n^4=======================[ ImperialCAD ]=======================^7")
+        print("  ^5Current Version:^7   " .. currentVersion)
+        print("  ^5Latest Version:^7    " .. latest)
+        print("  ^5Update Status:^7     " .. status)
+        print("  ^5Debug Mode:^7        " .. debugMode)
+        print("  ^5Community ID:^7      " .. commIdStatus)
+        print("  ^5API Key:^7           " .. apiKeyStatus)
+        print("^4============================================================\n^7")
+
+        if updateAvailable then
+            print("^3[ImperialCAD]^7 Visit ^4https://github.com/Zippy01/ImperialCAD^7 to download the latest version.")
         end
     end, 'GET', '')
 end
 
-CreateThread(function()
 
-    if Config.DisableVersionCheck then return end -- If config is set to disable
-    checkForUpdates()  -- Check for updates when the script starts
 
+AddEventHandler('onResourceStart', function(resourceName)
+    if resourceName ~= GetCurrentResourceName() then return end
+
+    if GetCurrentResourceName() ~= "ImperialCAD" then
+        print("[^1ImperialCAD^7] Invalid script name. This script MUST be named ^3'ImperialCAD'^7 to work properly!")
+        return
+    end
+
+    print('[ImperialCAD] Hello World!')
+
+    if Config.DisableVersionCheck then return end
+
+    Wait(5000)
+    checkForUpdates()
 end)
+
+  
 
 --trys to find the discord ID
 local function getDiscordId(src)
@@ -96,6 +149,8 @@ AddEventHandler('ImperialCAD:New911', function(callData)
         print("[Imperial911] Missing required call data to create a new 911 call, Will not create.")
         return  
     end
+    local player = source
+    local coords = callData.coords
 
     exports["ImperialCAD"]:Create911Call({
         name = callData.name,
@@ -106,10 +161,29 @@ AddEventHandler('ImperialCAD:New911', function(callData)
         city = callData.city,
         county = callData.county
     }, function(success, resultData)
-        if success then 
+        if success then
+            local apires = json.decode(resultData)
+            if not apires or not apires.response or not apires.response.callId then
+                print("^1[API_ERROR]^7 Invalid response or call ID not found")
+                return false
+            end
+
+            local callNum = apires.response.callnum
             print("[Imperial911] 911 Call was successfully created")
+             
+            TriggerEvent('Imperial:911ChatMessage', callData.name, callData.street, callData.info, callData.crossStreet, callData.postal, callNum)
+        
+            if Config.callBlip then
+            TriggerEvent("ImperialCAD:911Blip", coords)
+            end
+
+            TriggerClientEvent('ImperialCAD:Client:Notify', player, "Your call was successfully sent to emergency services.")
+
             else 
-                print("[Imperial911] 911 Call tried but failed")
+
+                TriggerClientEvent('ImperialCAD:Client:Notify', player, "Your call couldnt be created, but we let on duty units know!")
+                TriggerEvent('Imperial:911ChatMessage', callData.name, callData.street, callData.info, callData.crossStreet, callData.postal)
+
             end
     end)
 end)
@@ -214,7 +288,7 @@ AddEventHandler('ImperialCAD:TrafficStop', function(callData)
                 return
             end
             local callnum = apires.response.callnum
-            print("911 Call created successfully: Call ID -", callnum)
+            print("Traffic Stop created successfully: Call ID -", callnum)
         else
             print(resultData)
         end
@@ -223,19 +297,30 @@ end)
 
 RegisterNetEvent('ImperialCAD:AttachCall')
 AddEventHandler('ImperialCAD:AttachCall', function(callData)
-
+local player = source
     exports["ImperialCAD"]:AttachCall({
         users_discordID = getDiscordId(source),
         callnum = callData.callnum
     }, function(success, resultData)
-        if Config.debug then
-        if success then
-               print("User was attached to the call?")
-                return
-            end
-               print("^1[ERROR]^7 Unable to attach user to call")
-        else
-            print(resultData)
+        local result = json.decode(resultData)
+        local status = result.status
+        local message = result.message
+        local response = result.response
+
+        if success and status ~= "success" then success = false end
+
+        if status == "NOT_RUN" then
+            status = "Invalid call or not verfified"
+        elseif status == "BUSY" then
+            status = "You must be on duty and available to accept new calls"
+        end
+        
+        if not success then
+            Notify(string.format("[ImperialCAD] Unable to attach you, reason: %s", status), player)
+        elseif success then
+            Notify("[ImperialCAD] Attached to call number "..response.callnum, player)
+        elseif not success and Config.debug then
+            Notify(string.format("[ImperialCAD - Debug] Unable to attach you, Status: %s | Reason: %", status, message), player)
         end
     end)
 end)
@@ -279,11 +364,20 @@ AddEventHandler('ImperialCAD:ClearPanic', function()
 end)
 
 function Notify(message, playerId)
-    TriggerClientEvent('chat:addMessage', playerId, {
-        color = {255, 0, 0},
-        multiline = true,
-        args = {"ImperialCAD", message}
-    })
+    if playerId and message then
+        if Config.debug then print("[ImperialCAD] Trying to notify player: "..playerId) end
+        TriggerClientEvent('chat:addMessage', playerId, {
+         color = {255, 0, 0},
+         multiline = true,
+         args = {"ImperialCAD", message}
+        })
+    elseif not message then
+        print("[IMPERIAL_SV_NOTIFY] No message provided")
+    elseif not playerId then
+        print("[IMPERIAL_SV_NOTIFY] No playerId provided")
+    else
+        print("[IMPERIAL_SV_NOTIFY] Couldnt send message")
+    end
 end
 
 RegisterNetEvent("ImperialCAD:Server:NewNotify")
@@ -372,13 +466,13 @@ end)
 
 
 RegisterNetEvent("Imperial:911ChatMessage")
-AddEventHandler("Imperial:911ChatMessage", function(name, street, message, crossStreet, postal)
-
+AddEventHandler("Imperial:911ChatMessage", function(name, street, message, crossStreet, postal, callNum)
+    if not callNum then callNum = "ERROR" end
     local chatMessage = {
         multiline = true,
         args = {"^8(ImperialCAD - New Call For Service)",
             "\nName: ^3" .. name .. "^7\nPostal: ^3" .. postal .. "^7\nStreet: ^3" .. street .. 
-            "^7\nCross Street: ^3" .. crossStreet .. "^7\nInformation: ^3" .. message
+            "^7\nCross Street: ^3" .. crossStreet .. "^7\nInformation: ^3" .. message .. "^7\nCall Number: ^3" .. callNum
         }
     }
 

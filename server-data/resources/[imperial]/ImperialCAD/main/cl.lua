@@ -41,9 +41,6 @@ RegisterCommand('911', function(source, args)
     if callTimer > 0 then
         Notify("You must wait ~o~" .. callTimer .. " seconds ~w~before calling ~r~emergency services ~w~again.")
         return
-    else
-        callTimer = 15
-        Notify("Your call was successfully sent to emergency services.")
     end
 
     local callData = {
@@ -53,30 +50,49 @@ RegisterCommand('911', function(source, args)
         postal = exports["ImperialLocation"]:getPostal(),
         city = exports["ImperialLocation"]:getCity(),
         county = exports["ImperialLocation"]:getCounty(),
-        info = message
+        info = message,
+        coords = coords
     }
 
-    if Config.debug then
-        print("[Imperial911] Is creating a new 911 Chat Message")
-    end
-     
-    TriggerServerEvent('Imperial:911ChatMessage', callData.name, callData.street, message, callData.crossStreet, callData.postal)
-
-    if Config.debug then
-        print('[Imperial911] Is creating a new 911 in CAD')
-    end
-
     TriggerServerEvent('ImperialCAD:New911', callData)
-
-    if Config.debug and Config.callBlip then
-        print('[Imperial911] Is creating a new 911 blip')    
-    end
-
-    if Config.callBlip then
-    TriggerServerEvent("ImperialCAD:911Blip", coords)
-    end
     
 end, false)
+
+TriggerEvent('chat:addSuggestion', '/A911', 'Call Emergency Services but Anonymously', {
+    { name = "Information", help = "Description of your call." }
+})
+
+RegisterCommand('A911', function(source, args)
+    local message = table.concat(args, " ")
+    local playerPed = PlayerPedId()
+    local coords = GetEntityCoords(playerPed)
+    local streetHash, crossStreetHash = GetStreetNameAtCoord(coords.x, coords.y, coords.z)
+
+    if message == nil or message == "" then
+        Notify("You need to include the ~o~call information ~w~first before calling ~r~Emergency Services.")
+        return
+    end
+
+    if callTimer > 0 then
+        Notify("You must wait ~o~" .. callTimer .. " seconds ~w~before calling ~r~emergency services ~w~again.")
+        return
+    end
+
+    local callData = {
+        name = "Anonymous Caller",
+        street = GetStreetNameFromHashKey(streetHash),
+        crossStreet = GetStreetNameFromHashKey(crossStreetHash) or "N/A",
+        postal = exports["ImperialLocation"]:getPostal(),
+        city = exports["ImperialLocation"]:getCity(),
+        county = exports["ImperialLocation"]:getCounty(),
+        info = message,
+        coords = coords
+    }
+
+    TriggerServerEvent('ImperialCAD:New911', callData)
+    
+end, false)
+
 end
 
 if Config.PlateThroughChat then
