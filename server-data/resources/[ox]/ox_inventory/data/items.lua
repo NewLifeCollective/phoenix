@@ -226,13 +226,6 @@ return {
         stack = false,
         allowArmed = true
     },
-    ["customizableplate"] = {
-        label = "customizableplate",
-        weight = 200,
-        stack = false,
-        close = true,
-        image = 'customizableplate.png',
-    },
     ['advancedlockpick'] = {
         label = 'Advanced Lockpick',
         weight = 500,
