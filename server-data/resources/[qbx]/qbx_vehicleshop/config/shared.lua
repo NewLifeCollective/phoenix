@@ -3,7 +3,7 @@ return {
         minimumDown = 10, -- minimum percentage allowed down
         maximumPayments = 90, -- maximum payments allowed
         enable = true, -- Enables the financing system. Turning this off does not affect already financed vehicles
-        zone = vec3(-29.53, -1103.67, 26.42), -- Where the finance menu is located
+        zone = vec3(-26.38, -1101.63, 27.27), -- Where the finance menu is located
     },
 
     enableFreeUseBuy = true, -- Allows players to buy from NPC shops
@@ -225,7 +225,7 @@ return {
     ---@type table<string, Dealership>
     shops = {
         pdm = {
-            type = 'free-use',
+            type = 'managed',
             zone = {
                 shape = {
                     vec3(-56.727394104004, -1086.2325439453, 26.0),
@@ -282,7 +282,7 @@ return {
         },
 
         luxury = {
-            type = 'managed',
+            type = 'free-use',
             job = 'cardealer',
             zone = {
                 shape = {

@@ -24,6 +24,12 @@ return {
             size = vec3(1.5, 1.5, 1.5),
             rotation = 39.69,
             type = 'job'
+        },
+        cardealer = {
+            coords = vec3(-27.35, -1107.27, 27.27),
+            sieze = vec3(1.5, 1.5, 1.5),
+            rotation = 39.69,
+            type = 'job'
         }
     },
 }
