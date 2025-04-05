@@ -6,11 +6,11 @@ Config = {
 	},
 	Bot_Token = GetConvar('perms_discord_token', ''),
 	RoleList = {
-		['LEAD'] = 1344861968032465029,
-		['Staff'] = 1347205327778746368,
-		['LEO'] = 1344861967982268551,
-		['FireEms'] = 1348179588802543659,
-		['Civilian'] = 1344861967982268550, -- Verified/Civilian/Tow
+		['lead'] = 1344861968032465029,
+		['staff'] = 1347205327778746368,
+		['leo'] = 1344861967982268551,
+		['fireems'] = 1348179588802543659,
+		['civilian'] = 1344861967982268550, -- Verified/Civilian/Tow
 	},
 	DebugScript = false,
 	CacheDiscordRoles = true, -- true to cache player roles, false to make a new Discord Request every time
