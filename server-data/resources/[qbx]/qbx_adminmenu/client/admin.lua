@@ -313,6 +313,7 @@ end)
 
 RegisterNetEvent('qbx_admin:client:Show', function()
     local players = lib.callback.await('qbx_admin:server:getPlayers', false)
+    if players == nil then return end
     for _, player in pairs(players) do
         local playerId = GetPlayerFromServerId(player.id)
         local ped = GetPlayerPed(playerId)
