@@ -6,7 +6,7 @@ return {
         { model = 'taxi', label = locale('info.taxi_label_1') }
     },
     meter = {
-        defaultPrice = 125.0, -- price per mile
+        defaultPrice = 25.0, -- price per mile
         startingPrice = 25     -- static starting price
     },
     locations = {

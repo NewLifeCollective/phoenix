@@ -2,13 +2,13 @@
 
 	Wraith ARS 2X
 	Created by WolfKnight
-
+	
 	For discussions, information on future updates, and more, join
 	my Discord: https://discord.gg/fD4e6WD
-
+	
 	MIT License
 
-	Copyright (c) 2020-2021 WolfKnight
+	Copyright (c) 2020 WolfKnight
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
@@ -30,52 +30,21 @@
 
 ---------------------------------------------------------------------------------------]] --
 
--- Define the FX Server version and game type
-fx_version "cerulean"
-game "gta5"
+-- Although there is only one export at the moment, more may be added down the line.
 
--- Define the resource metadata
-name "Wraith ARS 2X"
-description "Police radar and plate reader system for FiveM"
-use_experimental_fxv2_oal 'yes'
-nui_callback_strict_mode 'true'
-lua54 'yes'
+--[[---------------------------------------------------------------------------------------
+	Locks the designated plate reader camera for the given client.
 
-author "WolfKnight, modified to work with Imperial CAD."
-version "1.3.1"
-
-ui_page "nui/radar.html"
-
-shared_script { "@ox_lib/init.lua" }
-
-client_scripts {
-	"client/radar.lua",
-	"client/plate_reader.lua",
-	"client/sync.lua"
-}
-
-server_scripts {
-	"server/exports.lua",
-	"server/plate_reader.lua",
-	"server/sync.lua"
-}
-
-server_export "TogglePlateLock"
-
-files {
-	"config.lua",
-	"modules/*.lua",
-
-	"nui/radar.html",
-	"nui/radar.css",
-	"nui/radar.js",
-	"nui/images/*.png",
-	"nui/images/plates/*.png",
-	"nui/fonts/*.ttf",
-	"nui/fonts/Segment7Standard.otf",
-	"nui/sounds/*.ogg"
-}
-
-dependency {
-	'ox_lib'
-}
+	Parameters:
+		clientId:
+			The id of the client
+		cam:
+			The camera to lock, either "front" or "rear"
+		beepAudio:
+			Play an audible beep, either true or false
+		boloAudio:
+			Play the bolo lock sound, either true or false
+---------------------------------------------------------------------------------------]] --
+function TogglePlateLock(clientId, cam, beepAudio, boloAudio)
+	TriggerClientEvent("wk:togglePlateLock", clientId, cam, beepAudio, boloAudio)
+end
