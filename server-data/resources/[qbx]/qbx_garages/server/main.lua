@@ -128,12 +128,24 @@ local function getCanAccessGarage(player, garage)
     return true
 end
 
----@param playerVehicle PlayerVehicle
----@return VehicleType
 local function getVehicleType(playerVehicle)
-    if VEHICLES[playerVehicle.modelName].category == 'helicopters' or VEHICLES[playerVehicle.modelName].category == 'planes' then
+    -- Check if the car and its name are there
+    if not playerVehicle or not playerVehicle.modelName then
+        print("Oops! No car or no name: " .. json.encode(playerVehicle))
+        return VehicleType.CAR -- Say it’s a car anyway
+    end
+
+    -- Look up the car in the catalog
+    local vehicleData = VEHICLES[playerVehicle.modelName]
+    if not vehicleData then
+        print("Can’t find " .. playerVehicle.modelName .. " in the catalog!")
+        return VehicleType.CAR -- Say it’s a car if missing
+    end
+
+    -- Now check the type
+    if vehicleData.category == 'helicopters' or vehicleData.category == 'planes' then
         return VehicleType.AIR
-    elseif VEHICLES[playerVehicle.modelName].category == 'boats' then
+    elseif vehicleData.category == 'boats' then
         return VehicleType.SEA
     else
         return VehicleType.CAR

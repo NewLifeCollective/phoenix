@@ -21,7 +21,7 @@ return {
     ---@return boolean
     addSocietyFunds = function(society, amount) -- function to add funds to society
         if GetResourceState('nfs-billing'):find('started') then
-            return exports['nfs-billing']:depositSociety(('society_%s'):format(accountName), amount)
+            return exports['nfs-billing']:depositSociety(('society_%s'):format(society), amount)
         else
             lib.print.error(('NFS-Billing is needed for Society Funds and it\'s currently %s'):format(GetResourceState('NFS-Billing')))
             return false
