@@ -2,9 +2,9 @@ return {
     useTarget = false,
     zones = {
         sandyOccasions = {
-            businessName = "Vehicle Sales Contract - Larry's Vehicle Sales",
-            sellVehicle = vec4(1235.61, 2733.44, 37.4, 0.42),
-            buyVehicle = vec4(1213.31, 2735.4, 38.27, 182.5),
+            businessName = "Vehicle Sales Contract - Larry's Used Autos",
+            sellVehicle = vec4(1230.83, 2724.83, 37.44, 95.05),
+            buyVehicle = vec4(1224.3, 2723.79, 37.44, 177.8),
             polyzone = { -- The points that form the polyzone.
                 vec3(1338.3748779297, 2645.0153808594, 36.0),
                 vec3(1098.9381103516, 2621.7487792969, 36.0),
