@@ -3,6 +3,7 @@ server/*
 server-data/cache/
 server-data/db/
 server-data/resources/\[assets]/*
+server-data/resources/\[sonoran]/*
 !server-data/resources/\[assets]/.gitkeep
 server-data/env.cfg
 server-data/.replxx_history
