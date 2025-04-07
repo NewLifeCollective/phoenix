@@ -410,13 +410,13 @@ end)
 --     ClearPedTasks(cache.ped)
 -- end)
 -- 
--- RegisterNetEvent('police:client:CheckStatus', function()
---     if QBX.PlayerData.job.type ~= 'leo' then return end
--- 
---     local playerId = lib.getClosestPlayer(GetEntityCoords(cache.ped), 5.0, false)
---     if not playerId then
---         return exports.qbx_core:Notify(locale('error.none_nearby'), 'error')
---     end
+RegisterNetEvent('police:client:CheckStatus', function()
+    if QBX.PlayerData.job.type ~= 'leo' then return end
+
+    local playerId = lib.getClosestPlayer(GetEntityCoords(cache.ped), 5.0, false)
+    if not playerId then
+        return exports.qbx_core:Notify(locale('error.none_nearby'), 'error')
+    end
     local result = lib.callback.await('police:GetPlayerStatus', false, playerId)
     if not result then return end
     for _, v in pairs(result) do
