@@ -16,10 +16,10 @@ function Framework.Server.IsAdmin(src)
 end
 
 function Framework.Server.PayIntoSocietyFund(jobName, money)
-  local usingNewQBBanking = GetResourceState("nfs-billing") == "started" and tonumber(string.sub(GetResourceMetadata("nfs-billing", "version", 0), 1, 3)) >= 2
-
+  print("PayIntoSocietyFund called with jobName:", jobName, "money:", money)
   if (Config.Banking == "auto" and GetResourceState("nfs-billing") == "started") or Config.Banking == "nfs-billing" then
-    exports['nfs-billing']:depositSociety(society, amount)
+    local society = (jobName == "police") and "society_police" or jobName -- Convert "police" to "society_police"
+    exports['nfs-billing']:depositSociety(society, money)
   elseif (Config.Banking == "auto" and GetResourceState("okokBanking") == "started") or Config.Banking == "okokBanking" then
     exports['okokBanking']:AddMoney(jobName, money)
   elseif (Config.Banking == "auto" and GetResourceState("fd_banking") == "started") or Config.banking == "fd_banking" then
