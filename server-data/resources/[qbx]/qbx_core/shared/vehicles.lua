@@ -8013,7 +8013,7 @@ return {
     ['2vd_hr680'] = {
         name = 'Pursuit Special',
         brand = 'Lambo',
-        model = '2vd_hr680,
+        model = '2vd_hr680',
         price = 500000,
         category = 'emergency',
         type = 'automobile',
