@@ -386,18 +386,18 @@ RegisterNetEvent('police:server:RobPlayer', function(targetSrc)
     exports.qbx_core:Notify(player.PlayerData.source, locale('info.stolen_money', money), 'inform')
 end)
 
-RegisterNetEvent('police:server:Impound', function(plate, fullImpound, price, body, engine, fuel)
-    local src = source
-    price = price or 0
-    if not IsVehicleOwned(plate) then return end
-    if not fullImpound then
-        ImpoundWithPrice(price, body, engine, fuel, plate)
-        exports.qbx_core:Notify(src, locale('info.vehicle_taken_depot', price), 'inform')
-    else
-        ImpoundForever(body, engine, fuel, plate)
-        exports.qbx_core:Notify(src, locale('info.vehicle_seized'), 'inform')
-    end
-end)
+-- RegisterNetEvent('police:server:Impound', function(plate, fullImpound, price, body, engine, fuel)
+--     local src = source
+--     price = price or 0
+--     if not IsVehicleOwned(plate) then return end
+--     if not fullImpound then
+--         ImpoundWithPrice(price, body, engine, fuel, plate)
+--         exports.qbx_core:Notify(src, locale('info.vehicle_taken_depot', price), 'inform')
+--     else
+--         ImpoundForever(body, engine, fuel, plate)
+--         exports.qbx_core:Notify(src, locale('info.vehicle_seized'), 'inform')
+--     end
+-- end)
 
 RegisterNetEvent('evidence:server:UpdateStatus', function(data)
     playerStatus[source] = data

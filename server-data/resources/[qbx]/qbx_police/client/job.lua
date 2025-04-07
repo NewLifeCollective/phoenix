@@ -266,17 +266,17 @@ local function uiPrompt(promptType, id)
                     openEvidenceMenu()
                     lib.hideTextUI()
                     break
-                elseif promptType == 'impound' then
-                    if not inImpound then return end
-                    if cache.vehicle then
-                        DeleteVehicle(cache.vehicle)
-                        lib.hideTextUI()
-                        break
-                    else
-                        openImpoundMenu()
-                        lib.hideTextUI()
-                        break
-                    end
+                -- elseif promptType == 'impound' then
+                --     if not inImpound then return end
+                --     if cache.vehicle then
+                --         DeleteVehicle(cache.vehicle)
+                --         lib.hideTextUI()
+                --         break
+                --     else
+                --         openImpoundMenu()
+                --         lib.hideTextUI()
+                --         break
+                --     end
                 elseif promptType == 'heli' then
                     if not inHelicopter then return end
                     if cache.vehicle then
@@ -355,68 +355,68 @@ RegisterNetEvent('police:client:CallAnim', function()
     end)
 end)
 
-RegisterNetEvent('police:client:ImpoundVehicle', function(fullImpound, price)
-    local coords = GetEntityCoords(cache.ped)
-    local vehicle = lib.getClosestVehicle(coords)
-    if not vehicle or not DoesEntityExist(vehicle) then return end
-
-    local bodyDamage = math.ceil(GetVehicleBodyHealth(vehicle))
-    local engineDamage = math.ceil(GetVehicleEngineHealth(vehicle))
-    local totalFuel = GetVehicleFuelLevel(vehicle)
-
-    if cache.vehicle or #(GetEntityCoords(cache.ped) - GetEntityCoords(vehicle)) > 5.0 then return end
-
-    if lib.progressCircle({
-        duration = 5000,
-        position = 'bottom',
-        label = locale('progressbar.impound'),
-        useWhileDead = false,
-        canCancel = true,
-        disable = {
-            move = true,
-            car = true,
-            combat = true,
-            mouse = false
-        },
-        anim = {
-            dict = 'missheistdockssetup1clipboard@base',
-            clip = 'base',
-            flags = 1
-        },
-        prop = {
-            {
-                model = `prop_notepad_01`,
-                bone = 18905,
-                pos = vec3(0.1, 0.02, 0.05),
-                rot = vec3(10.0, 0.0, 0.0)
-            },
-            {
-                model = 'prop_pencil_01',
-                bone = 58866,
-                pos = vec3(0.11, -0.02, 0.001),
-                rot = vec3(-120.0, 0.0, 0.0)
-            }
-        },
-    })
-    then
-        local plate = qbx.getVehiclePlate(vehicle)
-        TriggerServerEvent('police:server:Impound', plate, fullImpound, price, bodyDamage, engineDamage, totalFuel)
-        DeleteVehicle(vehicle)
-        exports.qbx_core:Notify(locale('success.impounded'), 'success')
-    else
-        exports.qbx_core:Notify(locale('error.canceled'), 'error')
-    end
-
-    ClearPedTasks(cache.ped)
-end)
-
-RegisterNetEvent('police:client:CheckStatus', function()
-    if QBX.PlayerData.job.type ~= 'leo' then return end
-
-    local playerId = lib.getClosestPlayer(GetEntityCoords(cache.ped), 5.0, false)
-    if not playerId then
-        return exports.qbx_core:Notify(locale('error.none_nearby'), 'error')
-    end
+-- RegisterNetEvent('police:client:ImpoundVehicle', function(fullImpound, price)
+--     local coords = GetEntityCoords(cache.ped)
+--     local vehicle = lib.getClosestVehicle(coords)
+--     if not vehicle or not DoesEntityExist(vehicle) then return end
+-- 
+--     local bodyDamage = math.ceil(GetVehicleBodyHealth(vehicle))
+--     local engineDamage = math.ceil(GetVehicleEngineHealth(vehicle))
+--     local totalFuel = GetVehicleFuelLevel(vehicle)
+-- 
+--     if cache.vehicle or #(GetEntityCoords(cache.ped) - GetEntityCoords(vehicle)) > 5.0 then return end
+-- 
+--     if lib.progressCircle({
+--         duration = 5000,
+--         position = 'bottom',
+--         label = locale('progressbar.impound'),
+--         useWhileDead = false,
+--         canCancel = true,
+--         disable = {
+--             move = true,
+--             car = true,
+--             combat = true,
+--             mouse = false
+--         },
+--         anim = {
+--             dict = 'missheistdockssetup1clipboard@base',
+--             clip = 'base',
+--             flags = 1
+--         },
+--         prop = {
+--             {
+--                 model = `prop_notepad_01`,
+--                 bone = 18905,
+--                 pos = vec3(0.1, 0.02, 0.05),
+--                 rot = vec3(10.0, 0.0, 0.0)
+--             },
+--             {
+--                 model = 'prop_pencil_01',
+--                 bone = 58866,
+--                 pos = vec3(0.11, -0.02, 0.001),
+--                 rot = vec3(-120.0, 0.0, 0.0)
+--             }
+--         },
+--     })
+--     then
+--         local plate = qbx.getVehiclePlate(vehicle)
+--         TriggerServerEvent('police:server:Impound', plate, fullImpound, price, bodyDamage, engineDamage, totalFuel)
+--         DeleteVehicle(vehicle)
+--         exports.qbx_core:Notify(locale('success.impounded'), 'success')
+--     else
+--         exports.qbx_core:Notify(locale('error.canceled'), 'error')
+--     end
+-- 
+--     ClearPedTasks(cache.ped)
+-- end)
+-- 
+-- RegisterNetEvent('police:client:CheckStatus', function()
+--     if QBX.PlayerData.job.type ~= 'leo' then return end
+-- 
+--     local playerId = lib.getClosestPlayer(GetEntityCoords(cache.ped), 5.0, false)
+--     if not playerId then
+--         return exports.qbx_core:Notify(locale('error.none_nearby'), 'error')
+--     end
     local result = lib.callback.await('police:GetPlayerStatus', false, playerId)
     if not result then return end
     for _, v in pairs(result) do
@@ -534,29 +534,29 @@ CreateThread(function()
         })
     end
 
-    -- Police Impound
-    for i = 1, #sharedConfig.locations.impound do
-        lib.zones.box({
-            coords = sharedConfig.locations.impound[i],
-            size = vec3(2, 2, 2),
-            rotation = 0.0,
-            debug = config.polyDebug,
-            onEnter = function()
-                if QBX.PlayerData.job.type ~= 'leo' or not QBX.PlayerData.job.onduty then return end
-                inImpound = true
-                inPrompt = true
-                currentGarage = i
-                lib.showTextUI(locale(cache.vehicle and 'info.impound_veh' or 'menu.pol_impound'))
-                uiPrompt('impound')
-            end,
-            onExit = function()
-                inImpound = false
-                inPrompt = false
-                lib.hideTextUI()
-                currentGarage = 0
-            end
-        })
-    end
+--    -- Police Impound
+--    for i = 1, #sharedConfig.locations.impound do
+--        lib.zones.box({
+--            coords = sharedConfig.locations.impound[i],
+--            size = vec3(2, 2, 2),
+--            rotation = 0.0,
+--            debug = config.polyDebug,
+--            onEnter = function()
+--                if QBX.PlayerData.job.type ~= 'leo' or not QBX.PlayerData.job.onduty then return end
+--                inImpound = true
+--                inPrompt = true
+--                currentGarage = i
+--                lib.showTextUI(locale(cache.vehicle and 'info.impound_veh' or 'menu.pol_impound'))
+--                uiPrompt('impound')
+--            end,
+--            onExit = function()
+--                inImpound = false
+--                inPrompt = false
+--                lib.hideTextUI()
+--                currentGarage = 0
+--            end
+--        })
+--    end
 
     -- Police Garage
     for i = 1, #sharedConfig.locations.vehicle do
