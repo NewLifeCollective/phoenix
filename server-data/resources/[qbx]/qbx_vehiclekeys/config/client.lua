@@ -69,7 +69,7 @@ return {
         police = { -- Job name
             enableAutolock = true,
             requireOnduty = true,
-            classes = {},
+            classes = {'emergency' , 'automobile'},
             vehicles = {
                 [`police`] = true,  -- Vehicle model
                 [`police2`] = true, -- Vehicle model
@@ -102,6 +102,7 @@ return {
             requireOnduty = false,
             vehicles = {
                 [`towtruck`] = true,
+                ['flatbed'] = true
             }
         }
     },

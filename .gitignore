@@ -6,6 +6,7 @@ server-data/resources/\[assets]/*
 server-data/resources/\[sonoran]/*
 server-data/resources/\[phone]/*
 !server-data/resources/\[assets]/.gitkeep
+server-data/resources/\[imperial]/ImperialRadioFivem
 server-data/env.cfg
 server-data/.replxx_history
 server-data/server.cfg.bkp
