@@ -174,7 +174,6 @@ return {
 		}, locations = {
 			vec3(309.09, -913.75, 56.46)
 		}, targets = {
-
 		}
 	},
 
@@ -187,5 +186,20 @@ return {
 		model = {
 			`prop_vend_soda_02`, `prop_vend_fridge01`, `prop_vend_water_01`, `prop_vend_soda_01`
 		}
-	}
+	},
+
+	Vendor = {
+		name = 'Food Vendor',
+		inventory = {
+			{ name = 'potato', price = 5 },
+			{ name = 'lettuce', price = 5 },
+			{ name = 'rawmeat', price = 7 },
+			{ name = 'bun', price = 4 },
+			{ name = 'tomato', price = 8 },
+			{ name = 'mshakeformula', price = 6 }
+		}, locations = {
+			vec3(-1192.83, -898.43, 13.8)
+		}, targets = {
+		}
+	},
 }
