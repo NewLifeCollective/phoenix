@@ -37,4 +37,13 @@ return {
         presetGrade = 3,
         vat = 8
     },
+    {
+        accountName = 'society_burgershot',
+        label = 'Burgershot',
+        job = 'burgershot',
+        grade = 3,
+        withdrawGrade = 3,
+        presetGrade = 3,
+        vat = 8
+    },
 }

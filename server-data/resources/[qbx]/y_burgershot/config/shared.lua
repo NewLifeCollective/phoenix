@@ -73,6 +73,10 @@ return {
             milkshake = {
                 min = 40,
                 max = 75,
+                label = 'Milkshake',
+                ingredients = {
+                    { name = 'mshakeformula' , amount = 1 },
+                },
                 prop = {
                     model = `prop_cs_bs_cup`,
                     bone = 28422,
@@ -120,6 +124,7 @@ return {
                     clip = 'idle_c'
                 }
             },
+
         },
     }
 }
