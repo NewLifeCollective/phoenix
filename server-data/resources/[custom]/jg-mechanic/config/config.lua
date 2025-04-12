@@ -179,7 +179,7 @@ Config.MechanicLocations = {
       gearboxes        = { enabled = true, requiresItem = true },
     },
     carLifts = { -- only usable by employees
-      vector4(-357.45, -114.17, 38.7, 339.89)
+    vec4(-325.59, -139.46, 39.13, 250)
     },
     shops = {
       {
