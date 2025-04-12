@@ -19,4 +19,31 @@ return {
         vat = 5
 
     },
+    {
+        accountName = 'society_realestate',
+        label = 'Real Estate',
+        job = 'realestate',
+        grade = 4,
+        withdrawGrade = 3,
+        presetGrade = 5,
+        vat = 2
+    },
+    {
+        accountName = 'society_cardealer',
+        label = 'Car Dealer',
+        job = 'cardealer',
+        grade = 3,
+        withdrawGrade = 3,
+        presetGrade = 3,
+        vat = 8
+    },
+    {
+        accountName = 'society_burgershot',
+        label = 'Burgershot',
+        job = 'burgershot',
+        grade = 3,
+        withdrawGrade = 3,
+        presetGrade = 3,
+        vat = 8
+    },
 }
