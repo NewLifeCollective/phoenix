@@ -25,11 +25,11 @@ return {
             rotation = 39.69,
             type = 'job'
         },
-        cardealer = {
-            coords = vec3(-27.35, -1107.27, 27.27),
-            sieze = vec3(1.5, 1.5, 1.5),
+        police = {
+            coords = vec3(460.8, -985.58, 30.73),
+            size = vec3(1.5, 1.5, 1.5),
             rotation = 39.69,
             type = 'job'
-        }
+        } 
     },
 }

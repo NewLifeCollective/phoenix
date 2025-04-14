@@ -217,6 +217,77 @@ Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
     hideMarkers = true,
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
   },
+  ["LS Tow Yard"] = {
+    coords = vec3(486.9, -1308.02, 28.85),
+    spawn = vec4(486.22, -1308.15, 28.85, 205.87),
+    distance = 10,
+    type = "car",
+    hideBlip = true,
+    blip = {
+      id = 357,
+      color = 0,
+      scale = 0.7
+    },
+    hideMarkers = false,
+    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  },
+  ["PDM Mechanic"] = {
+    coords = vec3(-355.37, -115.57, 38.29),
+    spawn = vec4(-358.02, -120.95, 38.28, 68.81),
+    distance = 10,
+    type = "car",
+    hideBlip = true,
+    blip = {
+      id = 357,
+      color = 0,
+      scale = 0.7
+    },
+    hideMarkers = false,
+    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  },
+  ["MRPD Personal"] = {
+    coords = vec3(462.14, -1019.13, 27.68),
+    spawn = vec4(454.51, -1020.77, 27.88, 94.07),
+    distance = 10,
+    type = "car",
+    hideBlip = true,
+    blip = {
+      id = 357,
+      color = 0,
+      scale = 0.7
+    },
+    hideMarkers = false,
+    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+    vehiclesType = "owned",
+  },
+  ["Garbage Yard"] = {
+    coords = vec3(-332.42, -1516.45, 27.08),
+    spawn = vec4(-331.75, -1521.69, 27.07, 270.13),
+    distance = 10,
+    type = "car",
+    hideBlip = true,
+    blip = {
+      id = 357,
+      color = 0,
+      scale = 0.7
+    },
+    hideMarkers = false,
+    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  },
+  ["The Port"] = {
+    coords = vec3(162.81, -3213.01, 5.47),
+    spawn = vec4(162.63, -3209.79, 5.48, 264.32),
+    distance = 10,
+    type = "car",
+    hideBlip = false,
+    blip = {
+      id = 357,
+      color = 0,
+      scale = 0.7
+    },
+    hideMarkers = false,
+    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+  },
   ["Paleto Bay"] = {
     coords = vec3(96.01, 6383.12, 31.23),
     spawn = vec4(97.99, 6375.91, 31.23, 13.06),
@@ -295,22 +366,6 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
     hideMarkers = true,
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
     vehiclesType = "owned", -- Use owned vehicles that can anyone in this society can access - more details: https://docs.jgscripts.com/advanced-garages/job-and-gang-garages
-  },
-  ["MRPD Personal"] = {
-    coords = vec3(462.14, -1019.13, 27.68),
-    spawn = vec4(454.51, -1020.77, 27.88, 94.07),
-    distance = 10,
-    job = { "police" },
-    type = "car",
-    hideBlip = true,
-    blip = {
-      id = 357,
-      color = 0,
-      scale = 0.7
-    },
-    hideMarkers = true,
-    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
-    vehiclesType = "owned",
   },
   ["Mission Row PD"] = {
     coords = vec3(442.11, -992.65, 25.7),

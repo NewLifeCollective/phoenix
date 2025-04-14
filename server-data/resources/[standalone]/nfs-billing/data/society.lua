@@ -46,4 +46,13 @@ return {
         presetGrade = 3,
         vat = 8
     },
+    {
+        accountName = 'society_mechanic',
+        label = 'Mechanic',
+        job = 'mechanic',
+        grade = 2,
+        withdrawGrade = 2,
+        presetGrade = 2,
+        vat = 2
+    }
 }

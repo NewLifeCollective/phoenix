@@ -1,4 +1,4 @@
 return {
-    bailPrice = 250,
+    bailPrice = 5,
     paymentTax = 15
 }

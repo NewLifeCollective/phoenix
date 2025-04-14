@@ -339,14 +339,18 @@ return {
             },
         },
     },
-    ['trucker'] = {
-        label = 'Trucker',
+    ['delivery'] = {
+        label = 'Delivery Driver',
         defaultDuty = true,
         offDutyPay = false,
         grades = {
             [0] = {
                 name = 'Driver',
                 payment = 50
+            },
+            [1] = {
+                name = 'Manager',
+                payment = 100
             },
         },
     },
