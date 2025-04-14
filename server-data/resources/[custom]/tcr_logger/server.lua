@@ -1,5 +1,10 @@
 local webhookUrl = 'https://discord.com/api/webhooks/1361220497437622422/9UsZ59OWA_cUBXtylNjIo1GqVDzBbYQUcgQA9lKhG3It_MnaSsjPfPbauD5bwzLuqEbJ'
 
+RegisterCommand('testbadger', function(source)
+    local nickname = exports.Badger_Discord_API:GetDiscordNickname(source) or 'Unknown'
+    print('Player: ' .. GetPlayerName(source) .. ', Discord Nickname: ' .. nickname)
+end, false)
+
 function SendToDiscord(message)
     local payload = {
         content = message,
@@ -8,22 +13,27 @@ function SendToDiscord(message)
     }
 
     PerformHttpRequest(webhookUrl, function(err, text, headers)
-    if err ~= 200 then
-        print('Error sending to Discord: ' .. err)
-    else print('Message sent to Discord: ' .. message)
+        if err == 200 or err == 204 then
+        --    print('Message sent to Discord: ' .. message)
+        else
+            print('Error sending to Discord: ' .. err .. ', Response: ' .. tostring(text))
         end
-    end, 'POST', json.encode(payload), { ['Content-Type'] = 'application/json'})
+    end, 'POST', json.encode(payload), { ['Content-Type'] = 'application/json' })
 end
 
 RegisterServerEvent('chatMessage')
 AddEventHandler('chatMessage', function(source, name, message)
-
     local playerName = GetPlayerName(source)
-    local discordID = exports.Badger_Discord_API:GetDiscordId(source)
-    local discordName = discordId and exports.Badger_Discord_API:GetDiscordNickname(discordId) or 'Unknown'
+    local discordName = 'Unknown'
+    if exports.Badger_Discord_API and exports.Badger_Discord_API.GetDiscordNickname then
+        local nickname = exports.Badger_Discord_API:GetDiscordNickname(source)
+        if nickname then
+            discordName = nickname
+        end
+    end
     
-    local formattedMessage = string.format('[%s] %s: %s', discordName, playerName, message)
+    local formattedMessage = string.format('[%s] **%s**: %s', discordName, playerName, message)
 
     SendToDiscord(formattedMessage)
-    print('Chat relayed to Discord: ' .. formattedMessage)
+    --print('Chat relayed to Discord: ' .. formattedMessage)
 end)
