@@ -1,11 +1,15 @@
 local webhookUrl = GetConvar('chat_log_webhook', '')
 
 RegisterCommand('testbadger', function(source)
-    local nickname = exports.Badger_Discord_API:GetDiscordNickname(source) or 'Unknown'
-    print('Player: ' .. GetPlayerName(source) .. ', Discord Nickname: ' .. nickname)
+    local discordId = GetDiscordFromIdentifiers(source)
+    print('Player: ' .. GetPlayerName(source) .. ', Discord ID: ' .. (discordId or 'Unknown'))
 end, false)
 
 function SendToDiscord(message)
+    if webhookUrl == "" then
+        print('Error: Invalid chat_log_webhook set in env.cfg')
+        return
+    end
     local payload = {
         content = message,
         username = 'Phoenix Chat',
@@ -13,27 +17,44 @@ function SendToDiscord(message)
     }
 
     PerformHttpRequest(webhookUrl, function(err, text, headers)
-        if err == 200 or err == 204 then
-        --    print('Message sent to Discord: ' .. message)
-        else
+        if err ~= 200 and err ~= 204 then
             print('Error sending to Discord: ' .. err .. ', Response: ' .. tostring(text))
         end
     end, 'POST', json.encode(payload), { ['Content-Type'] = 'application/json' })
 end
 
-RegisterServerEvent('chatMessage')
 AddEventHandler('chatMessage', function(source, name, message)
     local playerName = GetPlayerName(source)
-    local discordName = 'Unknown'
-    if exports.Badger_Discord_API and exports.Badger_Discord_API.GetDiscordNickname then
-        local nickname = exports.Badger_Discord_API:GetDiscordNickname(source)
-        if nickname then
-            discordName = nickname
+    local discordId = GetDiscordFromIdentifiers(source) or 'Unknown'
+
+    local formattedMessage = string.format('[%s] **%s**: %s', discordId, playerName, message)
+    SendToDiscord(formattedMessage)
+end)
+
+function GetDiscordFromIdentifiers(src)
+    for i = 0, GetNumPlayerIdentifiers(src) - 1 do
+        local identifier = GetPlayerIdentifier(src, i)
+        if string.find(identifier, "discord:") then
+            return string.sub(identifier, 9) 
         end
     end
-    
-    local formattedMessage = string.format('[%s] **%s**: %s', discordName, playerName, message)
+    return nil
+end
 
-    SendToDiscord(formattedMessage)
-    --print('Chat relayed to Discord: ' .. formattedMessage)
+AddEventHandler('playerConnecting', function(name, setKickReason, deferrals)
+    local src = source
+    local playerName = GetPlayerName(src)
+    local discordId = GetDiscordFromIdentifiers(src) or 'Unknown'
+
+    local joinMessage = string.format('[%s] **%s** has joined the server', discordId, playerName)
+    SendToDiscord(joinMessage)
+end)
+
+AddEventHandler('playerDropped', function(reason)
+    local src = source
+    local playerName = GetPlayerName(src)
+    local discordId = GetDiscordFromIdentifiers(src) or 'Unknown'
+
+    local leaveMessage = string.format('[%s] **%s** has left the server', discordId, playerName)
+    SendToDiscord(leaveMessage)
 end)
