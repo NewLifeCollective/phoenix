@@ -1,54 +1,38 @@
-local showBlips = false
-local playerBlips = {}
+local blipsEnabled = false
 
-RegisterCommand("toggleblips", function()
-    if Config.OnlyAllowStaff and not IsPlayerAceAllowed(PlayerId(), Config.Permission) then
-        print("You cannot use this.")
-        return
-    end
+RegisterCommand('toggleblips', function()
+    TriggerServerEvent('tcr_staff:checkPermission')
+end, false)
 
-    showBlips = not showBlips
-    if showBlips then
-        print("Staff blips: ON")
-        StartBlipLoop()
+RegisterNetEvent('tcr_staff:receivePermission')
+AddEventHandler('tcr_staff:receivePermission', function(hasPermission)
+    if hasPermission then
+        blipsEnabled = not blipsEnabled
+        if blipsEnabled then
+            createPlayerBlips()
+        else
+            removePlayerBlips()
+        end
     else
-        print("Staff blips: OFF")
-        ClearBlips()
+        print("You do not have permission to toggle player blips.")
     end
 end)
 
-function StartBlipLoop()
-    Citizen.CreateThread(function()
-        while showBlips do
-            Citizen.Wait(1000)
-            ClearBlips()
-
-            for _, id in ipairs(GetActivePlayers()) do
-                if id ~= PlayerId() then
-                    local ped = GetPlayerPed(id)
-                    if DoesEntityExist(ped) then
-                        local blip = AddBlipForEntity(ped)
-                        SetBlipSprite(blip, Config.BlipSprite)
-                        SetBlipScale(blip, Config.BlipScale)
-                        SetBlipColour(blip, Config.BlipColor)
-                        SetBlipCategory(blip, 7)
-
-                        BeginTextCommandSetBlipName("STRING")
-                        AddTextComponentString(GetPlayerName(id))
-                        EndTextCommandSetBlipName(blip)
-
-                        playerBlips[id] = blip
-                    end
-                end
-            end
-        end
-        ClearBlips()
-    end)
+function createPlayerBlips()
+    local players = GetActivePlayers()
+    for _, playerId in ipairs(players) do
+        local playerPed = GetPlayerPed(playerId)
+        local playerCoords = GetEntityCoords(playerPed)
+        local playerBlip = AddBlipForEntity(playerPed)
+        SetBlipSprite(playerBlip, 1)  -- Set blip icon (1 for a dot)
+        SetBlipColour(playerBlip, 3)  -- Set blip color (3 for green)
+        SetBlipScale(playerBlip, 0.7)  -- Set the size of the blip
+        SetBlipAsShortRange(playerBlip, true)  -- Only show blips near the player
+    end
 end
 
-function ClearBlips()
-    for _, blip in pairs(playerBlips) do
+function removePlayerBlips()
+    for _, blip in ipairs(GetActiveBlips()) do
         RemoveBlip(blip)
     end
-    playerBlips = {}
 end
