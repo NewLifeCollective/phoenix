@@ -500,7 +500,7 @@ function Framework.Server.PayIntoSocietyFund(societyName, societyType, amount)
   elseif Config.SocietyBanking == "Renewed-Banking" then
     exports["Renewed-Banking"]:addAccountMoney(societyName, amount)
   elseif Config.SocietyBanking == "nfs-billing" then
-    exports["nfs-billing"]:depositSociety(society, amount)
+    exports["nfs-billing"]:depositSociety(societyName, amount)
   elseif (Config.Framework == "QBCore" and Config.SocietyBanking == "auto") or Config.SocietyBanking == "qb-banking" or Config.SocietyBanking == "qb-management" then
     if Config.SocietyBanking == "qb-banking" or usingNewQBBanking then
       exports["qb-banking"]:AddMoney(societyName, amount)
@@ -535,7 +535,7 @@ function Framework.Server.RemoveFromSocietyFund(societyName, societyType, amount
   elseif Config.SocietyBanking == "Renewed-Banking" then
     exports["Renewed-Banking"]:removeAccountMoney(societyName, amount)
   elseif Config.SocietyBanking == "nfs-billing" then 
-    exports["nfs-billing"]:withdrawSociety(society, amount)
+    exports["nfs-billing"]:withdrawSociety(societyName, amount)
   elseif (Config.Framework == "QBCore" and Config.SocietyBanking == "auto") or Config.SocietyBanking == "qb-banking" or Config.SocietyBanking == "qb-management" then
     if Config.SocietyBanking == "qb-banking" or usingNewQBBanking then
       exports["qb-banking"]:RemoveMoney(societyName, amount)
