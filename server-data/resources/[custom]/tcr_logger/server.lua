@@ -58,3 +58,21 @@ AddEventHandler('playerDropped', function(reason)
     local leaveMessage = string.format('[%s] **%s** has left the server', discordId, playerName)
     SendToDiscord(leaveMessage)
 end)
+
+AddEventHandler('playerDied', function(killer, reason)
+    local source = source
+    local playerName = GetPLayerName(source)
+    local discordId = GetDiscordFromIdentifiers(source) or 'The Boogeyman'
+
+    local deathMessage
+    if killer and GetPlayerName(killer) then 
+        local killerName = GetPlayerName(killer)
+        local killerDiscordId = GetDiscordFromIdentifiers(killer) or 'A Ghost'
+        deathMessage = string.format('[%s] **%s** was killed by [%s] **%s** (Cause: %s)',
+            discordId, playername, killerDiscordId, killerName, reason or 'Unknown')
+    else
+        deathMessage = string.format('[%s] **%s** died (Cause: %s)',
+            discordId, playerName, reason or 'Uknown')
+    end
+    SendToDiscord(deathMessage)
+end)
