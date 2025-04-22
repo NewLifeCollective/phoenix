@@ -473,6 +473,15 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
         livery = 1,
         extras = {1, 2, 3, 4, 5, 6, 7, 8},
         maxMods = true
+      },
+      [11] = {
+        model = "2vd_gstsemxl1",
+        plate = "POLICE",
+        minJobGrade = 0,
+        nickname = 'Patrol SRT',
+        livery = 1,
+        extras = {1, 2, 3, 4, 5, 6, 7, 8},
+        maxMods = true
       }
     }
   }
