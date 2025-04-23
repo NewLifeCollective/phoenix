@@ -31,37 +31,50 @@ function SendToAdmin(playerName, discordId, ipAddress, fullName, phoneNumber, ba
    -- print('SendToAdmin parameters: playerName=' .. tostring(playerName) .. ', discordId=' .. tostring(discordId) .. ', ipAddress=' .. tostring(ipAddress))
     
 
-    local payload = {
-        username = 'Phoenix Logs',
-        avatar_url = 'https://media.discordapp.net/attachments/1347447044318695465/1347699231669878804/NLC_Logo_1.png?ex=67fd8db7&is=67fc3c37&hm=14bc3baf5ca48b1657eb45cd155f5f4cc8d3c8f7f7f22a7e2b3500f602002794&=&format=webp&quality=lossless&width=960&height=960',
-        embeds = {{
-            title = 'Character Selected',
-            color = 0x00FF00,
-            timestamp = os.date('!%Y-%m-%dT%H:%M:%SZ'),
-            fields = {
-                { name = 'Player Name', value = playerName or 'Unknown', inline = true },
-                { name = 'Discord ID', value = discordId or 'Unknown', inline = true },
-                { name = 'IP Address', value = ipAddress or 'Unknown', inline = true },
-               -- { name = 'Character Info:', value = charinfo, inline = true },
-                { name = 'Character Name:', value = fullName or 'Unknown', inline = true },
-                { name = 'Phone Number:', value = phoneNumber or 'Unknown', inline = false },
-                { name = 'Bank Balance:', value = bankBalance or 'Unknown', inline = false },
-                { name = 'Cash:', value = cash or 'Unknown', inline = false },
-                { name = 'Job Name:', value = jobName or 'Unknown', inline = false },
-                { name = 'Job Title:', value = jobTitle or 'Unknown', inline = true },
-                { name = 'Job Grade:', value = jobGrade or 'Unknown', inline = false },
-                { name = 'Citizen ID:', value = citizenId or 'Unknown', inline = false },
-                { name = 'Affiliated Gang:', value = gangName or 'None', inline = false },
-                { name = 'Gang Level:', value = gangGrade or 'Unknown', inline = false }
-            }
-        }}
-    }
+   local payload = {
+    username = 'Phoenix Logs',
+    avatar_url = 'https://media.discordapp.net/attachments/1347447044318695465/1347699231669878804/NLC_Logo_1.png?ex=67fd8db7&is=67fc3c37&hm=14bc3baf5ca48b1657eb45cd155f5f4cc8d3c8f7f7f22a7e2b3500f602002794&=&format=webp&quality=lossless&width=960&height=960',
+    embeds = {{
+        title = 'Character Spawned',
+        color = 0x00FF00,
+        timestamp = os.date('!%Y-%m-%dT%H:%M:%SZ'),
+        fields = {
+            { name = '**Player Info**', value = '', inline = false }, 
+            { name = 'Player Name', value = playerName or 'Unknown', inline = true },
+            { name = 'Discord ID', value = discordId or 'Unknown', inline = true },
+            { name = 'IP Address', value = ipAddress or 'Unknown', inline = true },
+            { name = '', value = '─────────────────────────────────────────────', inline = false },
+            
+            { name = '**Character Info**', value = '', inline = false }, 
+            { name = 'Character Name', value = fullName or 'Unknown', inline = true },
+            { name = 'Citizen ID', value = citizenId or 'Unknown', inline = true },
+            { name = 'Phone Number', value = phoneNumber or 'Unknown', inline = true },
+            { name = '', value = '─────────────────────────────────────────────', inline = false },
+            
+            { name = '**Financial Info**', value = '', inline = false }, 
+            { name = 'Bank Balance', value = bankBalance or 'Unknown', inline = true },
+            { name = 'Cash', value = cash or 'Unknown', inline = true },
+            { name = '', value = '─────────────────────────────────────────────', inline = false },
+            
+            { name = '**Job Info**', value = '', inline = false },
+            { name = 'Job Name', value = jobName or 'Unknown', inline = true },
+            { name = 'Job Title', value = jobTitle or 'Unknown', inline = true },
+            { name = 'Job Grade', value = jobGrade or 'Unknown', inline = true },
+            { name = '', value = '─────────────────────────────────────────────', inline = false },
+            
+            { name = '**Gang Info**', value = '', inline = false }, 
+            { name = 'Affiliated Gang', value = gangName or 'None', inline = true },
+            { name = 'Gang Level', value = gangGrade or 'Unknown', inline = true },
+            { name = '', value = '─────────────────────────────────────────────', inline = false }
+        }
+    }}
+}
    -- print('Sending to admin webhook: ' .. json.encode(payload))
     PerformHttpRequest(adminhookUrl, function(err, text, headers)
         if err ~= 200 and err ~= 204 then
             print('Error sending to admin log Discord: ' .. err .. ', Response: ' .. tostring(text))
         else
-           print('Admin webhook sent successfully')
+          -- print('Admin webhook sent successfully')
            
         end
     end, 'POST', json.encode(payload), { ['Content-Type'] = 'application/json' })
