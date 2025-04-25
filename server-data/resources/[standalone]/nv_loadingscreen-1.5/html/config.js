@@ -58,10 +58,10 @@ const desc = "Welcome, we hope you have a good time!"
 
 // Social media
 const discord = "https://discord.gg/NLCollective"  // If = "" then icon will not show up on screen
-const instagram = "https://www.instagram.com/newlife_collective/"	
-const youtube = "https://www.youtube.com/@NewLifeCollectiveOfficial" 	
+const instagram = "https://www.instagram.com/newlife_collective/"	// https://example.com
+const youtube = "https://www.youtube.com/@NewLifeCollectiveOfficial" 		// https://example.com
 const twitter = "" 		// https://example.com
-const tiktok = "https://www.tiktok.com/@newlife_collective"  		
+const tiktok = "https://www.tiktok.com/@newlife_collective"  		// https://example.com
 const facebook = ""		// https://example.com
 const twitch = "" 		// https://example.com
 const github = "" 		// https://example.com
