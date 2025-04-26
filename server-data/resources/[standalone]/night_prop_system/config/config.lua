@@ -23,17 +23,22 @@ Config = {
 
     PermissionRoles = {     -- Fill in: Discord API Role Names / ESX Jobs / Ace group names / QB Jobs and/or Groups
         -- Discord API Examples
-        "lead",
-        "staff",
-        "leo",
+        "Manager",
+        "Development_Team",
+        "Senior_Admin",
+        "Admin",
+        "Essex_Police_Force",
+        "British_Transport_Police",
+        "Ambulance_Service",
+        "Fire_Service",
         -- ESX or QB Job examples
         "police",
         "ambulance",
         "fire",
         -- Ace Permissions examples
-        "admin",
-        "lead",
-        "staff",
+        "Administrator",
+        "Supporter",
+        "Tester",
     },
 
         --====================== Commands, Hotkeys and buttons ======================--
@@ -53,9 +58,9 @@ Config = {
         },
     
         HotKeys = { -- MATCH THESE TO THE BUTTONS (https://docs.fivem.net/docs/game-references/controls/)
-            RoadNodeTool = "999",        -- https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/ (Set to 999 to disable)
-            PlaceObjectsTool = "999",    -- https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/ (Set to 999 to disable)
-            SpeedzoneTool = "999",       -- https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/ (Set to 999 to disable)
+            RoadNodeTool = "F5",        -- https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/ (Set to 999 to disable)
+            PlaceObjectsTool = "F6",    -- https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/ (Set to 999 to disable)
+            SpeedzoneTool = "F7",       -- https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/ (Set to 999 to disable)
     
             BrowseLeft = 307,           -- Arrow Right
             BrowseRight = 308,          -- Arrow Left
@@ -98,7 +103,7 @@ Config = {
         { Name = "Small Road Cone", Prop = "prop_roadcone02c"},
         { Name = "Large Road Cone", Prop = "prop_roadcone01a"},
         { Name = "Scene Light", Prop = "prop_worklight_04d"},
-        { Name = "Striped Barrier", Prop = "prop_barrier_work05"},
+        { Name = "Striped Barrier", Prop = "prop_mp_barrier_02b"},
         { Name = "Striped Large Cone", Prop = "prop_mp_cone_01"},
         { Name = "Striped Small Cone", Prop = "prop_mp_cone_02"},
         { Name = "No Stripe Small Cone", Prop = "prop_mp_cone_03"},
