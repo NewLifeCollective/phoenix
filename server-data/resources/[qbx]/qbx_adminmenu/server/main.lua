@@ -22,7 +22,7 @@ end
 --- @param message string - Message for the report
 function SendReport(source, message)
     local reportId = #REPORTS + 1
-    reportsCount += 1
+    reportsCount = reportsCount + 1
 
     REPORTS[reportId] = {
         id = reportsCount,
