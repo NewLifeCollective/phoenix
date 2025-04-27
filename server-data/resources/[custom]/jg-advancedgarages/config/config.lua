@@ -403,7 +403,7 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
         maxMods = true
       },
       [3] = {
-        model = "2vd_buffalo", -- spawn code for vehicle
+        model = "2vdbuffalo4", -- spawn code for vehicle
         plate = "POLICE", -- set as false for a random plate; do not use a plate already in use in the DB!
         minJobGrade = 0, -- only available to players with set minimum grade
         nickname = "Police Buffalo", -- Show a custom name instead of the vehicle's real name
@@ -582,7 +582,7 @@ Config.ReturnVehicleToGarage = "vreturn" -- admin only
 -- This is mainly designed for ESX - if you are using QB, do this in shared!
 Config.VehicleLabels = {
   ["spawnName"] = "Pretty Vehicle Label",
-  ["2vd_buffalo4"] = "Police Buffalo"
+  ["2vdbuffalo4"] = "Police Buffalo"
 }
 
 -- Block certain vehicles from being transferred to other players

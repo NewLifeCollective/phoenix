@@ -7938,14 +7938,14 @@ return {
         type = 'automobile',
         hash = `ztype`,
     },
-    ['2vd_buffalo4'] = {
-        name = '2vd_buffalo4',
+    ['2vdbuffalo4'] = {
+        name = '2vdbuffalo4',
         brand = 'Bravado',
-        model = '2vd_buffalo4',
+        model = '2vdbuffalo4',
         price = 500000,
         category = 'emergency',
         type = 'automobile',
-        hash = `2vd_buffalo4`,
+        hash = `2vdbuffalo4`,
     },
     ['2vd_acavalcade3'] = {
         name = 'Cavalcade Police',
