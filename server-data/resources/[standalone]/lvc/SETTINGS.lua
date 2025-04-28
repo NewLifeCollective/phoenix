@@ -4,7 +4,7 @@ community_id = 'newlifecollective'
 --		I recommend something short (4-6 characters) for example a community abbreviation. SPACES ARE NOT ALLOWED.
 
 ------------------MENU KEYBINDING------------------
-open_menu_key = ''
+open_menu_key = 'O'
 --	Sets default key for RegisterKeyMapping. Examples: 'l','F5', etc. DEFAULT: 'O', users may set one in their GTA V > Settings > Hotkeys > FiveM settings. 
 --		More info: https://cookbook.fivem.net/2020/01/06/using-the-new-console-key-bindings/
 --		List of Keys: https://pastebin.com/u9ewvWWZ
@@ -21,7 +21,7 @@ reminder_rate = 10
 --	How often, in luxart key presses, to remind you that your siren controller is locked.
 
 -----------------HUD FUNCTIONALITY-----------------
-hud_first_default = false
+hud_first_default = true
 --	First state of HUD, otherwise it uses the players KVP setting (previous state). 
 
 ---------------MAIN SIREN SETTINGS-----------------
