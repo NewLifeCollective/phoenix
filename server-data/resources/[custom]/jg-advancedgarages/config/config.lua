@@ -407,8 +407,8 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
         plate = "POLICE", -- set as false for a random plate; do not use a plate already in use in the DB!
         minJobGrade = 0, -- only available to players with set minimum grade
         nickname = "Police Buffalo", -- Show a custom name instead of the vehicle's real name
-        livery = 0, 1, 2, 3, 
-        extras = {1, 2, 3, 4, 5, 6, 7, 8},
+        livery = 1,
+        extras = { 1, 3, 4, 5, 6, 7, 8},
         maxMods = true
       },
       [4] = {

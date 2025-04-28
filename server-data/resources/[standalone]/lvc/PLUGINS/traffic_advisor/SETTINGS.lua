@@ -10,8 +10,8 @@ TA_ASSIGNMENTS = {
   ['DEFAULT'] = { },
   ['2vdbuffalo4'] = { 
     lightbar = -1,
-	right = { on = { add = 1, remove = { 2, 10 }, repair = true }, off = { add = {}, remove = 1 } },
-	left = { on = { add = { 2, 10 }, remove = 1, repair = true }, off = { add = {}, remove = 2  } },
+	right = { on = { add = 1, remove = { 2, 10 }, repair = false }, off = { add = {}, remove = 1 } },
+	left = { on = { add = { 2, 10 }, remove = 1, repair = false  }, off = { add = {}, remove = 2  } },
   },
 
 }
