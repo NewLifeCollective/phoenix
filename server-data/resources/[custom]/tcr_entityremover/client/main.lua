@@ -38,21 +38,15 @@ end
 -- Add client-side chat suggestion
 AddEventHandler('onClientResourceStart', function(resourceName)
     if resourceName == GetCurrentResourceName() then
-        TriggerEvent('chat:addSuggestion', {
-            name = '/dgun',
-            help = 'Enable/Disable delete gun'
-        })
-        print("[DEBUG] Client-side chat suggestion added for /dgun")
+        TriggerEvent('chat:addSuggestion', '/dgun', 'Enable/Disable delete gun')
+--        print("[DEBUG] Client-side chat suggestion added for /dgun")
     end
 end)
 
 -- Manual suggestion trigger
 RegisterNetEvent('tcr_entityremover:addChatSuggestion', function()
-    TriggerEvent('chat:addSuggestion', {
-        name = '/dgun',
-        help = 'Enable/Disable delete gun'
-    })
-    print("[DEBUG] Manual chat suggestion triggered for /dgun")
+    TriggerEvent('chat:addSuggestion', '/dgun', 'Enable/Disable delete gun')
+   -- print("[DEBUG] Manual chat suggestion triggered for /dgun")
 end)
 
 -- Toggle delete gun
@@ -112,9 +106,10 @@ Citizen.CreateThread(function()
                 )
                 
                 print(string.format("[DEBUG] Raycast: StartPos=%s, EndPos=%s, Hit=%s, Entity=%s, IsVehicle=%s, EndCoords=%s, EntityType=%s, EntityModel=%s", 
-                    tostring(startPos), tostring(endPos), tostring(hit), tostring(entityHit), 
-                    tostring(IsEntityAVehicle(entityHit)), tostring(endCoords), 
-                    tostring(GetEntityType(entityHit)), tostring(GetEntityModel(entityHit))))
+                tostring(startPos), tostring(endPos), tostring(hit), tostring(entityHit), 
+                tostring(IsEntityAVehicle(entityHit)), tostring(endCoords), 
+                tostring(GetEntityType(entityHit)), entityHit and tostring(GetEntityModel(entityHit)) or "N/A"))
+            
                 
                 -- Fallback to GetEntityPlayerIsAimingAt if raycast fails
                 if not hit or not entityHit or not IsEntityAVehicle(entityHit) then
