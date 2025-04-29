@@ -1,5 +1,6 @@
 Config = {}
 
+Config.Debug = false
 Config.DeleteGun = {
     UseAllowList = true, -- true= listed weapons allowed. false=listed weapons blacklisted
     Weapons = {
