@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'TheClassyR3dneck'
 description 'Utility resource to delete entities'
-version '1.0.0'
+version '3.0.0'
 lua54 'yes'
 
 shared_scripts {
