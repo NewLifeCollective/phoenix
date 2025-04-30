@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'TheClassyR3dneck'
-description 'Utility resource to delete entities with a weapon'
+description 'Utility resource to delete entities'
 version '1.0.0'
 lua54 'yes'
 
