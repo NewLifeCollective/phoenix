@@ -161,31 +161,31 @@ lib.addCommand('car', {
     config.giveVehicleKeys(source, plate, vehicle)
 end)
 
-lib.addCommand('dv', {
-    help = locale('command.dv.help'),
-    params = {
-        { name = locale('command.dv.params.radius.name'), help = locale('command.dv.params.radius.help'), type = 'number', optional = true }
-    },
-}, function(source, args)
-    local ped = GetPlayerPed(source)
-    local pedCars = {GetVehiclePedIsIn(ped, false)}
-    local radius = args[locale('command.dv.params.radius.name')]
-
-    if pedCars[1] == 0 or radius then -- Only execute when player is not in a vehicle or radius is explicitly defined
-        pedCars = lib.callback.await('qbx_core:client:getVehiclesInRadius', source, radius)
-    else
-        pedCars[1] = NetworkGetNetworkIdFromEntity(pedCars[1])
-    end
-
-    if #pedCars ~= 0 then
-        for i = 1, #pedCars do
-            local pedCar = NetworkGetEntityFromNetworkId(pedCars[i])
-            if pedCar and DoesEntityExist(pedCar) then
-                DeleteVehicle(pedCar)
-            end
-        end
-    end
-end)
+-- lib.addCommand('dv', {
+--     help = locale('command.dv.help'),
+--     params = {
+--         { name = locale('command.dv.params.radius.name'), help = locale('command.dv.params.radius.help'), type = 'number', optional = true }
+--     },
+-- }, function(source, args)
+--     local ped = GetPlayerPed(source)
+--     local pedCars = {GetVehiclePedIsIn(ped, false)}
+--     local radius = args[locale('command.dv.params.radius.name')]
+-- 
+--     if pedCars[1] == 0 or radius then -- Only execute when player is not in a vehicle or radius is explicitly defined
+--         pedCars = lib.callback.await('qbx_core:client:getVehiclesInRadius', source, radius)
+--     else
+--         pedCars[1] = NetworkGetNetworkIdFromEntity(pedCars[1])
+--     end
+-- 
+--     if #pedCars ~= 0 then
+--         for i = 1, #pedCars do
+--             local pedCar = NetworkGetEntityFromNetworkId(pedCars[i])
+--             if pedCar and DoesEntityExist(pedCar) then
+--                 DeleteVehicle(pedCar)
+--             end
+--         end
+--     end
+-- end)
 
 lib.addCommand('givemoney', {
     help = locale('command.givemoney.help'),
