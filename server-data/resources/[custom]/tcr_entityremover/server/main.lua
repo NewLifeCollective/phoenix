@@ -32,7 +32,7 @@ RegisterCommand('dv', function(source, args, rawCommand)
     TriggerClientEvent('tcr_entityremover:deleteVehicle', source)
 end, false)
 
--- Register Chat Command
+-- Register /dv Chat Command
 AddEventHandler('onResourceStart', function(resourceName)
     if resourceName == GetCurrentResourceName() then
         TriggerEvent('chat:addSuggestion', {
@@ -45,6 +45,24 @@ AddEventHandler('onResourceStart', function(resourceName)
     end
 end)
 
+-- Register /cleararea chat command
+RegisterCommand('cleararea', function(source, args, rawCommand)
+    local src = source 
+    TriggerClientEvent('tcr_entityremover:clearArea', source)
+end, false)
+
+-- Register /clear area chat command
+AddEventHandler('onResourceStart', function(resourceName)
+    if resourceName == GetCurrentResourceName() then
+        TriggerEvent('chat:addSuggestion', {
+            name = '/cleararea',
+            help = 'Clear Area'
+        })
+        if Config.Debug then
+        print("[DEBUG] Server-side chat suggestion added for /cleararea")
+        end
+    end
+end)
 -- Server-side vehicle deletion
 RegisterNetEvent('tcr_entityremover:deleteVehicleServer', function(networkId)
     local src = source

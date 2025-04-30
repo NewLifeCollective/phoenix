@@ -1,6 +1,9 @@
 Config = {}
 
 Config.Debug = false
+Config.ClearArea = {
+    Radius = 50.0 
+}
 Config.DeleteGun = {
     UseAllowList = true, -- true= listed weapons allowed. false=listed weapons blacklisted
     Weapons = {

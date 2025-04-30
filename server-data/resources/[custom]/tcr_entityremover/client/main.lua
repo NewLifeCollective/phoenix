@@ -5,7 +5,7 @@ local deleteGunTimeout = nil
 
 -- Print script version to confirm client script loaded
 if Config.Debug then
-    print("[DEBUG] tcr_entityremover client.lua loaded, version: 2025-04-23")
+    print("[DEBUG] tcr_entityremover client.lua initialized, version: 2025-04-29")
 end
 
 -- Vehicle enumeration helper
@@ -18,6 +18,19 @@ local function EnumerateVehicles()
             success, vehicle = FindNextVehicle(handle)
         until not success
         EndFindVehicle(handle)
+    end)
+end
+
+-- Ped enumeration helper
+local function EnumeratePeds()
+    return coroutine.wrap(function()
+        local handle, ped = FindFirstPed()
+        local success
+        repeat
+            coroutine.yield(ped)
+            success, ped = FindNextPed(handle)
+        until not success
+        EndFindPed(handle)
     end)
 end
 
@@ -68,7 +81,12 @@ end
 
 -- Function to safely check if an entity exists and is valid
 local function isEntityValid(entity)
-    return DoesEntityExist(entity) and not IsEntityDead(entity)
+    local exists = DoesEntityExist(entity)
+    local dead = IsEntityDead(entity)
+    if Config.Debug then
+        print("[DEBUG] Entity validity check: Entity=" .. tostring(entity) .. ", Exists=" .. tostring(exists) .. ", Dead=" .. tostring(dead))
+    end
+    return exists and not dead
 end
 
 -- Function to find a vehicle the player is touching
@@ -95,8 +113,9 @@ AddEventHandler('onClientResourceStart', function(resourceName)
     if resourceName == GetCurrentResourceName() then
         TriggerEvent('chat:addSuggestion', '/dgun', 'Enable/Disable delete gun')
         TriggerEvent('chat:addSuggestion', '/dv', 'Delete vehicle (driver seat or touching)')
+        TriggerEvent('chat:addSuggestion', '/cleararea', 'Clear removable entities in a radius')
         if Config.Debug then
-            print("[DEBUG] Chat suggestions added for /dgun and /dv")
+            print("[DEBUG] Chat suggestions added for /dgun, /dv, and /cleararea")
         end
     end
 end)
@@ -105,8 +124,9 @@ end)
 RegisterNetEvent('tcr_entityremover:addChatSuggestion', function()
     TriggerEvent('chat:addSuggestion', '/dgun', 'Enable/Disable delete gun')
     TriggerEvent('chat:addSuggestion', '/dv', 'Delete vehicle (driver seat or touching)')
+    TriggerEvent('chat:addSuggestion', '/cleararea', 'Clear removable entities in a radius')
     if Config.Debug then
-        print("[DEBUG] Manual chat suggestions triggered for /dgun and /dv")
+        print("[DEBUG] Manual chat suggestions triggered for /dgun, /dv, and /cleararea")
     end
 end)
 
@@ -120,28 +140,34 @@ RegisterNetEvent('tcr_entityremover:toggleDeleteGun', function()
     end
     
     if isDeleteGunEnabled then
-        lib.notify({
-            title = 'Delete Gun',
-            description = 'Delete Gun Enabled',
-            type = 'success',
-            duration = 5000
-        })
-        deleteGunTimeout = SetTimeout(60000, function()
-            isDeleteGunEnabled = false
+        if Config.Debug then
             lib.notify({
                 title = 'Delete Gun',
-                description = 'Delete Gun Disabled (Auto Timeout)',
+                description = 'Delete Gun Enabled',
+                type = 'success',
+                duration = 5000
+            })
+        end
+        deleteGunTimeout = SetTimeout(60000, function()
+            isDeleteGunEnabled = false
+            if Config.Debug then
+                lib.notify({
+                    title = 'Delete Gun',
+                    description = 'Delete Gun Disabled (Auto Timeout)',
+                    type = 'inform',
+                    duration = 5000
+                })
+            end
+        end)
+    else
+        if Config.Debug then
+            lib.notify({
+                title = 'Delete Gun',
+                description = 'Delete Gun Disabled',
                 type = 'inform',
                 duration = 5000
             })
-        end)
-    else
-        lib.notify({
-            title = 'Delete Gun',
-            description = 'Delete Gun Disabled',
-            type = 'inform',
-            duration = 5000
-        })
+        end
     end
 end)
 
@@ -151,7 +177,6 @@ RegisterNetEvent('tcr_entityremover:deleteVehicle', function()
     local vehicle = GetVehiclePedIsIn(playerPed, false)
     
     if vehicle ~= 0 then
-        -- Player is in a vehicle
         local seat = -1
         for i = -1, GetVehicleMaxNumberOfPassengers(vehicle) - 1 do
             if GetPedInVehicleSeat(vehicle, i) == playerPed then
@@ -160,34 +185,31 @@ RegisterNetEvent('tcr_entityremover:deleteVehicle', function()
             end
         end
         if seat == -1 then
-            -- Player is in driver seat
             if Config.Debug then
                 print("[DEBUG] Player in driver seat of vehicle: " .. tostring(vehicle))
             end
         else
-            -- Player is in passenger seat
-            lib.notify({
-                title = 'Delete Vehicle',
-                description = 'You must be the driver of the vehicle to delete it',
-                type = 'error',
-                duration = 5000
-            })
             if Config.Debug then
+                lib.notify({
+                    title = 'Delete Vehicle',
+                    description = 'You must be the driver of the vehicle to delete it',
+                    type = 'error',
+                    duration = 5000
+                })
                 print("[DEBUG] Player in passenger seat: " .. tostring(seat))
             end
             return
         end
     else
-        -- Player is not in a vehicle, check for touched vehicle
         vehicle = getTouchedVehicle()
         if not vehicle then
-            lib.notify({
-                title = 'Delete Vehicle',
-                description = 'No vehicle found to delete',
-                type = 'error',
-                duration = 5000
-            })
             if Config.Debug then
+                lib.notify({
+                    title = 'Delete Vehicle',
+                    description = 'No vehicle found to delete',
+                    type = 'error',
+                    duration = 5000
+                })
                 print("[DEBUG] No touched vehicle found")
             end
             return
@@ -197,49 +219,45 @@ RegisterNetEvent('tcr_entityremover:deleteVehicle', function()
         end
     end
     
-    -- Validate vehicle
     if not isEntityValid(vehicle) or not IsEntityAVehicle(vehicle) then
-        lib.notify({
-            title = 'Delete Vehicle',
-            description = 'Invalid vehicle',
-            type = 'error',
-            duration = 5000
-        })
         if Config.Debug then
+            lib.notify({
+                title = 'Delete Vehicle',
+                description = 'Invalid vehicle',
+                type = 'error',
+                duration = 5000
+            })
             print("[DEBUG] Invalid vehicle: " .. tostring(vehicle))
         end
         return
     end
     
-    -- Check for NPC occupancy
     if isVehicleNPCOccupied(vehicle) then
-        lib.notify({
-            title = 'Delete Vehicle',
-            description = 'You cannot delete NPC-occupied vehicles',
-            type = 'error',
-            duration = 5000
-        })
         if Config.Debug then
+            lib.notify({
+                title = 'Delete Vehicle',
+                description = 'You cannot delete NPC-occupied vehicles',
+                type = 'error',
+                duration = 5000
+            })
             print("[DEBUG] Vehicle is NPC-occupied")
         end
         return
     end
     
-    -- Check for other player occupancy (exclude the player if in driver seat)
     if isVehiclePlayerOccupied(vehicle, playerPed) then
-        lib.notify({
-            title = 'Delete Vehicle',
-            description = 'You cannot delete occupied vehicles',
-            type = 'error',
-            duration = 5000
-        })
         if Config.Debug then
+            lib.notify({
+                title = 'Delete Vehicle',
+                description = 'You cannot delete occupied vehicles',
+                type = 'error',
+                duration = 5000
+            })
             print("[DEBUG] Vehicle is occupied by other players")
         end
         return
     end
     
-    -- Attempt client-side deletion
     local networkId = NetworkGetNetworkIdFromEntity(vehicle)
     if NetworkRequestControlOfEntity(vehicle) then
         SetEntityAsMissionEntity(vehicle, true, true)
@@ -259,12 +277,200 @@ RegisterNetEvent('tcr_entityremover:deleteVehicle', function()
         end
     end
     
-    -- Fallback to server-side deletion
     if Config.Debug then
         print("[DEBUG] Client-side deletion failed, requesting server-side deletion: NetID=" .. tostring(networkId))
     end
-    TriggerServerEvent('tcr_entityremover:deleteVehicleServer', networkId)
+    TriggerServerEvent('tcr_entityremover:deleteEntityServer', networkId)
 end)
+
+-- Register clearArea event at top level
+RegisterNetEvent('tcr_entityremover:clearArea')
+AddEventHandler('tcr_entityremover:clearArea', function()
+    if Config.Debug then
+        print("[DEBUG] /cleararea event received")
+    end
+    local playerPed = PlayerPedId()
+    local playerCoords = GetEntityCoords(playerPed)
+    local radius = Config.ClearArea.Radius
+    local entitiesToDelete = {}
+    local hasPlayerOccupied = false
+    
+    if Config.Debug then
+        print("[DEBUG] Player coords: " .. tostring(playerCoords) .. ", Radius: " .. tostring(radius))
+    end
+    
+    -- Check vehicles
+    local vehicleCount = 0
+    for vehicle in EnumerateVehicles() do
+        vehicleCount = vehicleCount + 1
+        if isEntityValid(vehicle) and IsEntityAVehicle(vehicle) then
+            local vehicleCoords = GetEntityCoords(vehicle)
+            local distance = #(playerCoords - vehicleCoords)
+            if Config.Debug then
+                print("[DEBUG] Vehicle " .. tostring(vehicle) .. ": Coords=" .. tostring(vehicleCoords) .. ", Distance=" .. tostring(distance))
+            end
+            if distance <= radius then
+                if Config.Debug then
+                    print("[DEBUG] Vehicle in radius: " .. tostring(vehicle) .. ", Distance=" .. tostring(distance))
+                end
+                if isVehiclePlayerOccupied(vehicle, playerPed) then
+                    hasPlayerOccupied = true
+                    if Config.Debug then
+                        print("[DEBUG] Vehicle is player-occupied: " .. tostring(vehicle))
+                    end
+                    break
+                else
+                    -- Handle NPC-occupied vehicles
+                    if isVehicleNPCOccupied(vehicle) then
+                        local driver = GetPedInVehicleSeat(vehicle, -1)
+                        if Config.Debug then
+                            print("[DEBUG] NPC driver found: " .. tostring(driver))
+                        end
+                        if NetworkRequestControlOfEntity(driver) then
+                            SetEntityAsMissionEntity(driver, true, true)
+                            DeleteEntity(driver)
+                            Wait(50)
+                            if Config.Debug then
+                                print("[DEBUG] NPC driver deleted for vehicle: " .. tostring(vehicle))
+                            end
+                        else
+                            if Config.Debug then
+                                print("[DEBUG] Failed to get control of NPC driver for vehicle: " .. tostring(vehicle))
+                            end
+                        end
+                    end
+                    table.insert(entitiesToDelete, { entity = vehicle, type = 'vehicle', netId = NetworkGetNetworkIdFromEntity(vehicle) })
+                    if Config.Debug then
+                        print("[DEBUG] Added vehicle to delete list: " .. tostring(vehicle))
+                    end
+                end
+            end
+        end
+    end
+    
+    if Config.Debug then
+        print("[DEBUG] Total vehicles enumerated: " .. tostring(vehicleCount))
+    end
+    
+    -- Check peds (if no player-occupied vehicles found)
+    local pedCount = 0
+    if not hasPlayerOccupied then
+        for ped in EnumeratePeds() do
+            pedCount = pedCount + 1
+            if isEntityValid(ped) and GetEntityType(ped) == 1 and not IsPedAPlayer(ped) and ped ~= playerPed then
+                local pedCoords = GetEntityCoords(ped)
+                local distance = #(playerCoords - pedCoords)
+                if Config.Debug then
+                    print("[DEBUG] Ped " .. tostring(ped) .. ": Coords=" .. tostring(pedCoords) .. ", Distance=" .. tostring(distance))
+                end
+                if distance <= radius then
+                    if Config.Debug then
+                        print("[DEBUG] NPC ped in radius: " .. tostring(ped) .. ", Distance=" .. tostring(distance))
+                    end
+                    table.insert(entitiesToDelete, { entity = ped, type = 'ped', netId = NetworkGetNetworkIdFromEntity(ped) })
+                    if Config.Debug then
+                        print("[DEBUG] Added NPC ped to delete list: " .. tostring(ped))
+                    end
+                end
+            end
+        end
+    end
+    
+    if Config.Debug then
+        print("[DEBUG] Total peds enumerated: " .. tostring(pedCount))
+    end
+    
+    -- Handle results
+    if hasPlayerOccupied then
+        if Config.Debug then
+            lib.notify({
+                title = 'Clear Area',
+                description = 'Cannot clear area with player-occupied vehicles',
+                type = 'error',
+                duration = 5000
+            })
+            print("[DEBUG] Clear area aborted: Player-occupied vehicles detected")
+        end
+        return
+    elseif #entitiesToDelete == 0 then
+        if Config.Debug then
+            lib.notify({
+                title = 'Clear Area',
+                description = 'No removable entities found in the area',
+                type = 'error',
+                duration = 5000
+            })
+            print("[DEBUG] Clear area: No removable entities found")
+        end
+        return
+    end
+    
+    -- Delete entities
+    local deletedCount = 0
+    for _, ent in ipairs(entitiesToDelete) do
+        if Config.Debug then
+            print("[DEBUG] Attempting to delete " .. ent.type .. ": " .. tostring(ent.entity) .. ", NetID=" .. tostring(ent.netId))
+        end
+        if NetworkRequestControlOfEntity(ent.entity) then
+            SetEntityAsMissionEntity(ent.entity, true, true)
+            if ent.type == 'vehicle' then
+                DeleteVehicle(ent.entity)
+            else
+                DeleteEntity(ent.entity)
+            end
+            Wait(100)
+            if not DoesEntityExist(ent.entity) then
+                deletedCount = deletedCount + 1
+                if Config.Debug then
+                    print("[DEBUG] Deleted " .. ent.type .. " client-side: " .. tostring(ent.entity))
+                end
+            else
+                if Config.Debug then
+                    print("[DEBUG] Client-side deletion failed for " .. ent.type .. ": NetID=" .. tostring(ent.netId))
+                end
+                TriggerServerEvent('tcr_entityremover:deleteEntityServer', ent.netId)
+            end
+        else
+            if Config.Debug then
+                print("[DEBUG] Failed to get network control for " .. ent.type .. ": NetID=" .. tostring(ent.netId))
+            end
+            TriggerServerEvent('tcr_entityremover:deleteEntityServer', ent.netId)
+        end
+    end
+    
+    if Config.Debug then
+        print("[DEBUG] Deletion complete: " .. deletedCount .. " entities deleted")
+    end
+    if deletedCount > 0 then
+        if Config.Debug then
+            lib.notify({
+                title = 'Clear Area',
+                description = 'Area cleared successfully (' .. deletedCount .. ' entities deleted)',
+                type = 'success',
+                duration = 3000
+            })
+            print("[DEBUG] Area cleared: " .. deletedCount .. " entities deleted")
+        end
+    else
+        if Config.Debug then
+            lib.notify({
+                title = 'Clear Area',
+                description = 'Failed to clear area (no entities deleted)',
+                type = 'error',
+                duration = 5000
+            })
+            print("[DEBUG] Clear area: No entities deleted")
+        end
+    end
+end)
+
+-- Client-side /cleararea command for testing
+RegisterCommand('cleararea', function()
+    if Config.Debug then
+        print("[DEBUG] Client-side /cleararea command triggered")
+    end
+    TriggerEvent('tcr_entityremover:clearArea')
+end, false)
 
 -- Handle shooting logic with raycasting and fallback
 Citizen.CreateThread(function()
@@ -415,7 +621,7 @@ Citizen.CreateThread(function()
                             if Config.Debug then
                                 print("[DEBUG] Client-side deletion failed, requesting server-side deletion: NetID=" .. tostring(networkId))
                             end
-                            TriggerServerEvent('tcr_entityremover:deleteVehicleServer', networkId)
+                            TriggerServerEvent('tcr_entityremover:deleteEntityServer', networkId)
                         else
                             if Config.Debug then
                                 lib.notify({
