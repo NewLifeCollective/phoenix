@@ -7938,10 +7938,10 @@ return {
         type = 'automobile',
         hash = `ztype`,
     },
-    ['2vdbuffalo4'] = {
-        name = '2vdbuffalo4',
+    ['2vdbuffalo4m'] = {
+        name = '2vdbuffalo4m',
         brand = 'Bravado',
-        model = '2vdbuffalo4',
+        model = 'Buffalo',
         price = 500000,
         category = 'emergency',
         type = 'automobile',
@@ -8045,5 +8045,14 @@ return {
         category = 'emergency',
         type = 'automobile',
         hash = '2vd_vscout',
+    },
+    ['2vdbuffalo4s'] = {
+        name = '2vdbuffalo4s',
+        brand = 'Bravado',
+        model = 'BuffaloS',
+        price = 500000,
+        category = 'emergency',
+        type = 'automobile',
+        hash = `2vdbuffalos`,
     }
 }

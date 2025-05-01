@@ -403,7 +403,7 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
         maxMods = true
       },
       [3] = {
-        model = "2vdbuffalo4", -- spawn code for vehicle
+        model = "2vdbuffalo4m", -- spawn code for vehicle
         plate = "POLICE", -- set as false for a random plate; do not use a plate already in use in the DB!
         minJobGrade = 0, -- only available to players with set minimum grade
         nickname = "Police Buffalo", -- Show a custom name instead of the vehicle's real name
@@ -482,7 +482,16 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
         livery = 1,
         extras = {1, 2, 3, 4, 5, 6, 7, 8},
         maxMods = true
-      }
+      },
+      [12] = {
+        model = "2vdbuffalo4s", -- spawn code for vehicle
+        plate = "POLICE", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 0, -- only available to players with set minimum grade
+        nickname = "Buffalo Slicktop", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = { 1, 3, 4, 5, 6, 7, 8},
+        maxMods = true
+      },
     }
   }
 }

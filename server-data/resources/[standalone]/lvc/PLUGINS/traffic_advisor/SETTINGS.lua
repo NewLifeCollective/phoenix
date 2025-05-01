@@ -8,10 +8,15 @@ ta_combokey = false
 
 TA_ASSIGNMENTS = {
   ['DEFAULT'] = { },
-  ['2vdbuffalo4'] = { 
+  ['2vdbuffalo4m'] = { 
     lightbar = -1,
-	right = { on = { add = 1, remove = { 2, 10 }, repair = false }, off = { add = {}, remove = 1 } },
-	left = { on = { add = { 2, 10 }, remove = 1, repair = false  }, off = { add = {}, remove = 2  } },
+	right = { on = { add = 1, remove = { 2, 7 }, repair = false }, off = { add = {}, remove = 1 } },
+	left = { on = { add = { 2, 7 }, remove = 1, repair = false }, off = { add = {}, remove = 2  } },
   },
+  ['2vdbuffalo4s'] = { 
+    lightbar = -1,
+	right = { on = { add = 1, remove = { 2, 7 }, repair = false }, off = { add = {}, remove = 1 } },
+	left = { on = { add = { 2, 7 }, remove = 1, repair = false }, off = { add = {}, remove = 2  } },
+  },  
 
 }
