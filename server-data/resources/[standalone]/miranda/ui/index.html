@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="miranda-warning">
+      <div class="title">
+        <img src="./doj.png" />
+        <h3>Miranda Warning</h3>
+      </div>
+
+      <span class="warning">Do not deviate from the text on this card.</span>
+
+      <div class="rights">
+        <p>You have the right to remain silent.</p>
+        <p>
+          Anything you say can and will be used against you in a court of law.
+        </p>
+        <p>You have the right to an attorney.</p>
+        <p>If you cannot afford an attorney, one will be provided for you.</p>
+        <div class="questions">
+          <p><strong>Do you understand the rights I have just read to you?</strong></p>
+          <p><strong>With these rights in mind, do you wish to speak to me?</strong></p>
+        </div>
+      </div>
+      <div class="footnote">
+        <p>
+          <i>
+            *This statement is required by law under Supreme Court ruling Miranda
+          v. Arizona (1966).
+          </i>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const MIRANDA_CARD = document.querySelector(".miranda-warning");
+
+      window.addEventListener("message", (event) => {
+        if (event.data.e === "toggle") {
+          if (MIRANDA_CARD.classList.contains("hide")) {
+            MIRANDA_CARD.classList.remove("hide");
+          } else {
+            MIRANDA_CARD.classList.add("hide");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
