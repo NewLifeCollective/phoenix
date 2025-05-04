@@ -231,7 +231,7 @@ return {
         sheriff = 'Sheriff Car 1',
         sheriff2 = 'Sheriff Car 2',
         },
-    },
+    }, 
 
     whitelistedVehicles = {},
 
@@ -248,7 +248,7 @@ return {
         -- Radars will fine the driver if the vehicle is over the defined speed limit
         -- Regardless of the speed, If the vehicle is flagged it sends a notification to the police
         -- It is disable by default, change to true to enable!
-        enableRadars = false,
+        enableRadars = true,
         useMPH = true, -- If true, it uses the imperial system. If false, it uses the metric system.
         locations = {
             {coords = vec4(-623.44421386719, -823.08361816406, 25.25704574585, 145.0), speedlimit = 35},
@@ -261,7 +261,7 @@ return {
             {coords = vec4(657.315, -218.819, 44.06, 320.0), speedlimit = 65},
             {coords = vec4(2118.287, 6040.027, 50.928, 172.0), speedlimit = 65},
             {coords = vec4(-106.304, -1127.5530, 30.778, 230.0), speedlimit = 35},
-            {coords = vec4(-823.3688, -1146.980, 8.0, 300.0), speedlimit = 35},
+            {coords = vec4(1286.91, 579.41, 81.41, 312.02), speedlimit = 35},
         },
     },
 

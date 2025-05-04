@@ -134,44 +134,41 @@ RegisterNetEvent('tcr_entityremover:addChatSuggestion', function()
     end
 end)
 
--- Toggle delete gun
 RegisterNetEvent('tcr_entityremover:toggleDeleteGun', function()
     isDeleteGunEnabled = not isDeleteGunEnabled
-    
+
     if deleteGunTimeout then
         ClearTimeout(deleteGunTimeout)
         deleteGunTimeout = nil
     end
-    
+
     if isDeleteGunEnabled then
-            lib.notify({
-                title = 'Delete Gun',
-                description = 'Delete Gun Enabled',
-                type = 'success',
-                duration = 5000
-            })
-        end
+        lib.notify({
+            title = 'Delete Gun',
+            description = 'Delete Gun Enabled',
+            type = 'success',
+            duration = 5000
+        })
+
         deleteGunTimeout = SetTimeout(60000, function()
             isDeleteGunEnabled = false
-                lib.notify({
-                    title = 'Delete Gun',
-                    description = 'Delete Gun Disabled (Auto Timeout)',
-                    type = 'inform',
-                    duration = 5000
-                })
-            end
+            lib.notify({
+                title = 'Delete Gun',
+                description = 'Delete Gun Disabled (Auto Timeout)',
+                type = 'inform',
+                duration = 5000
+            })
         end)
     else
-        if Config.Debug then
             lib.notify({
                 title = 'Delete Gun',
                 description = 'Delete Gun Disabled',
                 type = 'inform',
                 duration = 5000
             })
-        end
     end
 end)
+
 
 -- Handle /dv command client-side
 RegisterNetEvent('tcr_entityremover:deleteVehicle', function()
