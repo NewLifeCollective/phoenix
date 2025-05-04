@@ -64,7 +64,8 @@ return {
 
     authorizedVehicles = {
         [0] = { -- Grade 0
-        ['2vd_buffalo4'] = 'Buffalo',
+        ['2vdbuffalom'] = 'Buffalo',
+        ['2vdbuffalo4s'] = 'Buffalo Slicktop'
         ['2vd_vscout'] = 'Vapid Scout',
         ['2vd_acavalcade3'] = 'Cavalcade Cruiser',
         ['2vd_buffalo4h'] = 'Buffalo Hellcat',
@@ -84,7 +85,8 @@ return {
         sheriff2 = 'Sheriff Car 2',
         },
         [1] = { -- Grade 1
-        ['2vd_buffalo4'] = 'Buffalo',
+        ['2vdbuffalom'] = 'Buffalo',
+        ['2vdbuffalo4s'] = 'Buffalo Slicktop'
         ['2vd_vscout'] = 'Vapid Scout',
         ['2vd_acavalcade3'] = 'Cavalcade Cruiser',
         ['2vd_buffalo4h'] = 'Buffalo Hellcat',
@@ -102,10 +104,10 @@ return {
         policet = 'Police Car 6',
         sheriff = 'Sheriff Car 1',
         sheriff2 = 'Sheriff Car 2',
-    
         },
         [2] = { -- Grade 2
-        ['2vd_buffalo4'] = 'Buffalo',
+        ['2vdbuffalom'] = 'Buffalo',
+        ['2vdbuffalo4s'] = 'Buffalo Slicktop'
         ['2vd_vscout'] = 'Vapid Scout',
         ['2vd_acavalcade3'] = 'Cavalcade Cruiser',
         ['2vd_buffalo4h'] = 'Buffalo Hellcat',
@@ -126,7 +128,8 @@ return {
         },
 
         [3] = { -- Grade 3
-        ['2vd_buffalo4'] = 'Buffalo',
+        ['2vdbuffalom'] = 'Buffalo',
+        ['2vdbuffalo4s'] = 'Buffalo Slicktop'
         ['2vd_vscout'] = 'Vapid Scout',
         ['2vd_acavalcade3'] = 'Cavalcade Cruiser',
         ['2vd_buffalo4h'] = 'Buffalo Hellcat',
@@ -147,7 +150,8 @@ return {
         },
 
         [4] = { -- Grade 4
-        ['2vd_buffalo4'] = 'Buffalo',
+        ['2vdbuffalom'] = 'Buffalo',
+        ['2vdbuffalo4s'] = 'Buffalo Slicktop'
         ['2vd_vscout'] = 'Vapid Scout',
         ['2vd_acavalcade3'] = 'Cavalcade Cruiser',
         ['2vd_buffalo4h'] = 'Buffalo Hellcat',
@@ -168,7 +172,8 @@ return {
         },
 
 		[5] = { -- Grade 5
-        ['2vd_buffalo4'] = 'Buffalo',
+        ['2vdbuffalom'] = 'Buffalo',
+        ['2vdbuffalo4s'] = 'Buffalo Slicktop'
         ['2vd_vscout'] = 'Vapid Scout',
         ['2vd_acavalcade3'] = 'Cavalcade Cruiser',
         ['2vd_buffalo4h'] = 'Buffalo Hellcat',
@@ -189,7 +194,8 @@ return {
         },
 
         [6] = { -- Grade 6
-        ['2vd_buffalo4'] = 'Buffalo',
+        ['2vdbuffalom'] = 'Buffalo',
+        ['2vdbuffalo4s'] = 'Buffalo Slicktop'
         ['2vd_vscout'] = 'Vapid Scout',
         ['2vd_acavalcade3'] = 'Cavalcade Cruiser',
         ['2vd_buffalo4h'] = 'Buffalo Hellcat',
@@ -197,7 +203,6 @@ return {
         ['2vd_gauntlet4'] = 'Pursuit Gauntlet',
         ['2vd_gresley'] = 'Gresley Cruiser',
         ['2vd_gstsemxl1'] = 'Trackhawk Pursuit',
-        ['2vd_hr680'] = 'Pursuit Lambo',
         ['2vd_vcaracara'] = 'Patrol Truck',
         ['2vd_vscout'] = 'Patrol SUV',
         ['2vd_scout2'] = 'Interceptor Utility',
@@ -211,7 +216,8 @@ return {
         },
         
         [7] = { -- Grade 7
-        ['2vd_buffalo4'] = 'Buffalo',
+        ['2vdbuffalom'] = 'Buffalo',
+        ['2vdbuffalo4s'] = 'Buffalo Slicktop'
         ['2vd_vscout'] = 'Vapid Scout',
         ['2vd_acavalcade3'] = 'Cavalcade Cruiser',
         ['2vd_buffalo4h'] = 'Buffalo Hellcat',
@@ -219,7 +225,6 @@ return {
         ['2vd_gauntlet4'] = 'Pursuit Gauntlet',
         ['2vd_gresley'] = 'Gresley Cruiser',
         ['2vd_gstsemxl1'] = 'Trackhawk Pursuit',
-        ['2vd_hr680'] = 'Pursuit Lambo',
         ['2vd_vcaracara'] = 'Patrol Truck',
         ['2vd_vscout'] = 'Patrol SUV',
         ['2vd_scout2'] = 'Interceptor Utility',

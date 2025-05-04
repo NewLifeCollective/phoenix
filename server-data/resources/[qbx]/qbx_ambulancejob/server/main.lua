@@ -92,22 +92,22 @@ lib.callback.register('qbx_ambulancejob:server:getNumDoctors', function()
 	return exports.qbx_core:GetDutyCountType('ems')
 end)
 
-lib.addCommand('911e', {
-    help = locale('info.ems_report'),
-    params = {
-        {name = 'message', help = locale('info.message_sent'), type = 'longString', optional = true},
-    }
-}, function(source, args)
-	local message = args.message or locale('info.civ_call')
-	local ped = GetPlayerPed(source)
-	local coords = GetEntityCoords(ped)
-	local players = exports.qbx_core:GetQBPlayers()
-	for _, v in pairs(players) do
-		if v.PlayerData.job.type == 'ems' and v.PlayerData.job.onduty then
-			TriggerClientEvent('hospital:client:ambulanceAlert', v.PlayerData.source, coords, message)
-		end
-	end
-end)
+-- lib.addCommand('911e', {
+--     help = locale('info.ems_report'),
+--     params = {
+--         {name = 'message', help = locale('info.message_sent'), type = 'longString', optional = true},
+--     }
+-- }, function(source, args)
+-- 	local message = args.message or locale('info.civ_call')
+-- 	local ped = GetPlayerPed(source)
+-- 	local coords = GetEntityCoords(ped)
+-- 	local players = exports.qbx_core:GetQBPlayers()
+-- 	for _, v in pairs(players) do
+-- 		if v.PlayerData.job.type == 'ems' and v.PlayerData.job.onduty then
+-- 			TriggerClientEvent('hospital:client:ambulanceAlert', v.PlayerData.source, coords, message)
+-- 		end
+-- 	end
+-- end)
 
 ---@param src number
 ---@param event string

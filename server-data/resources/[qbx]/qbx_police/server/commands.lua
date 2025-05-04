@@ -380,23 +380,23 @@ lib.addCommand('takedna', {
     if not player.Functions.AddItem('filled_evidence_bag', 1, false, info) then return end
 end)
 
-lib.addCommand('911p', {
-    help = locale('commands.police_report'),
-    params = {{
-        name = 'message',
-        type = 'longString',
-        help = locale('commands.message_sent')
-    }},
-}, function(source, args)
-    local message = args.message or locale('commands.civilian_call')
-    local ped = GetPlayerPed(source)
-    local coords = GetEntityCoords(ped)
-    local players = exports.qbx_core:GetQBPlayers()
-    for i = 1, #players do
-        if IsLeoAndOnDuty(players[i]) then
-            local alertData = {title = locale('commands.emergency_call'), coords = {x = coords.x, y = coords.y, z = coords.z}, description = message}
-            TriggerClientEvent('lb-phone:client:AddPoliceAlert', players[i].PlayerData.source, alertData)
-            TriggerClientEvent('police:client:policeAlert', players[i].PlayerData.source, coords, message)
-        end
-    end
-end)
+-- lib.addCommand('911p', {
+--     help = locale('commands.police_report'),
+--     params = {{
+--         name = 'message',
+--         type = 'longString',
+--         help = locale('commands.message_sent')
+--     }},
+-- }, function(source, args)
+--     local message = args.message or locale('commands.civilian_call')
+--     local ped = GetPlayerPed(source)
+--     local coords = GetEntityCoords(ped)
+--     local players = exports.qbx_core:GetQBPlayers()
+--     for i = 1, #players do
+--         if IsLeoAndOnDuty(players[i]) then
+--             local alertData = {title = locale('commands.emergency_call'), coords = {x = coords.x, y = coords.y, z = coords.z}, description = message}
+--             TriggerClientEvent('lb-phone:client:AddPoliceAlert', players[i].PlayerData.source, alertData)
+--             TriggerClientEvent('police:client:policeAlert', players[i].PlayerData.source, coords, message)
+--         end
+--     end
+-- end)
