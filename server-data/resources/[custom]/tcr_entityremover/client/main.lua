@@ -144,7 +144,6 @@ RegisterNetEvent('tcr_entityremover:toggleDeleteGun', function()
     end
     
     if isDeleteGunEnabled then
-        if Config.Debug then
             lib.notify({
                 title = 'Delete Gun',
                 description = 'Delete Gun Enabled',
@@ -154,7 +153,6 @@ RegisterNetEvent('tcr_entityremover:toggleDeleteGun', function()
         end
         deleteGunTimeout = SetTimeout(60000, function()
             isDeleteGunEnabled = false
-            if Config.Debug then
                 lib.notify({
                     title = 'Delete Gun',
                     description = 'Delete Gun Disabled (Auto Timeout)',

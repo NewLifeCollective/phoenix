@@ -26,3 +26,7 @@ dependencies {
     'qbx_core',
     'ox_lib'
 }
+
+escrow_ignore {
+    'config.lua'
+}
