@@ -19,7 +19,7 @@ return {
         offDutyPay = false,
         grades = {
             [0] = {
-                name = 'Recruit',
+                name = 'Boot',
                 payment = 50
             },
             [1] = {
@@ -64,7 +64,7 @@ return {
         offDutyPay = false,
         grades = {
             [0] = {
-                name = 'Recruit',
+                name = 'Boot',
                 payment = 50
             },
             [1] = {
@@ -109,7 +109,7 @@ return {
         offDutyPay = false,
         grades = {
             [0] = {
-                name = 'Recruit',
+                name = 'Boot',
                 payment = 50
             },
             [1] = {
