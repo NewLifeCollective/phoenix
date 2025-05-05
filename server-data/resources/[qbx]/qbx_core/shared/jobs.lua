@@ -15,7 +15,7 @@ return {
     ['police'] = {
         label = 'Law Enforcement Officer',
         type = 'leo',
-        defaultDuty = true,
+        defaultDuty = false,
         offDutyPay = false,
         grades = {
             [0] = {
@@ -60,7 +60,7 @@ return {
     ['bcso'] = {
         label = 'BCSO',
         type = 'leo',
-        defaultDuty = true,
+        defaultDuty = false,
         offDutyPay = false,
         grades = {
             [0] = {
@@ -105,7 +105,7 @@ return {
     ['sasp'] = {
         label = 'SASP',
         type = 'leo',
-        defaultDuty = true,
+        defaultDuty = false,
         offDutyPay = false,
         grades = {
             [0] = {
@@ -150,7 +150,7 @@ return {
     ['ambulance'] = {
         label = 'EMS',
         type = 'ems',
-        defaultDuty = true,
+        defaultDuty = false,
         offDutyPay = false,
         grades = {
             [0] = {
