@@ -3,7 +3,7 @@ game "gta5"
 lua54 "yes"
 
 description "For support or other queries: discord.gg/jgscripts"
-version 'v1.5.2'
+version 'v1.6.0'
 author "JG Scripts"
 
 dependencies {

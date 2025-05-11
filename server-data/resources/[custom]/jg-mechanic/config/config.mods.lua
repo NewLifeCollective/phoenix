@@ -92,7 +92,7 @@ Config.Mods.Cosmetics = {
   { modType = 45, name = "Tank" },
   { modType = 46, name = "Door Left" },
   { modType = 47, name = "Door Right" },
-  { modType = 48, name = "Decals" },
+  { modType = 48, name = "Stickers" },
   { modType = 49, name = "Lightbar" },
 
   -- Named cosmetics

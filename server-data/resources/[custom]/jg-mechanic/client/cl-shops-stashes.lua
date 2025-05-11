@@ -41,13 +41,13 @@ local function openShop(mechanicId, shopIndex)
   local shopItems = shop.items or {}
 
   local options = {}
-  for _, v in pairs(shopItems) do
+  for index, v in pairs(shopItems) do
     table.insert(options, {
       title = v.label,
       icon = "box",
       description = ("Buy for %d %s"):format(v.price, Config.Currency),
       event = "jg-mechanic:client:input-shop-purchase-qty",
-      args = { item = v.name, price = v.price, mechanicId = mechanicId, shopIndex = shopIndex }
+      args = { shopIndex = shopIndex, itemIndex = index, item = v.name, price = v.price, mechanicId = mechanicId }
     })
   end
 
@@ -69,13 +69,13 @@ RegisterNetEvent("jg-mechanic:client:input-shop-purchase-qty", function(args)
     return 
   end
 
-  local amount = tonumber(input[1])
-  if amount == nil or amount <= 0 then
+  local qty = tonumber(input[1])
+  if qty == nil or qty <= 0 then
     Framework.Client.Notify("Invalid amount entered", "error")
     return
   end
 
-  TriggerServerEvent("jg-mechanic:server:buy-item", args.item, args.price, amount, args.mechanicId, args.shopIndex)
+  TriggerServerEvent("jg-mechanic:server:buy-item", args.shopIndex, args.itemIndex, qty, args.mechanicId)
 end)
 
 function createMechanicShops()

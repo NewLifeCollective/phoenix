@@ -15,10 +15,10 @@ Config.NumberAndDateFormat = "en-US"
 Config.Currency = "USD"
 
 -- Set to false to use built-in job system
-Config.UseFrameworkJobs = false
+Config.UseFrameworkJobs = true
 
 -- Mechanic Tablet
-Config.UseTabletCommand = "mechtab" -- set to false to disable command
+Config.UseTabletCommand = "tablet" -- set to false to disable command
 Config.TabletConnectionMaxDistance = 4.0
 
 -- Shops
@@ -37,7 +37,7 @@ Config.SkillCheckInputs = { "w", "a", "s", "d" } -- for ox only
 Config.EnableVehicleServicing = true
 Config.ServiceRequiredThreshold = 20 -- [%] if any of the servicable parts hit this %, it will flag that the vehicle needs servicing 
 Config.ServicingBlacklist = {
-  "police", "police2", "2vd_scout", "2vd_vcaracara", "2vd_scout2", "2vd_hr680", "2vd_hakuchou", "2vd_gstsemxl1", "2vd_gresley", "2vd_gauntlet4", "2vd_dvigerozx", "2vd_buffalo4h", "2vd_acavalcade3", "2vd_buffalo4" -- Vehicles that are excluded from servicing damage
+  "police", "police2" -- Vehicles that are excluded from servicing damage
 }
 
 -- Nitrous
@@ -46,8 +46,8 @@ Config.NitrousRearLightTrails = true -- Only really visible at night
 Config.NitrousPowerIncreaseMult = 2.0
 Config.NitrousDefaultKeyMapping = "RMENU"
 Config.NitrousMaxBottlesPerVehicle = 3 -- The UI can't really handle more than 7, more than that would be unrealistic anyway
-Config.NitrousBottleDuration = 3 -- [in seconds] How long a nitrous tank lasts
-Config.NitrousBottleCooldown = 10 -- [in seconds] How long until player can start using the next bottle
+Config.NitrousBottleDuration = 10 -- [in seconds] How long a nitrous tank lasts
+Config.NitrousBottleCooldown = 5 -- [in seconds] How long until player can start using the next bottle
 Config.NitrousPurgeDrainRate = 0.1 -- purging drains bottle only 10% as fast as actually boosting - set to 1 to drain at the same rate 
 
 -- Stancing
@@ -60,7 +60,7 @@ Config.StanceMaxTrackWidth = 1.25
 Config.StanceNearbyVehiclesFreqMs = 500
 
 -- Repairs
-Config.AllowFixingAtOwnedMechanicsIfNoOneOnDuty = true
+Config.AllowFixingAtOwnedMechanicsIfNoOneOnDuty = false
 Config.DuctTapeMinimumEngineHealth = 100.0
 Config.DuctTapeEngineHealthIncrease = 150.0
 
@@ -93,13 +93,13 @@ Config.ManualHighRPMNotifications = true
 -- Misc
 Config.UniqueBlips = true
 Config.ModsPricesAsPercentageOfVehicleValue = true -- Enable pricing tuning items as % of vehicle value - it tries jg-dealerships, then QBShared, then the vehicles meta file automagically for pricing data
-Config.AdminsHaveEmployeePermissions = true -- admins can use tablet & interact with mechanics like an owner
+Config.AdminsHaveEmployeePermissions = false -- admins can use tablet & interact with mechanics like an owner
 Config.MechanicEmployeesCanSelfServiceMods = false -- set to true to allow mechanic employees to bypass the "place order" system at their own mechanic
 Config.FullRepairAdminCommand = "vfix"
 Config.MechanicAdminCommand = "mechanicadmin"
-Config.ChangePlateDuringPreview = false
+Config.ChangePlateDuringPreview = "PREVIEW"
 Config.RequireManagementForOrderDeletion = false 
-Config.UseCustomNamesInTuningMenu = true
+Config.UseCustomNamesInTuningMenu = false
 
 -- Mechanic Locations
 Config.MechanicLocations = {
@@ -179,7 +179,7 @@ Config.MechanicLocations = {
       gearboxes        = { enabled = true, requiresItem = true },
     },
     carLifts = { -- only usable by employees
-    vec4(-325.59, -139.46, 39.13, 250)
+      vector4(-357.45, -114.17, 38.7, 339.89)
     },
     shops = {
       {
@@ -257,6 +257,7 @@ Config.MechanicLocations = {
     },
   },
 }
+
 
 -- Add electric vehicles to disable combustion engine features
 -----------------------------------------------------------------------

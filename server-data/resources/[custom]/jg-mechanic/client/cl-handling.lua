@@ -88,6 +88,12 @@ function getBaseVehicleHandling(vehicle)
   end
 
   handling["audioNameHash"] = GetEntityArchetypeName(vehicle)
+
+  -- Integration with wizating_laptop
+  if GetResourceState("wizating_laptop") == "started" then
+    local wizatingHandling = exports["wizating_laptop"]:getHandlingData(vehicle) or {}
+    handling = tableConcat(handling, wizatingHandling)
+  end
   
   return handling
 end

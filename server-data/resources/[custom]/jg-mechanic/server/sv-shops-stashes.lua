@@ -2,16 +2,26 @@
 -- Shops
 --
 
-RegisterNetEvent("jg-mechanic:server:buy-item", function(item, price, amount, mechanicId, shopIndex)
+RegisterNetEvent("jg-mechanic:server:buy-item", function(shopIndex, itemIndex, qty, mechanicId)
   local src = source
 
-  local convertedMechanicId = Config.MechanicLocations[mechanicId] and Config.MechanicLocations[mechanicId].job or nil
+  local mechanicConfig = Config.MechanicLocations[mechanicId]
+  if not mechanicConfig then return end
+
+  local convertedMechanicId = mechanicConfig and mechanicConfig.job or nil
   if not convertedMechanicId then
     Framework.Server.Notify(src, Locale.shopNameError, "error")
     return
   end
 
-  local totalCost = price * amount
+  local item = mechanicConfig.shops?[shopIndex]?.items?[itemIndex]
+  if not item then
+    Framework.Server.Notify(src, Locale.failedGiveItem, "error")
+    return
+  end
+
+  local itemName = item.name;
+  local totalCost = item.price * qty
 
   if Config.UseSocietyFund then
     local success = removeFromSocietyFund(src, mechanicId, totalCost)
@@ -26,13 +36,13 @@ RegisterNetEvent("jg-mechanic:server:buy-item", function(item, price, amount, me
     Framework.Server.PlayerRemoveMoney(src, totalCost, Config.PlayerBalance or "bank")
   end
 
-  local itemGiven = Framework.Server.GiveItem(src, item, amount)
+  local itemGiven = Framework.Server.GiveItem(src, itemName, qty)
   if not itemGiven then
     Framework.Server.Notify(src, Locale.failedGiveItem, "error")
     return
   end
 
-  Framework.Server.Notify(src, Locale.purchaseSuccess:format(amount, item), "success")
+  Framework.Server.Notify(src, Locale.purchaseSuccess:format(qty, itemName), "success")
 end)
 
 --

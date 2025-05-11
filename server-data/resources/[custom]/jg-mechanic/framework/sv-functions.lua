@@ -444,16 +444,16 @@ local usingNewQBBanking = GetResourceState("qb-banking") == "started" and tonumb
 ---@return number balance
 ---@async
 function Framework.Server.GetSocietyBalance(society, societyType)
-  if Config.SocietyBanking == "okokBanking" then
+  if Config.SocietyBanking == "nfs-billing" then
+    return exports["nfs-billing"]:GetSocietyBalance(society)
+  elseif Config.SocietyBanking == "okokBanking" then
     return exports["okokBanking"]:GetAccount(society)
   elseif Config.SocietyBanking == "fd_banking" then
     return exports.fd_banking:GetAccount(society)
   elseif Config.SocietyBanking == "tgg-banking" then
     return exports["tgg-banking"]:GetSocietyAccountMoney(society)
-  elseif Config.SocietyBanking == "Renewed-Banking" then
+  elseif (Config.Framework == "Qbox" and Config.SocietyBanking == "auto") or Config.SocietyBanking == "Renewed-Banking" then
     return exports["Renewed-Banking"]:getAccountMoney(society)
-  elseif Config.SocietyBanking == "nfs-billing" then
-    return exports["nfs-billing"]:GetSocietyBalance(society)
   elseif (Config.Framework == "QBCore" and Config.SocietyBanking == "auto") or Config.SocietyBanking == "qb-banking" or Config.SocietyBanking == "qb-management" then
     if Config.SocietyBanking == "qb-banking" or usingNewQBBanking then
       return exports["qb-banking"]:GetAccountBalance(society)
@@ -464,8 +464,6 @@ function Framework.Server.GetSocietyBalance(society, societyType)
         return exports["qb-management"]:GetGangAccount(society)
       end
     end
-  elseif Config.Framework == "Qbox" and Config.SocietyBanking == "auto" then
-    print("^1[ERROR] Qbox does not have society banking by default. Specify the system you are using in Config.SocietyBanking^0")
   elseif (Config.Framework == "ESX" and Config.SocietyBanking == "auto") or Config.SocietyBanking == "esx_addonaccount" then
     local balance = promise.new()
 
@@ -491,16 +489,16 @@ end)
 ---@param societyType "job"|"gang"
 ---@param amount number
 function Framework.Server.PayIntoSocietyFund(societyName, societyType, amount)
-  if Config.SocietyBanking == "okokBanking" then
+  if Config.SocietyBanking == "nfs-billing" then
+  exports["nfs-billing"]:depositSociety(societyName, amount)
+  elseif Config.SocietyBanking == "okokBanking" then
     exports["okokBanking"]:AddMoney(societyName, amount)
   elseif Config.SocietyBanking == "fd_banking" then
     exports.fd_banking:AddMoney(societyName, amount)
   elseif Config.SocietyBanking == "tgg-banking" then
     exports["tgg-banking"]:AddSocietyMoney(societyName, amount)
-  elseif Config.SocietyBanking == "Renewed-Banking" then
+  elseif (Config.Framework == "Qbox" and Config.SocietyBanking == "auto") or Config.SocietyBanking == "Renewed-Banking" then
     exports["Renewed-Banking"]:addAccountMoney(societyName, amount)
-  elseif Config.SocietyBanking == "nfs-billing" then
-    exports["nfs-billing"]:depositSociety(societyName, amount)
   elseif (Config.Framework == "QBCore" and Config.SocietyBanking == "auto") or Config.SocietyBanking == "qb-banking" or Config.SocietyBanking == "qb-management" then
     if Config.SocietyBanking == "qb-banking" or usingNewQBBanking then
       exports["qb-banking"]:AddMoney(societyName, amount)
@@ -511,8 +509,6 @@ function Framework.Server.PayIntoSocietyFund(societyName, societyType, amount)
         exports["qb-management"]:AddGangMoney(societyName, amount)
       end
     end
-  elseif Config.Framework == "Qbox" and Config.SocietyBanking == "auto" then
-    print("^1[ERROR] Qbox does not have society banking by default. Specify the system you are using in Config.SocietyBanking^0")
   elseif (Config.Framework == "ESX" and Config.SocietyBanking == "auto") or Config.SocietyBanking == "esx_addonaccount" then
     TriggerEvent("esx_society:getSociety", societyName, function(society)
       TriggerEvent("esx_addonaccount:getSharedAccount", society.account, function(account)
@@ -526,16 +522,16 @@ end
 ---@param societyType "job"|"gang"
 ---@param amount number
 function Framework.Server.RemoveFromSocietyFund(societyName, societyType, amount)
-  if Config.SocietyBanking == "okokBanking" then
+  if Config.SocietyBanking == "nfs-billing" then 
+    exports["nfs-billing"]:withdrawSociety(societyName, amount)
+  elseif Config.SocietyBanking == "okokBanking" then
     exports["okokBanking"]:RemoveMoney(societyName, amount)
   elseif Config.SocietyBanking == "fd_banking" then
     exports.fd_banking:RemoveMoney(societyName, amount)
   elseif Config.SocietyBanking == "tgg-banking" then
     exports["tgg-banking"]:RemoveSocietyMoney(societyName, amount)
-  elseif Config.SocietyBanking == "Renewed-Banking" then
+  elseif (Config.Framework == "Qbox" and Config.SocietyBanking == "auto") or Config.SocietyBanking == "Renewed-Banking" then
     exports["Renewed-Banking"]:removeAccountMoney(societyName, amount)
-  elseif Config.SocietyBanking == "nfs-billing" then 
-    exports["nfs-billing"]:withdrawSociety(societyName, amount)
   elseif (Config.Framework == "QBCore" and Config.SocietyBanking == "auto") or Config.SocietyBanking == "qb-banking" or Config.SocietyBanking == "qb-management" then
     if Config.SocietyBanking == "qb-banking" or usingNewQBBanking then
       exports["qb-banking"]:RemoveMoney(societyName, amount)
@@ -546,8 +542,6 @@ function Framework.Server.RemoveFromSocietyFund(societyName, societyType, amount
         exports["qb-management"]:RemoveGangMoney(societyName, amount)
       end
     end
-  elseif Config.Framework == "Qbox" and Config.SocietyBanking == "auto" then
-    print("^1[ERROR] Qbox does not have society banking by default. Specify the system you are using in Config.SocietyBanking^0")
   elseif (Config.Framework == "ESX" and Config.SocietyBanking == "auto") or Config.SocietyBanking == "esx_addonaccount" then
     TriggerEvent("esx_society:getSociety", societyName, function(society)
       TriggerEvent("esx_addonaccount:getSharedAccount", society.account, function(account)
