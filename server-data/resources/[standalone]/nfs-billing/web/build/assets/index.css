@@ -378,7 +378,7 @@ video {
 body {
   font-family: Inter;
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -1109,7 +1109,7 @@ input[type="number"] {
 }
 .border-black {
   --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 .border-constructive {
   border-color: var(--constructive);
@@ -1135,18 +1135,18 @@ input[type="number"] {
 }
 .border-red-500 {
   --tw-border-opacity: 1;
-  border-color: rgb(239 68 68 / var(--tw-border-opacity, 1));
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 .border-transparent {
   border-color: transparent;
 }
 .border-white {
   --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 .border-zinc-800 {
   --tw-border-opacity: 1;
-  border-color: rgb(39 39 42 / var(--tw-border-opacity, 1));
+  border-color: rgb(39 39 42 / var(--tw-border-opacity));
 }
 .border-l-transparent {
   border-left-color: transparent;
@@ -1162,7 +1162,7 @@ input[type="number"] {
 }
 .bg-black {
   --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 .bg-black\/80 {
   background-color: #000c;
@@ -1184,7 +1184,7 @@ input[type="number"] {
 }
 .bg-indigo-950 {
   --tw-bg-opacity: 1;
-  background-color: rgb(30 27 75 / var(--tw-bg-opacity, 1));
+  background-color: rgb(30 27 75 / var(--tw-bg-opacity));
 }
 .bg-muted {
   background-color: var(--muted);
@@ -1215,7 +1215,7 @@ input[type="number"] {
 }
 .bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .bg-card-gradient {
   background-image: radial-gradient(177.33% 177.33% at 50% -77.33%, var(--primary-500) 0%, #121217 65%);
@@ -1545,7 +1545,7 @@ input[type="number"] {
 }
 .text-black {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .text-card-foreground {
   color: hsl(var(--card-foreground));
@@ -1567,19 +1567,19 @@ input[type="number"] {
 }
 .text-gray-400 {
   --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 .text-gray-500 {
   --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 .text-green-500 {
   --tw-text-opacity: 1;
-  color: rgb(34 197 94 / var(--tw-text-opacity, 1));
+  color: rgb(34 197 94 / var(--tw-text-opacity));
 }
 .text-indigo-400 {
   --tw-text-opacity: 1;
-  color: rgb(129 140 248 / var(--tw-text-opacity, 1));
+  color: rgb(129 140 248 / var(--tw-text-opacity));
 }
 .text-muted {
   color: var(--muted);
@@ -1608,7 +1608,7 @@ input[type="number"] {
 }
 .text-red-500 {
   --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .text-secondary-foreground {
   color: hsl(var(--secondary-foreground));
@@ -1618,26 +1618,26 @@ input[type="number"] {
 }
 .text-violet-500 {
   --tw-text-opacity: 1;
-  color: rgb(139 92 246 / var(--tw-text-opacity, 1));
+  color: rgb(139 92 246 / var(--tw-text-opacity));
 }
 .text-white {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .text-white\/70 {
   color: #ffffffb3;
 }
 .text-zinc-100 {
   --tw-text-opacity: 1;
-  color: rgb(244 244 245 / var(--tw-text-opacity, 1));
+  color: rgb(244 244 245 / var(--tw-text-opacity));
 }
 .text-zinc-400 {
   --tw-text-opacity: 1;
-  color: rgb(161 161 170 / var(--tw-text-opacity, 1));
+  color: rgb(161 161 170 / var(--tw-text-opacity));
 }
 .text-zinc-600 {
   --tw-text-opacity: 1;
-  color: rgb(82 82 91 / var(--tw-text-opacity, 1));
+  color: rgb(82 82 91 / var(--tw-text-opacity));
 }
 .underline-offset-4 {
   text-underline-offset: 4px;
@@ -1730,9 +1730,8 @@ input[type="number"] {
     transform,
     filter,
     -webkit-backdrop-filter;
-  transition-property:
-    color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter;
   transition-property:
     color,
     background-color,
@@ -1873,11 +1872,11 @@ input[type="number"] {
 }
 .hover\:border-zinc-700:hover {
   --tw-border-opacity: 1;
-  border-color: rgb(63 63 70 / var(--tw-border-opacity, 1));
+  border-color: rgb(63 63 70 / var(--tw-border-opacity));
 }
 .hover\:bg-\[\#343434\]:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(52 52 52 / var(--tw-bg-opacity, 1));
+  background-color: rgb(52 52 52 / var(--tw-bg-opacity));
 }
 .hover\:bg-accent:hover {
   background-color: hsl(var(--accent));
@@ -1908,7 +1907,7 @@ input[type="number"] {
 }
 .hover\:bg-zinc-900:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(24 24 27 / var(--tw-bg-opacity, 1));
+  background-color: rgb(24 24 27 / var(--tw-bg-opacity));
 }
 .hover\:text-accent-foreground:hover {
   color: hsl(var(--accent-foreground));
@@ -1921,7 +1920,7 @@ input[type="number"] {
 }
 .hover\:text-gray-700:hover {
   --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 .hover\:text-muted:hover {
   color: var(--muted);
@@ -1937,7 +1936,7 @@ input[type="number"] {
 }
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .hover\:underline:hover {
   text-decoration-line: underline;
@@ -1991,7 +1990,7 @@ input[type="number"] {
 }
 .active\:bg-\[\#1A7B45\]:active {
   --tw-bg-opacity: 1;
-  background-color: rgb(26 123 69 / var(--tw-bg-opacity, 1));
+  background-color: rgb(26 123 69 / var(--tw-bg-opacity));
 }
 .active\:bg-foreground:active {
   background-color: hsl(var(--foreground));
@@ -2001,7 +2000,7 @@ input[type="number"] {
 }
 .active\:text-\[\#E11D48\]:active {
   --tw-text-opacity: 1;
-  color: rgb(225 29 72 / var(--tw-text-opacity, 1));
+  color: rgb(225 29 72 / var(--tw-text-opacity));
 }
 .active\:text-muted:active {
   color: var(--muted);
@@ -2029,7 +2028,7 @@ input[type="number"] {
 }
 .group\/button:hover .group-hover\/button\:text-white {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .group\/logout:hover .group-hover\/logout\:text-destructive {
   color: hsl(var(--destructive));
@@ -2039,7 +2038,7 @@ input[type="number"] {
 }
 .group\/logout:active .group-active\/logout\:text-\[\#E11D48\] {
   --tw-text-opacity: 1;
-  color: rgb(225 29 72 / var(--tw-text-opacity, 1));
+  color: rgb(225 29 72 / var(--tw-text-opacity));
 }
 .group.active .group-\[\.active\]\:bg-primary {
   background-color: var(--primary-600);
@@ -2082,7 +2081,7 @@ input[type="number"] {
 }
 .data-\[state\=on\]\:bg-\[\#343434\][data-state="on"] {
   --tw-bg-opacity: 1;
-  background-color: rgb(52 52 52 / var(--tw-bg-opacity, 1));
+  background-color: rgb(52 52 52 / var(--tw-bg-opacity));
 }
 .data-\[state\=on\]\:bg-accent[data-state="on"],
 .data-\[state\=open\]\:bg-accent[data-state="open"] {
@@ -2090,7 +2089,7 @@ input[type="number"] {
 }
 .data-\[state\=selected\]\:bg-slate-800[data-state="selected"] {
   --tw-bg-opacity: 1;
-  background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1));
+  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
 .data-\[selected\=true\]\:text-accent-foreground[data-selected="true"] {
   color: hsl(var(--accent-foreground));
@@ -2103,7 +2102,7 @@ input[type="number"] {
 }
 .data-\[state\=on\]\:text-blue-500[data-state="on"] {
   --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity, 1));
+  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 .data-\[state\=on\]\:text-constructive[data-state="on"] {
   color: var(--constructive);
@@ -2113,7 +2112,7 @@ input[type="number"] {
 }
 .data-\[state\=on\]\:text-orange-500[data-state="on"] {
   --tw-text-opacity: 1;
-  color: rgb(249 115 22 / var(--tw-text-opacity, 1));
+  color: rgb(249 115 22 / var(--tw-text-opacity));
 }
 .data-\[disabled\=true\]\:opacity-50[data-disabled="true"],
 .data-\[disabled\]\:opacity-50[data-disabled] {

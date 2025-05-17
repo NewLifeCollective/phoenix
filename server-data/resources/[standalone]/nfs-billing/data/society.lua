@@ -1,13 +1,14 @@
 ---@type Society[]
 return {
     {
-        accountName = 'society_police',
+        accountName = 'society_lspd',
         label = "Police",
-        job = {'police'}, --  job = {'police', 'lspd', 'police2'}, if you want to add as many jobs as you want.
+        job = {'police'},
         grade = 3,
-        withdrawGrade = 6,
-        presetGrade = 6,
-        vat = 0
+        withdrawGrade = 4,
+        presetGrade = 4,
+        societyBalanceGrade = 4,
+        vat = 5
     },
     {
         accountName = 'society_ambulance',
@@ -16,43 +17,7 @@ return {
         grade = 4,
         withdrawGrade = 4,
         presetGrade = 5,
+        societyBalanceGrade = 4,
         vat = 5
-
     },
-    {
-        accountName = 'society_realestate',
-        label = 'Real Estate',
-        job = 'realestate',
-        grade = 4,
-        withdrawGrade = 3,
-        presetGrade = 5,
-        vat = 2
-    },
-    {
-        accountName = 'society_cardealer',
-        label = 'Car Dealer',
-        job = 'cardealer',
-        grade = 3,
-        withdrawGrade = 3,
-        presetGrade = 3,
-        vat = 8
-    },
-    {
-        accountName = 'society_burgershot',
-        label = 'Burgershot',
-        job = 'burgershot',
-        grade = 3,
-        withdrawGrade = 3,
-        presetGrade = 3,
-        vat = 8
-    },
-    {
-        accountName = 'society_mechanic',
-        label = 'Mechanic',
-        job = 'mechanic',
-        grade = 2,
-        withdrawGrade = 2,
-        presetGrade = 2,
-        vat = 2
-    }
 }

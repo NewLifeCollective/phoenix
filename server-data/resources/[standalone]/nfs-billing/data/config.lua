@@ -2,6 +2,6 @@ return {
     debug = false,
     personnelVat = 1,
     openCommand = 'billing',
-    allowMinus = true,
+    allowMinus = false,
     vatSociety = 'society_lspd'
 }
