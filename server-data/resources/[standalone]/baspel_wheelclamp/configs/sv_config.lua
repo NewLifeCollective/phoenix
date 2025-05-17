@@ -1,6 +1,6 @@
 -- Database settings --
-Config.SaveIntoDatabase = true -- true or false, if you want to save into database
-Config.OwnedVehiclesTable = 'player_vehicles' -- table where is owned vehicles
+Config.SaveIntoDatabase = false -- true or false, if you want to save into database
+Config.OwnedVehiclesTable = 'owned_vehicles' -- table where is owned vehicles
 
 -- Check time for entity --
 Config.CheckTime = 10000-- In ms, check if doesnt entity exist, if not, then script will delete visible prop

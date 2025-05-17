@@ -3,7 +3,7 @@ game { 'gta5' }
 lua54 'yes' 
 author 'Baspel'
 description 'Script for wheelclamp with custom props :D'
-version '3.3.4'
+version '3.3.5'
 
 shared_scripts { 
     'configs/sh_config.lua',
