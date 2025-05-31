@@ -7,26 +7,20 @@
 
 
 var staff_team = [
-
 	{
-		"name":"Barkley",
+		"name":"Joey",
 		"image":"https://media.discordapp.net/attachments/1347447044318695465/1347699231669878804/NLC_Logo_1.png?ex=680c0e37&is=680abcb7&hm=97cb626a955855eeba0c8082997e20ba2aab1fe6426c1045957dc73bccd94b40&=&format=webp&quality=lossless&width=960&height=960",
-		"rank":"Lead"
+		"rank":"Vehicle Development"
 	},
 	{
-		"name":"Charlie",
+		"name":"Tanner Kernell",
 		"image":"https://media.discordapp.net/attachments/1347447044318695465/1347699231669878804/NLC_Logo_1.png?ex=680c0e37&is=680abcb7&hm=97cb626a955855eeba0c8082997e20ba2aab1fe6426c1045957dc73bccd94b40&=&format=webp&quality=lossless&width=960&height=960",
-		"rank":"Lead"
+		"rank":"Script Development"
 	},
 	{
-		"name":"Pimple",
+		"name":"Wood",
 		"image":"https://media.discordapp.net/attachments/1347447044318695465/1347699231669878804/NLC_Logo_1.png?ex=680c0e37&is=680abcb7&hm=97cb626a955855eeba0c8082997e20ba2aab1fe6426c1045957dc73bccd94b40&=&format=webp&quality=lossless&width=960&height=960",
-		"rank":"Lead"
-	},
-	{
-		"name":"Ty",
-		"image":"https://media.discordapp.net/attachments/1347447044318695465/1347699231669878804/NLC_Logo_1.png?ex=680c0e37&is=680abcb7&hm=97cb626a955855eeba0c8082997e20ba2aab1fe6426c1045957dc73bccd94b40&=&format=webp&quality=lossless&width=960&height=960",
-		"rank":"Lead"
+		"rank":"Vehicle Liveries"
 	}
 
 ]

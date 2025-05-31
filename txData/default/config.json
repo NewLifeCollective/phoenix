@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "general": {
+    "serverName": "NLC Development"
+  },
+  "server": {
+    "dataPath": "C:/Users/admin/Desktop/NLC Main-Development/server-data/"
+  }
+}

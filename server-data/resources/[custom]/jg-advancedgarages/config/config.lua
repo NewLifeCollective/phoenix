@@ -11,10 +11,10 @@ Config.Currency = "USD"
 
 -- Framework & Integrations
 Config.Framework = "auto" -- or "QBCore", "Qbox", "ESX"
-Config.FuelSystem = "ox_fuel" -- or "LegacyFuel", "ps-fuel", "lj-fuel", "ox_fuel", "cdn-fuel", "hyon_gas_station", "okokGasStation", "nd_fuel", "myFuel", "ti_fuel", "Renewed-Fuel", "rcore_fuel", "none"
-Config.VehicleKeys = "qb-vehiclekeys" -- or "qb-vehiclekeys", "MrNewbVehicleKeys", "jaksam-vehicles-keys", "qs-vehiclekeys", "mk_vehiclekeys", "wasabi_carlock", "cd_garage", "okokGarage", "t1ger_keys", "Renewed", "tgiann-hotwire" "none"
+Config.FuelSystem = "none" -- or "LegacyFuel", "ps-fuel", "lj-fuel", "ox_fuel", "cdn-fuel", "hyon_gas_station", "okokGasStation", "nd_fuel", "myFuel", "ti_fuel", "Renewed-Fuel", "rcore_fuel", "none"
+Config.VehicleKeys = "none" -- or "qb-vehiclekeys", "MrNewbVehicleKeys", "jaksam-vehicles-keys", "qs-vehiclekeys", "mk_vehiclekeys", "wasabi_carlock", "cd_garage", "okokGarage", "t1ger_keys", "Renewed", "tgiann-hotwire" "none"
 Config.Notifications = "auto" -- or "default", "okokNotify", "ox_lib", "ps-ui"
-Config.Banking = "nfs-billing" -- or "qb-banking", "qb-management", "esx_addonaccount", "Renewed-Banking", "okokBanking", "fd_banking"
+Config.Banking = "auto" -- or "qb-banking", "qb-management", "esx_addonaccount", "Renewed-Banking", "okokBanking", "fd_banking"
 Config.Gangs = "auto" -- "qb-gangs", "rcore_gangs"
 
 -- Draw text UI prompts (key binding control IDs here: https://docs.fivem.net/docs/game-references/controls/)
@@ -41,11 +41,12 @@ Config.RadialMenu = "ox_lib"
 -- Little vehicle preview images in the garage UI - learn more/add custom images: https://docs.jgscripts.com/advanced-garages/vehicle-images
 Config.ShowVehicleImages = true
 
--- Vehicle Spawning
+-- Vehicle Spawning & Storing
 Config.DoNotSpawnInsideVehicle = false
 Config.SaveVehicleDamage = true -- Save and apply body and engine damage when taking the vehicle out a garage
 Config.AdvancedVehicleDamage = true -- use Kiminaze's VehicleDeformation
 Config.SaveVehiclePropsOnInsert = true
+Config.CheckVehicleModel = true -- Extra security
 
 -- If you don't know what this means, don't touch this
 -- If you know what this means, I do recommend enabling it but be aware you may experience reliability issues on more populated servers
@@ -55,7 +56,7 @@ Config.SaveVehiclePropsOnInsert = true
 Config.SpawnVehiclesWithServerSetter = false
 
 -- Vehicle Transfers
-Config.GarageVehicleTransferCost = 25 -- Cost to transfer between garages
+Config.GarageVehicleTransferCost = 2500 -- Cost to transfer between garages
 Config.TransferHidePlayerNames = false
 Config.EnableTransfers = {
   betweenGarages = true,
@@ -68,7 +69,7 @@ Config.DisableTransfersToUnregisteredGarages = false -- Potential hacking protec
 Config.AllowInfiniteVehicleSpawns = false -- Public & private garages
 Config.JobGaragesAllowInfiniteVehicleSpawns = false -- Job garages
 Config.GangGaragesAllowInfiniteVehicleSpawns = false -- Gang garages
-Config.GarageVehicleReturnCost = 250 -- "towing" tax if not placed back in garage after server restart; or if destroyed or underwater while left out
+Config.GarageVehicleReturnCost = 2500 -- "towing" tax if not placed back in garage after server restart; or if destroyed or underwater while left out
 Config.GarageVehicleReturnCostSocietyFund = false -- Job name of society fund to pay return fees into (optional)
 
 -- Public Garages
@@ -148,8 +149,8 @@ Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
   },
   ["Great Ocean Highway"] = {
-    coords = vec3(-2961.34, 367.39, 14.77),
-    spawn = vec4(-2958.72, 373.56, 14.38, 85.48),
+    coords = vector3(-2961.58, 375.93, 15.02),
+    spawn = vector4(-2964.96, 372.07, 14.78, 86.07),
     distance = 15,
     type = "car",
     hideBlip = false,
@@ -161,7 +162,7 @@ Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
     hideMarkers = true,
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
   },
-  ["Grapeseed 920"] = {
+  ["Sandy South"] = {
     coords = vector3(217.33, 2605.65, 46.04),
     spawn = vector4(216.94, 2608.44, 46.33, 14.07),
     distance = 15,
@@ -175,9 +176,9 @@ Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
     hideMarkers = true,
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
   },
-  ["Sandy Boathouse"] = {
-    coords = vec3(1547.18, 3782.62, 34.06),
-    spawn = vec4(1541.2, 3773.92, 34.05, 303.3),
+  ["Sandy North"] = {
+    coords = vector3(1878.44, 3760.1, 32.94),
+    spawn = vector4(1880.14, 3757.73, 32.93, 215.54),
     distance = 15,
     type = "car",
     hideBlip = false,
@@ -189,7 +190,7 @@ Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
     hideMarkers = true,
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
   },
-  ["Vinewood Blvd 574"] = {
+  ["North Vinewood Blvd"] = {
     coords = vector3(365.21, 295.65, 103.46),
     spawn = vector4(364.84, 289.73, 103.42, 164.23),
     distance = 15,
@@ -204,8 +205,8 @@ Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
   },
   ["Grapeseed"] = {
-    coords = vec3(2153.31, 4797.23, 41.19),
-    spawn = vec4(2147.88, 4805.8, 41.29, 109.47),
+    coords = vector3(1713.06, 4745.32, 41.96),
+    spawn = vector4(1710.64, 4746.94, 41.95, 90.11),
     distance = 15,
     type = "car",
     hideBlip = false,
@@ -217,80 +218,9 @@ Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
     hideMarkers = true,
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
   },
-  ["LS Tow Yard"] = {
-    coords = vec3(486.9, -1308.02, 28.85),
-    spawn = vec4(486.22, -1308.15, 28.85, 205.87),
-    distance = 10,
-    type = "car",
-    hideBlip = true,
-    blip = {
-      id = 357,
-      color = 0,
-      scale = 0.7
-    },
-    hideMarkers = false,
-    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
-  },
-  ["PDM Mechanic"] = {
-    coords = vec3(-355.37, -115.57, 38.29),
-    spawn = vec4(-358.02, -120.95, 38.28, 68.81),
-    distance = 10,
-    type = "car",
-    hideBlip = true,
-    blip = {
-      id = 357,
-      color = 0,
-      scale = 0.7
-    },
-    hideMarkers = false,
-    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
-  },
-  ["MRPD Personal"] = {
-    coords = vec3(462.14, -1019.13, 27.68),
-    spawn = vec4(454.51, -1020.77, 27.88, 94.07),
-    distance = 10,
-    type = "car",
-    hideBlip = true,
-    blip = {
-      id = 357,
-      color = 0,
-      scale = 0.7
-    },
-    hideMarkers = false,
-    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
-    vehiclesType = "owned",
-  },
-  ["Garbage Yard"] = {
-    coords = vec3(-332.42, -1516.45, 27.08),
-    spawn = vec4(-331.75, -1521.69, 27.07, 270.13),
-    distance = 10,
-    type = "car",
-    hideBlip = true,
-    blip = {
-      id = 357,
-      color = 0,
-      scale = 0.7
-    },
-    hideMarkers = false,
-    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
-  },
-  ["The Port"] = {
-    coords = vec3(162.81, -3213.01, 5.47),
-    spawn = vec4(162.63, -3209.79, 5.48, 264.32),
-    distance = 10,
-    type = "car",
-    hideBlip = false,
-    blip = {
-      id = 357,
-      color = 0,
-      scale = 0.7
-    },
-    hideMarkers = false,
-    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
-  },
   ["Paleto Bay"] = {
-    coords = vec3(96.01, 6383.12, 31.23),
-    spawn = vec4(97.99, 6375.91, 31.23, 13.06),
+    coords = vector3(107.32, 6611.77, 31.98),
+    spawn = vector4(110.84, 6607.82, 31.86, 265.28),
     distance = 15,
     type = "car",
     hideBlip = false,
@@ -316,9 +246,9 @@ Config.GarageLocations = { -- IMPORTANT - Every garage name must be unique
     hideMarkers = true,
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
   },
-  ["LSIA Hangar"] = {
-    coords = vec3(-1271.29, -3380.76, 13.94),
-    spawn = vec4(-1269.77, -3377.48, 14.54, 328.16),
+  ["Hangar"] = {
+    coords = vector3(-1243.49, -3391.88, 13.94),
+    spawn = vector4(-1258.4, -3394.56, 13.94, 328.23),
     distance = 20,
     type = "air",
     hideBlip = false,
@@ -367,9 +297,9 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
     vehiclesType = "owned", -- Use owned vehicles that can anyone in this society can access - more details: https://docs.jgscripts.com/advanced-garages/job-and-gang-garages
   },
-  ["Mission Row PD"] = {
-    coords = vec3(442.11, -992.65, 25.7),
-    spawn = vec4(446.62, -991.45, 25.7, 271.42),
+  ["Police"] = {
+    coords = vector3(434.48, -1016.97, 28.83),
+    spawn = vector4(434.55, -1014.54, 28.49, 91.56),
     distance = 15,
     job = {"police"},
     type = "car",
@@ -385,113 +315,22 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
     showLiveriesExtrasMenu = true, -- Allow player to select a livery and extras before pulling vehicle out 
     vehicles = {
       [1] = {
-        model = "2vd_acavalcade3", -- spawn code for vehicle
-        plate = "POLICE", -- set as false for a random plate; do not use a plate already in use in the DB!
+        model = "police", -- spawn code for vehicle
+        plate = "PD", -- set as false for a random plate; do not use a plate already in use in the DB!
         minJobGrade = 0, -- only available to players with set minimum grade
-        nickname = "Police Cavalcade", -- Show a custom name instead of the vehicle's real name
+        nickname = "Police car", -- Show a custom name instead of the vehicle's real name
         livery = 1,
-        extras = {1, 2, 3, 4, 5, 6, 7, 8},
+        extras = {1, 2},
         maxMods = true
       },
       [2] = {
-        model = "2vd_buffalo4h",
-        plate = "POLICE",
-        minJobGrade = 0,
-        nickname = "Buffalo Hellcat",
-        livery = 1,
-        extras = {1, 2, 3, 4, 5, 6, 7, 8},
-        maxMods = true
-      },
-      [3] = {
-        model = "2vdbuffalo4m", -- spawn code for vehicle
-        plate = "POLICE", -- set as false for a random plate; do not use a plate already in use in the DB!
-        minJobGrade = 0, -- only available to players with set minimum grade
-        nickname = "Police Buffalo", -- Show a custom name instead of the vehicle's real name
+        model = "police2",
+        plate = false,
+        minJobGrade = 3,
         livery = 2,
-        extras = { 1, 3, 4, 5, 6, 7, 8},
+        extras = {},
         maxMods = true
-      },
-      [4] = {
-        model = "2vd_dvigerozx",
-        plate = "POLICE",
-        minJobGrade = 0,
-        nickname = "Pursuit Camaro",
-        livery = 1,
-        extras = {1, 2, 3, 4, 5, 6, 7, 8},
-        maxMods = true
-      },
-      [5] = {
-        model = "2vd_gauntlet4", -- spawn code for vehicle
-        plate = "POLICE", -- set as false for a random plate; do not use a plate already in use in the DB!
-        minJobGrade = 0, -- only available to players with set minimum grade
-        nickname = "Police Gauntlet", -- Show a custom name instead of the vehicle's real name
-        livery = 1,
-        extras = {1, 2, 3, 4, 5, 6, 7, 8},
-        maxMods = true
-      },
-      [6] = {
-        model = "2vd_gresley",
-        plate = "POLICE",
-        minJobGrade = 0,
-        nickname = "Police Gresley",
-        livery = 1,
-        extras = {1, 2, 3, 4, 5, 6, 7, 8},
-        maxMods = true
-      },
-      [7] = {
-        model = "2vd_hakuchou", -- spawn code for vehicle
-        plate = "POLICE", -- set as false for a random plate; do not use a plate already in use in the DB!
-        minJobGrade = 0, -- only available to players with set minimum grade
-        nickname = "Police Bike", -- Show a custom name instead of the vehicle's real name
-        livery = 1,
-        extras = {1, 2, 3, 4, 5, 6, 7, 8},
-        maxMods = true
-      },
-      [8] = {
-        model = "2vd_scout",
-        plate = "POLICE",
-        minJobGrade = 0,
-        nickname = "Police Scout",
-        livery = 1,
-        extras = {1, 2, 3, 4, 5, 6, 7, 8},
-        maxMods = true
-      },
-      [9] = {
-        model = "2vd_scout2", -- spawn code for vehicle
-        plate = "POLICE", -- set as false for a random plate; do not use a plate already in use in the DB!
-        minJobGrade = 0, -- only available to players with set minimum grade
-        nickname = "Police Interceptor", -- Show a custom name instead of the vehicle's real name
-        livery = 1,
-        extras = {1, 2, 3, 4, 5, 6, 7, 8},
-        maxMods = true
-      },
-      [10] = {
-        model = "2vd_vcaracara",
-        plate = "POLICE",
-        minJobGrade = 0,
-        nickname = "Patrol Truck",
-        livery = 1,
-        extras = {1, 2, 3, 4, 5, 6, 7, 8},
-        maxMods = true
-      },
-      [11] = {
-        model = "2vd_gstsemxl1",
-        plate = "POLICE",
-        minJobGrade = 0,
-        nickname = 'Patrol SRT',
-        livery = 1,
-        extras = {1, 2, 3, 4, 5, 6, 7, 8},
-        maxMods = true
-      },
-      [12] = {
-        model = "2vdbuffalo4s", -- spawn code for vehicle
-        plate = "POLICE", -- set as false for a random plate; do not use a plate already in use in the DB!
-        minJobGrade = 0, -- only available to players with set minimum grade
-        nickname = "Buffalo Slicktop", -- Show a custom name instead of the vehicle's real name
-        livery = 2,
-        extras = { 1, 3, 4, 5, 6, 7, 8},
-        maxMods = true
-      },
+      }
     }
   }
 }
@@ -524,13 +363,13 @@ Config.GangGarageLocations = { -- IMPORTANT - Every garage name must be unique
 }
 
 -- Impound
-Config.ImpoundCommand = "impound"
+Config.ImpoundCommand = "iv"
 Config.ImpoundFeesSocietyFund = "police" -- Job name of society fund to pay impound fees into (optional)
 Config.ImpoundShowBlips = true
 Config.ImpoundUniqueBlips = false
 Config.ImpoundTimeOptions = {0, 1, 4, 12, 24, 72, 168} -- in hours
 Config.ImpoundLocations = { -- IMPORTANT - Every impound name must be unique
-  ["Los Santos Impound"] = {
+  ["Impound A"] = {
     coords = vector3(410.8, -1626.26, 29.29),
     spawn = vector4(408.44, -1630.88, 29.29, 136.88),
     distance = 15,
@@ -545,7 +384,7 @@ Config.ImpoundLocations = { -- IMPORTANT - Every impound name must be unique
     hideMarkers = true,
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
   },
-  ["Sandy Impound"] = {
+  ["Impound B"] = {
     coords = vector3(1649.71, 3789.61, 34.79),
     spawn = vector4(1643.66, 3798.36, 34.49, 216.16),
     distance = 15,
@@ -590,17 +429,16 @@ Config.ReturnVehicleToGarage = "vreturn" -- admin only
 -- Add your import vehicle's spawn name and desired label here for pretty vehicle names in the garage
 -- This is mainly designed for ESX - if you are using QB, do this in shared!
 Config.VehicleLabels = {
-  ["spawnName"] = "Pretty Vehicle Label",
-  ["2vdbuffalo4"] = "Police Buffalo"
+  ["spawnName"] = "Pretty Vehicle Label"
 }
 
 -- Block certain vehicles from being transferred to other players
 Config.PlayerTransferBlacklist = {
-  "adder"
+  "spawnName"
 }
 
 Config.AutoRunSQL = true
 Config.ReturnToPreviousRoutingBucket = false
-Config.HideWatermark = true
+Config.HideWatermark = false
 Config.__v3Config = true
 Config.Debug = false

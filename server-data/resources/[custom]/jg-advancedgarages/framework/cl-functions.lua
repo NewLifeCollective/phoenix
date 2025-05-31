@@ -479,7 +479,7 @@ function Framework.Client.GetPlate(vehicle)
   if not plate or plate == nil or plate == "" then return false end
 
   if GetResourceState("brazzers-fakeplates") == "started" then
-    local originalPlate = lib.callback.await("brazzers-fakeplates:getPlateFromFakePlate", false, plate)
+    local originalPlate = lib.callback.await("jg-advancedgarages:server:brazzers-get-plate-from-fakeplate", false, plate)
     if originalPlate then plate = originalPlate end
   end
 

@@ -26,7 +26,8 @@ if (Config.Framework == "auto" and GetResourceState("es_extended") == "started")
 
     local plate = vehicleProps.plate
 
-    local veh = lib.callback.await("jg-advancedgarages:server:get-vehicle", false, plate)
+    local vehicleModel = GetEntityArchetypeName(vehicle)
+    local veh = lib.callback.await("jg-advancedgarages:server:get-vehicle", false, vehicleModel, plate)
     if veh then
       return Framework.Client.Notify(Locale.vehiclePlateExistsError, "error")
     end

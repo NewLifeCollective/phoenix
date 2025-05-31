@@ -16,10 +16,10 @@ function Framework.Server.IsAdmin(src)
 end
 
 function Framework.Server.PayIntoSocietyFund(jobName, money)
-  print("PayIntoSocietyFund called with jobName:", jobName, "money:", money)
-  if (Config.Banking == "auto" and GetResourceState("nfs-billing") == "started") or Config.Banking == "nfs-billing" then
-    local society = (jobName == "police") and "society_police" or jobName -- Convert "police" to "society_police"
-    exports['nfs-billing']:depositSociety(society, money)
+  local usingNewQBBanking = GetResourceState("qb-banking") == "started" and tonumber(string.sub(GetResourceMetadata("qb-banking", "version", 0), 1, 3)) >= 2
+
+  if (Config.Banking == "auto" and GetResourceState("Renewed-Banking") == "started") or Config.Banking == "Renewed-Banking" then
+    exports['Renewed-Banking']:addAccountMoney(jobName, money)
   elseif (Config.Banking == "auto" and GetResourceState("okokBanking") == "started") or Config.Banking == "okokBanking" then
     exports['okokBanking']:AddMoney(jobName, money)
   elseif (Config.Banking == "auto" and GetResourceState("fd_banking") == "started") or Config.banking == "fd_banking" then
@@ -302,14 +302,16 @@ end)
 -- Brazzers-FakePlates
 --
 
-lib.callback.register("brazzers-fakeplates:getPlateFromFakePlate", function(_, fakeplate)
-  local result = MySQL.scalar.await("SELECT plate FROM player_vehicles WHERE fakeplate = ?", {fakeplate})
-  if result then return result end
-  return false
-end)
+if GetResourceState("brazzers-fakeplates") == "started" then
+  lib.callback.register("jg-advancedgarages:server:brazzers-get-plate-from-fakeplate", function(_, fakeplate)
+    local result = MySQL.scalar.await("SELECT plate FROM player_vehicles WHERE fakeplate = ?", {fakeplate})
+    if result then return result end
+    return false
+  end)
 
-lib.callback.register("brazzers-fakeplates:getFakePlateFromPlate", function(_, plate)
-  local result = MySQL.scalar.await("SELECT fakeplate FROM player_vehicles WHERE plate = ?", {plate})
-  if result then return result end
-  return false
-end)
+  lib.callback.register("jg-advancedgarages:server:brazzers-get-fakeplate-from-plate", function(_, plate)
+    local result = MySQL.scalar.await("SELECT fakeplate FROM player_vehicles WHERE plate = ?", {plate})
+    if result then return result end
+    return false
+  end)
+end

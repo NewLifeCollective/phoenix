@@ -1,4 +1,4 @@
-server/*
+
 !server/.gitkeep
 server-data/cache/
 server-data/db/
