@@ -69,6 +69,11 @@ end)
 
 ---@param toggle boolean
 function Framework.Client.ToggleHud(toggle)
+  if GetResourceState("jg-hud") == "started" then
+    exports["jg-hud"]:toggleHud(toggle)
+    return
+  end
+
   DisplayHud(toggle)
   DisplayRadar(toggle)
 end

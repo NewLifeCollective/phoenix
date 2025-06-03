@@ -360,6 +360,10 @@ local function onEnterVehicle(vehicle)
     local advancedFlags = getVehicleHandlingValue(vehicle, "CCarHandlingData", "strAdvancedFlags") --[[@as integer]]
     setVehicleHandlingValue(vehicle, "CCarHandlingData", "strAdvancedFlags", calculateFlagForSmoothFirstGear(advancedFlags))
   end
+
+  local state = Entity(vehicle).state or {}
+  if state.tuningConfig then applyVehicleTuningHandling(vehicle, state.tuningConfig) end
+  if state.servicingData then applyVehicleServicingHandling(vehicle, state.servicingData) end
 end
 
 -- Notify user with gear change key binds if they stay at high RPM for an extended period

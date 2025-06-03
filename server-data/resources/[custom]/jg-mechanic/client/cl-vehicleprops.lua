@@ -101,9 +101,9 @@ function getVehicleProperties(vehicle, withStatebags)
   end
 
   local extras = {}
-  for i = 1, 15 do
-    if DoesExtraExist(vehicle, i) then
-      extras[tostring(i)] = IsVehicleExtraTurnedOn(vehicle, i) == 1
+  for extraId = 1, 15 do
+    if DoesExtraExist(vehicle, extraId) then
+      extras[tostring(extraId)] = IsVehicleExtraTurnedOn(vehicle, extraId) == 1
     end
   end
 
@@ -150,6 +150,52 @@ function getVehicleProperties(vehicle, withStatebags)
     xenonCustomColor = {x_red, x_green, x_blue}
   end
 
+  -- ESX COMPATIBILITY
+  local hasCustomPrimaryColor = GetIsVehiclePrimaryColourCustom(vehicle)
+  local customPrimaryColor = nil
+  if hasCustomPrimaryColor then
+      customPrimaryColor = { GetVehicleCustomPrimaryColour(vehicle) }
+  end
+
+  local hasCustomSecondaryColor = GetIsVehicleSecondaryColourCustom(vehicle)
+  local customSecondaryColor = nil
+  if hasCustomSecondaryColor then
+    customSecondaryColor = { GetVehicleCustomSecondaryColour(vehicle) }
+  end
+
+  local hasCustomXenonColor, customXenonColorR, customXenonColorG, customXenonColorB = GetVehicleXenonLightsCustomColor(vehicle)
+  local customXenonColor = nil
+  if hasCustomXenonColor then
+    customXenonColor = { customXenonColorR, customXenonColorG, customXenonColorB }
+  end
+
+  local doorsBroken, windowsBroken, tyreBurst = {}, {}, {}
+  local numWheels = tostring(GetVehicleNumberOfWheels(vehicle))
+
+  local tyresIndex = {
+    ["2"] = { 0, 4 },
+    ["3"] = { 0, 1, 4, 5 },
+    ["4"] = { 0, 1, 4, 5 },
+    ["6"] = { 0, 1, 2, 3, 4, 5 },
+  }
+
+  if tyresIndex[numWheels] then
+    for _, idx in pairs(tyresIndex[numWheels]) do
+      tyreBurst[tostring(idx)] = IsVehicleTyreBurst(vehicle, idx, false)
+    end
+  end
+
+  for windowId = 0, 7 do -- 13
+    windowsBroken[tostring(windowId)] = not IsVehicleWindowIntact(vehicle, windowId)
+  end
+
+  local numDoors = GetNumberOfVehicleDoors(vehicle)
+  if numDoors and numDoors > 0 then
+    for doorsId = 0, numDoors do
+      doorsBroken[tostring(doorsId)] = IsVehicleDoorDamaged(vehicle, doorsId)
+    end
+  end
+  -- END ESX COMPATIBILITY
   
   local props = {
     model = GetEntityModel(vehicle),
@@ -240,6 +286,25 @@ function getVehicleProperties(vehicle, withStatebags)
     driftTyres = GetGameBuildNumber() >= 2372 and GetDriftTyresEnabled(vehicle),
     xenonCustomColorEnabled = xenonCustomColorEnabled,
     xenonCustomColor = xenonCustomColor,
+
+    -- ESX COMPATIBILITY
+    doorsBroken = doorsBroken,
+    windowsBroken = windowsBroken,
+    tyreBurst = tyreBurst,
+    tyresCanBurst = GetVehicleTyresCanBurst(vehicle),
+    customPrimaryColor = customPrimaryColor,
+    customSecondaryColor = customSecondaryColor,
+    customXenonColor = customXenonColor,
+    modCustomFrontWheels = GetVehicleModVariation(vehicle, 23),
+    modCustomBackWheels = GetVehicleModVariation(vehicle, 24),
+
+    -- QB COMPATIBILITY
+    modKit17 = GetVehicleMod(vehicle, 17),
+    modKit19 = GetVehicleMod(vehicle, 19),
+    modKit21 = GetVehicleMod(vehicle, 21),
+    modKit47 = GetVehicleMod(vehicle, 47),
+    modKit49 = GetVehicleMod(vehicle, 49),
+    liveryRoof = GetVehicleRoofLivery(vehicle),
   }
 
   if withStatebags then
@@ -293,9 +358,86 @@ function setVehicleProperties(vehicle, props, withStatebags)
   SetVehicleModKit(vehicle, 0)
   -- SetVehicleAutoRepairDisabled(vehicle, true)
 
+  -- ESX COMPATIBILITY
+  if props.windowsBroken ~= nil then
+    for k, v in pairs(props.windowsBroken) do
+      if v then
+        k = tonumber(k)
+        if k then
+          RemoveVehicleWindow(vehicle, k)
+        end
+      end
+    end
+  end
+
+  if props.doorsBroken ~= nil then
+    for k, v in pairs(props.doorsBroken) do
+      if v then
+        k = tonumber(k)
+        if k then
+          SetVehicleDoorBroken(vehicle, k, true)
+        end
+      end
+    end
+  end
+
+  if props.tyreBurst ~= nil then
+    for k, v in pairs(props.tyreBurst) do
+      if v then
+        k = tonumber(k)
+        if k then
+          SetVehicleTyreBurst(vehicle, k, true, 1000.0)
+        end
+      end
+    end
+  end
+
+  if props.tyresCanBurst ~= nil then
+    SetVehicleTyresCanBurst(vehicle, props.tyresCanBurst)
+  end
+
+  -- if props.customPrimaryColor ~= nil then
+  --   SetVehicleCustomPrimaryColour(vehicle, props.customPrimaryColor[1], props.customPrimaryColor[2], props.customPrimaryColor[3])
+  -- end
+  
+  -- if props.customSecondaryColor ~= nil then
+  --   SetVehicleCustomSecondaryColour(vehicle, props.customSecondaryColor[1], props.customSecondaryColor[2], props.customSecondaryColor[3])
+  -- end
+
+  -- if props.customXenonColor ~= nil then
+  --   SetVehicleXenonLightsCustomColor(vehicle, props.customXenonColor[1], props.customXenonColor[2], props.customXenonColor[3])
+  -- end
+  -- END ESX COMPATIBILITY
+
+  -- QB COMPATIBILITY
+  if props.modKit17 then
+    SetVehicleMod(vehicle, 17, props.modKit17, false)
+  end
+
+  if props.modKit19 then
+    SetVehicleMod(vehicle, 19, props.modKit19, false)
+  end
+
+  if props.modKit21 then
+    SetVehicleMod(vehicle, 21, props.modKit21, false)
+  end
+
+  if props.modKit47 then
+    SetVehicleMod(vehicle, 47, props.modKit47, false)
+  end
+
+  if props.modKit49 then
+    SetVehicleMod(vehicle, 49, props.modKit49, false)
+  end
+
+  if props.liveryRoof then
+    SetVehicleRoofLivery(vehicle, props.liveryRoof)
+  end
+  -- END QB COMPATIBILITY
+
   if props.extras then
     for id, enabled in pairs(props.extras) do
-      SetVehicleExtra(vehicle, tonumber(id) --[[@as integer]], enabled and 0 or 1 --[[@as boolean]]) 
+      SetVehicleExtra(vehicle, tonumber(id) --[[@as integer]], not enabled) 
     end
   end
 
@@ -334,9 +476,10 @@ function setVehicleProperties(vehicle, props, withStatebags)
   if props.color1 then
     if type(props.color1) == "number" then
       ClearVehicleCustomPrimaryColour(vehicle)
-      SetVehicleColours(vehicle, props.color1 --[[@as number]], colorSecondary --[[@as number]])
+      SetVehicleColours(vehicle, props.color1 --[[@as number]], type(colorSecondary) == "number" and colorSecondary or 0 --[[@as number]])
     else
       if props.paintType1 then SetVehicleModColor_1(vehicle, props.paintType1, 0, 0) end
+      ClearVehicleCustomPrimaryColour(vehicle)
       SetVehicleCustomPrimaryColour(vehicle, props.color1[1], props.color1[2], props.color1[3])
     end
   end
@@ -344,9 +487,12 @@ function setVehicleProperties(vehicle, props, withStatebags)
   if props.color2 then
     if type(props.color2) == "number" then
       ClearVehicleCustomSecondaryColour(vehicle)
-      SetVehicleColours(vehicle, props.color1 or colorPrimary --[[@as number]], props.color2 --[[@as number]])
+
+      local primaryColour = props.color1 or colorPrimary
+      SetVehicleColours(vehicle, type(primaryColour) == "number" and primaryColour or 0 --[[@as number]], props.color2 --[[@as number]])
     else
       if props.paintType2 then SetVehicleModColor_2(vehicle, props.paintType2, 0) end
+      ClearVehicleCustomSecondaryColour(vehicle)
       SetVehicleCustomSecondaryColour(vehicle, props.color2[1], props.color2[2], props.color2[3])
     end
   end
@@ -541,11 +687,11 @@ function setVehicleProperties(vehicle, props, withStatebags)
   end
 
   if props.modFrontWheels then
-    SetVehicleMod(vehicle, 23, props.modFrontWheels, props.modCustomTiresF)
+    SetVehicleMod(vehicle, 23, props.modFrontWheels, props.modCustomTiresF or props.modCustomFrontWheels) -- ESX BC: modCustomFrontWheels
   end
 
   if props.modBackWheels then
-    SetVehicleMod(vehicle, 24, props.modBackWheels, props.modCustomTiresR)
+    SetVehicleMod(vehicle, 24, props.modBackWheels, props.modCustomTiresR or props.modCustomBackWheels) -- ESX BC: modCustomBackWheels
   end
 
   if props.modPlateHolder then
