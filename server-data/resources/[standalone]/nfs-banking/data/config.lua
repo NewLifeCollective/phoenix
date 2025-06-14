@@ -1,9 +1,9 @@
 return {
-  reissueFee = 5,
+  reissueFee = 5000,
   atmDistance = 2.0,
   savingInterest = 2,         --percent
   itemName = 'bank_card',
-  managementJob = 'bank',   -- job needed to open management
+  managementJob = 'police',   -- job needed to open management
   managementCommand = 'bankmanagement',
   cardsLimit = 3,
   savingLogs = true,

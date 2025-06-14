@@ -15,6 +15,9 @@ Config.resourceName = "framework"
 ----QBX Core Frame work, and its configuration - This is meant for base QBCore events, and functions.
 Config.isQBX = true
 
+--ERS Integration / Support - Simply tells our ImperialCAD resource to listen for the ERS events and integrations.
+Config.ERSsupport = false
+
 --This will mark them off duty once they leave the game. (Requires a verfified discord ID, and they must be active within your community on the CAD)
 Config.cadkickonleave = true
 
@@ -30,6 +33,6 @@ Config.Allow911Command = true -- This will allow /a911 for Anonymous calls and /
 Config.callBlip = true
 
 --Traffic Stop command Related config (This is useless if your "Config.TsThroughChat" is false)
-Config.trafficsnature = "Traffic Stop"
+Config.trafficsnature = "TRAFFIC STOP"
 Config.trafficspriority = "3"
 Config.trafficsstatus = "ACTIVE"

@@ -1,470 +1,269 @@
-║             TXADMIN║ ================================================================
-║             TXADMIN║ ======== [6416] FXServer Starting - 5/31/2025, 12:40:57 AM      
-║             TXADMIN║ ================================================================
-║             TXADMIN║ setr "txAdmin-locale" "en"
-║             TXADMIN║ set "txAdmin-serverName" "NLC Development"
-║             TXADMIN║ set "txAdmin-checkPlayerJoin" "true"
-║             TXADMIN║ set "txAdmin-menuAlignRight" "false"
-║             TXADMIN║ set "txAdmin-menuPageKey" "Tab"
-║             TXADMIN║ set "txAdmin-playerModePtfx" "true"
-║             TXADMIN║ set "txAdmin-hideAdminInPunishments" "true"
-║             TXADMIN║ set "txAdmin-hideAdminInMessages" "false"
-║             TXADMIN║ set "txAdmin-hideDefaultAnnouncement" "false"
-║             TXADMIN║ set "txAdmin-hideDefaultDirectMessage" "false"
-║             TXADMIN║ set "txAdmin-hideDefaultWarning" "false"
-║             TXADMIN║ set "txAdmin-hideDefaultScheduledRestartWarning" "false"
-║             TXADMIN║ txaEvent "configChanged" "{}"
-[           resources] Scanning resources.
-[resources:nlc_connec] Warning: nlc_connect does not have a resource manifest (fxmanifest.lua)
-[           resources] Found 167 resources.
-[           resources] 1 warning was encountered.
-[          svadhesive] Authenticating server license key...
-[          svadhesive] Server license key authentication succeeded. Welcome!
-[    c-scripting-core] Creating script environments for monitor
-[      script:monitor] [txAdmin] Resource v8.0.1 threads and commands set up. All Ready.
-[           resources] Started resource monitor
-[    c-scripting-core] Creating script environments for mapmanager
-[           resources] Started resource mapmanager
-[    c-scripting-core] Creating script environments for chat
-[           resources] Started resource chat
-[           resources] Started resource spawnmanager
-[    c-scripting-core] Creating script environments for sessionmanager
-[           resources] Started resource sessionmanager
-[    c-scripting-core] Creating script environments for hardcap
-[           resources] Started resource hardcap
-[    c-scripting-core] Creating script environments for baseevents
-[           resources] Started resource baseevents
-[    c-scripting-core] Creating script environments for cfx-gabz-mapdata
-[           resources] Started resource cfx-gabz-mapdata
-[    c-scripting-core] Creating script environments for cfx-gabz-scenarios
-[           resources] Started resource cfx-gabz-scenarios
-[    c-scripting-core] Creating script environments for cfx-gabz-pdprops
-[resources:cfx-gabz-p] Asset cfx-gabz-pdprops/gabz_pdprops01_txd.ytd uses 27.5 MiB of physical memory.
-[           resources] Started resource cfx-gabz-pdprops (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-247
-[           resources] Started resource cfx-gabz-247
-[    c-scripting-core] Creating script environments for cfx-gabz-ammunation
-[           resources] Started resource cfx-gabz-ammunation
-[    c-scripting-core] Creating script environments for cfx-gabz-bahama
-[resources:cfx-gabz-b] Asset cfx-gabz-bahama/gabz_bahama_txd.ytd uses 28.0 MiB of physical memory.
-[           resources] Started resource cfx-gabz-bahama (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-burgershot
-[resources:cfx-gabz-b] Asset cfx-gabz-burgershot/gabz_burgershot_txd.ytd uses 22.1 MiB of physical memory.
-[           resources] Started resource cfx-gabz-burgershot (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-davispd
-[resources:cfx-gabz-d] Asset cfx-gabz-davispd/gabz_davispd_txd.ytd uses 18.0 MiB of physical memory.
-[           resources] Started resource cfx-gabz-davispd (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-firedept
-[           resources] Started resource cfx-gabz-firedept
-[    c-scripting-core] Creating script environments for cfx-gabz-fleeca
-[           resources] Started resource cfx-gabz-fleeca
-[    c-scripting-core] Creating script environments for cfx-gabz-hayes
-[           resources] Started resource cfx-gabz-hayes
-[    c-scripting-core] Creating script environments for cfx-gabz-lamesapd
-[resources:cfx-gabz-l] Asset cfx-gabz-lamesapd/gabz_lamesapd_txd.ytd uses 18.0 MiB of physical memory.
-[           resources] Started resource cfx-gabz-lamesapd (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-mirrorpark1
-[           resources] Started resource cfx-gabz-mirrorpark1
-[    c-scripting-core] Creating script environments for cfx-gabz-mirrorpark2
-[           resources] Started resource cfx-gabz-mirrorpark2
-[    c-scripting-core] Creating script environments for cfx-gabz-mrpd
-[resources:cfx-gabz-m] Asset cfx-gabz-mrpd/gabz_mrpd_txd.ytd uses 35.0 MiB of physical memory.
-[           resources] Started resource cfx-gabz-mrpd (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-ottos
-[resources:cfx-gabz-o] Asset cfx-gabz-ottos/denis3d_otto_mechanic_txd.ytd uses 24.0 MiB of physical memory.
-[           resources] Started resource cfx-gabz-ottos (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-pacificbank
-[resources:cfx-gabz-p] Asset cfx-gabz-pacificbank/gabz_sm_pb_txd.ytd uses 26.8 MiB of physical memory.
-[           resources] Started resource cfx-gabz-pacificbank (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-paletobank
-[           resources] Started resource cfx-gabz-paletobank
-[    c-scripting-core] Creating script environments for cfx-gabz-paletopd
-[resources:cfx-gabz-p] Asset cfx-gabz-paletopd/gabz_paletopd_txd.ytd uses 17.0 MiB of physical memory.
-[           resources] Started resource cfx-gabz-paletopd (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-pdm
-[resources:cfx-gabz-p] Asset cfx-gabz-pdm/gabz_pdm_txd.ytd uses 17.5 MiB of physical memory.
-[           resources] Started resource cfx-gabz-pdm (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-pillbox
-[resources:cfx-gabz-p] Asset cfx-gabz-pillbox/gabz_pillbox_textures_01.ytd uses 24.8 MiB of physical memory.
-[           resources] Started resource cfx-gabz-pillbox (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-prison
-[resources:cfx-gabz-p] Asset cfx-gabz-prison/sanhje_prison_txd.ytd uses 17.2 MiB of physical memory.
-[           resources] Started resource cfx-gabz-prison (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-sandypd
-[           resources] Started resource cfx-gabz-sandypd
-[    c-scripting-core] Creating script environments for cfx-gabz-townhall
-[resources:cfx-gabz-t] Asset cfx-gabz-townhall/gabz_townhall_txd.ytd uses 36.5 MiB of physical memory.
-[           resources] Started resource cfx-gabz-townhall (1 warning)
-[    c-scripting-core] Creating script environments for cfx-gabz-vu
-[           resources] Started resource cfx-gabz-vu
-[resources:2vd_acaval] Asset 2vd_acavalcade3/2vd_acavalcade3.ytd uses 44.5 MiB of physical memory.
-[           resources] Started resource 2vd_acavalcade3 (1 warning)
-[resources:2vd_buffal] Warning: could not find file `vehiclelayouts.meta` (defined in fxmanifest.lua:11)
-[resources:2vd_buffal] Asset 2vd_buffalo4h/2vd_buffalo4h.ytd uses 96.0 MiB of physical memory. Oversized assets can and WILL lead to streaming issues (such as models not loading/rendering).
-[           resources] Started resource 2vd_buffalo4h (2 warnings)
-[resources:2vd_dviger] Asset 2vd_dvigerozx/2vd_dvigerozx.ytd uses 24.5 MiB of physical memory.
-[           resources] Started resource 2vd_dvigerozx (1 warning)
-[resources:2vd_gauntl] Asset 2vd_gauntlet4/2vd_gauntlet4.ytd uses 25.0 MiB of physical memory.
-[           resources] Started resource 2vd_gauntlet4 (1 warning)
-[resources:2vd_gresle] Asset 2vd_gresley/2vd_gresley.ytd uses 42.5 MiB of physical memory.
-[           resources] Started resource 2vd_gresley (1 warning)
-[resources:2vd_gstsem] Asset 2vd_gstsemxl1/2vd_gstsemxl1.ytd uses 35.5 MiB of physical memory.
-[           resources] Started resource 2vd_gstsemxl1 (1 warning)
-[resources:2vd_hakuch] Warning: could not find client_script `tun_names.lua` (defined in fxmanifest.lua:7)
-[resources:2vd_hakuch] Asset 2vd_hakuchou/2vd_hakuchou.ytd uses 32.0 MiB of physical memory.
-[           resources] Started resource 2vd_hakuchou (2 warnings)
-[resources:2vd_hr680:] Asset 2vd_hr680/2vd_hr680.ytd uses 69.5 MiB of physical memory. Oversized assets can and WILL lead to streaming issues (such as models not loading/rendering).
-[           resources] Started resource 2vd_hr680 (1 warning)
-[resources:2vd_scout2] Asset 2vd_scout2/2vd_scout2.ytd uses 41.5 MiB of physical memory.
-[           resources] Started resource 2vd_scout2 (1 warning)
-[resources:2vd_vcarac] Asset 2vd_vcaracara/2vd_vcaracara.ytd uses 48.0 MiB of physical memory.
-[           resources] Started resource 2vd_vcaracara (1 warning)
-[resources:2vd_vscout] Asset 2vd_vscout/2vd_vscout.ytd uses 64.0 MiB of physical memory. Oversized assets can and WILL lead to streaming issues (such as models not loading/rendering).
-[           resources] Started resource 2vd_vscout (1 warning)
-[resources:2vdbuffalo] Warning: could not find file `vehiclelayouts.meta` (defined in fxmanifest.lua:11)
-[resources:2vdbuffalo] Asset 2vdbuffalo4m/2vdbuffalo4_livery1.yft uses 32.0 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4m/2vdbuffalo4_livery2.yft uses 32.0 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4m/2vdbuffalo4_livery3.yft uses 32.0 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4m/2vdbuffalo4_livery4.yft uses 32.0 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4m/2vdbuffalo4_livery5.yft uses 32.0 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4m/2vdbuffalo4m.ytd uses 23.0 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4m/2vdbuffalo4m_sign_1.ytd uses 32.0 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4m/2vdbuffalo4m_sign_2.ytd uses 32.0 MiB of physical memory.
-[           resources] Started resource 2vdbuffalo4m (9 warnings)
-[resources:2vdbuffalo] Warning: could not find file `vehiclelayouts.meta` (defined in fxmanifest.lua:11)
-[resources:2vdbuffalo] Asset 2vdbuffalo4s/2vdbuffalo4s.ytd uses 21.2 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4s/2vdbuffalo4slick_livery1.yft uses 32.0 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4s/2vdbuffalo4slick_livery2.yft uses 32.0 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4s/2vdbuffalo4slick_livery3.yft uses 32.0 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4s/2vdbuffalo4slick_livery4.yft uses 32.0 MiB of physical memory.
-[resources:2vdbuffalo] Asset 2vdbuffalo4s/2vdbuffalo4slick_livery5.yft uses 32.0 MiB of physical memory.
-[           resources] Started resource 2vdbuffalo4s (7 warnings)
-[    c-scripting-core] Creating script environments for ox_lib
-[           resources] Started resource ox_lib
-[    c-scripting-core] Creating script environments for oxmysql
-[           resources] Started resource oxmysql
-[    c-scripting-core] Creating script environments for qbx_core
-[     script:qbx_core] [qbx_core] [INFO] Stopping hardcap...
-[           resources] Stopping resource hardcap
-[           resources] Started resource qbx_core
-[    c-scripting-core] Creating script environments for ox_target
-[           resources] Started resource ox_target
-[    c-scripting-core] Creating script environments for ox_doorlock
-[           resources] Started resource ox_doorlock
-[    c-scripting-core] Creating script environments for ox_inventory
-[           resources] Started resource ox_inventory
-[    c-scripting-core] Creating script environments for ox_fuel
-[           resources] Started resource ox_fuel
-[    c-resources-core] Could not find dependency qb-menu for resource qb-vanillaunicorn.
-[ citizen-server-impl] Couldn't start resource qb-vanillaunicorn.
-[    c-scripting-core] Creating script environments for qbx_adminmenu
-[           resources] Started resource qbx_adminmenu
-[    c-scripting-core] Creating script environments for qbx_medical
-[           resources] Started resource qbx_medical
-[    c-scripting-core] Creating script environments for qbx_ambulancejob
-[           resources] Started resource qbx_ambulancejob
-[    c-scripting-core] Creating script environments for qbx_bankrobbery
-[           resources] Started resource qbx_bankrobbery
-[    c-scripting-core] Creating script environments for qbx_binoculars
-[           resources] Started resource qbx_binoculars
-[    c-scripting-core] Creating script environments for qbx_carwash
-[           resources] Started resource qbx_carwash
-[           resources] Started resource qbx_chat_theme
-[    c-scripting-core] Creating script environments for qbx_cityhall
-[           resources] Started resource qbx_cityhall
-[           resources] Started resource qbx_density
-[    c-scripting-core] Creating script environments for qbx_divegear
-[           resources] Started resource qbx_divegear
-[    c-scripting-core] Creating script environments for qbx_diving
-[           resources] Started resource qbx_diving
-[    c-scripting-core] Creating script environments for qbx_drugs
-[           resources] Started resource qbx_drugs
-[    c-scripting-core] Creating script environments for qbx_fireworks
-[           resources] Started resource qbx_fireworks
-[    c-scripting-core] Creating script environments for qbx_garbagejob
-[           resources] Started resource qbx_garbagejob
-[    c-scripting-core] Creating script environments for qbx_houserobbery
-[           resources] Started resource qbx_houserobbery
-[    c-scripting-core] Creating script environments for qbx_hud
-[           resources] Started resource qbx_hud
-[           resources] Started resource MugShotBase64
-[    c-scripting-core] Creating script environments for qbx_idcard
-[           resources] Started resource qbx_idcard
-[    c-scripting-core] Creating script environments for qbx_jewelery
-[           resources] Started resource qbx_jewelery
-[    c-scripting-core] Creating script environments for qbx_lapraces
-[           resources] Started resource qbx_lapraces
-[    c-scripting-core] Creating script environments for qbx_management
-[           resources] Started resource qbx_management
-[    c-scripting-core] Creating script environments for qbx_newsjob
-[           resources] Started resource qbx_newsjob
-[    c-scripting-core] Creating script environments for qbx_pawnshop
-[           resources] Started resource qbx_pawnshop
-[    c-scripting-core] Creating script environments for qbx_police
-[           resources] Started resource qbx_police
-[    c-scripting-core] Creating script environments for qbx_properties
-[           resources] Started resource qbx_properties
-[    c-scripting-core] Creating script environments for qbx_radialmenu
-[           resources] Started resource qbx_radialmenu
-[    c-scripting-core] Creating script environments for qbx_recyclejob
-[           resources] Started resource qbx_recyclejob
-[    c-scripting-core] Creating script environments for qbx_scoreboard
-[           resources] Started resource qbx_scoreboard
-[    c-scripting-core] Creating script environments for qbx_scrapyard
-[           resources] Started resource qbx_scrapyard
-[    c-scripting-core] Creating script environments for qbx_seatbelt
-[           resources] Started resource qbx_seatbelt
-[    c-scripting-core] Creating script environments for qbx_smallresources
-[           resources] Started resource qbx_smallresources
-[    c-scripting-core] Creating script environments for qbx_spawn
-[           resources] Started resource qbx_spawn
-[    c-scripting-core] Creating script environments for qbx_storerobbery
-[           resources] Started resource qbx_storerobbery
-[    c-scripting-core] Creating script environments for qbx_streetraces
-[           resources] Started resource qbx_streetraces
-[    c-scripting-core] Creating script environments for qbx_taxijob
-[           resources] Started resource qbx_taxijob
-[    c-scripting-core] Creating script environments for qbx_towjob
-[           resources] Started resource qbx_towjob
-[    c-scripting-core] Creating script environments for qbx_truckerjob
-[           resources] Started resource qbx_truckerjob
-[    c-scripting-core] Creating script environments for qbx_truckrobbery
-[           resources] Started resource qbx_truckrobbery
-[    c-scripting-core] Creating script environments for qbx_vehiclekeys
-[           resources] Started resource qbx_vehiclekeys
-[    c-scripting-core] Creating script environments for qbx_vehicles
-[           resources] Started resource qbx_vehicles
-[    c-scripting-core] Creating script environments for qbx_vehiclesales
-[           resources] Started resource qbx_vehiclesales
-[    c-scripting-core] Creating script environments for qbx_vineyard
-[           resources] Started resource qbx_vineyard
-[    c-scripting-core] Creating script environments for qbx_weed
-[           resources] Started resource qbx_weed
-[    c-scripting-core] Creating script environments for savana-busjob
-[           resources] Started resource savana-busjob
-[    c-scripting-core] Creating script environments for savana-truckerjob
-[           resources] Started resource savana-truckerjob
-[    c-scripting-core] Creating script environments for y_burgershot
-[           resources] Started resource y_burgershot
-[    c-scripting-core] Creating script environments for bl_bridge
-[    script:bl_bridge] [ox] Loaded module inventory
-[    script:bl_bridge] [qbx] Loaded module core
-[    script:bl_bridge] [ox] Loaded module notify
-[           resources] Started resource bl_bridge
-[    c-scripting-core] Creating script environments for Badger_Discord_API
-[           resources] Started resource Badger_Discord_API
-[    c-scripting-core] Creating script environments for DiscordAcePerms
-[           resources] Started resource DiscordAcePerms
-[           resources] Started resource RageUI
-[    c-scripting-core] Creating script environments for Renewed-Weathersync
-[           resources] Started resource Renewed-Weathersync
-[           resources] Started resource VisualSettings
-[    c-scripting-core] Creating script environments for baspel_wheelclamp
-[           resources] Started resource baspel_wheelclamp
-[           resources] Started resource bob74_ipl
-[    c-scripting-core] Creating script environments for illenium-appearance
-[           resources] Started resource illenium-appearance
-[    c-scripting-core] Creating script environments for informational
-[           resources] Started resource informational
-[           resources] Started resource loadingscreen
-[    c-scripting-core] Creating script environments for lvc
-[       resources:lvc] Warning: could not find file `PLUGINS/**/*.json` (defined in fxmanifest.lua:26)
-[           resources] Started resource lvc (1 warning)
-[    c-scripting-core] Creating script environments for mana_audio
-[           resources] Started resource mana_audio
-[    c-scripting-core] Creating script environments for map
-[           resources] Started resource map
-[           resources] Started resource mhacking
-[           resources] Started resource miranda
-[    c-scripting-core] Creating script environments for nearest-postal
-[           resources] Started resource nearest-postal
-[    c-scripting-core] Creating script environments for nfs-banking
-[           resources] Started resource nfs-banking
-[    c-scripting-core] Creating script environments for nfs-billing
-[           resources] Started resource nfs-billing
-[    c-scripting-core] Creating script environments for night_prop_system
-[           resources] Started resource night_prop_system
-[    c-scripting-core] Creating script environments for nv_chairsit
-[           resources] Started resource nv_chairsit
-[           resources] Started resource safecracker
-[    c-scripting-core] Creating script environments for screencapture
-[           resources] Started resource screencapture
-[    c-scripting-core] Creating script environments for screenshot-basic
-[           resources] Started resource screenshot-basic
-[    c-scripting-core] Creating script environments for scully_emotemenu
-[           resources] Started resource scully_emotemenu
-[    c-scripting-core] Creating script environments for ultra-voltlab
-[           resources] Started resource ultra-voltlab
-[    c-scripting-core] Creating script environments for vehiclehandler
-[           resources] Started resource vehiclehandler
-[    c-scripting-core] Creating script environments for wk_wars2x
-[           resources] Started resource wk_wars2x
-[    c-scripting-core] Creating script environments for xt-prison
-[           resources] Started resource xt-prison
-[    c-scripting-core] Creating script environments for pma-voice
-[           resources] Started resource pma-voice
-[    c-scripting-core] Creating script environments for qbx_radio
-[           resources] Started resource qbx_radio
-[    c-scripting-core] Creating script environments for ImperialLocation
-[script:ImperialLocat] Loaded data/postals.json successfully with 865 entries.
-[script:ImperialLocat] Loaded data/cities.json successfully with 17 entries.
-[script:ImperialLocat] Loaded data/counties.json successfully with 3 entries.
-[           resources] Started resource ImperialLocation
-[    c-scripting-core] Creating script environments for ImperialCAD
-[  script:ImperialCAD] ImperialCAD Community ID 'imperial_community_id' found.
-[  script:ImperialCAD] Imperial API key 'imperialAPI' found.
-[  script:ImperialCAD] [ImperialCAD] Hello World!
-[           resources] Started resource ImperialCAD
-[    c-scripting-core] Creating script environments for DriversLic
-[   script:DriversLic] ImperialCAD Community ID 'imperial_community_id' found.
-[   script:DriversLic] Imperial API key 'imperialAPI' found.
-[           resources] Started resource DriversLic
-[    c-scripting-core] Creating script environments for ImperialDuty
-[           resources] Started resource ImperialDuty
-[    c-scripting-core] Creating script environments for sonoran-radiodisplay
-[           resources] Started resource sonoran-radiodisplay
-[    c-scripting-core] Creating script environments for sonoranradio
-[resources:sonoranrad] Asset sonoranradio/mobilecell+hi.ytd uses 24.5 MiB of physical memory.
-[resources:sonoranrad] Asset sonoranradio/serverrack+hi.ytd uses 16.5 MiB of physical memory.
-[           resources] Started resource sonoranradio (2 warnings)
-[    c-scripting-core] Creating script environments for sonoranradio_updatehelper
-[           resources] Started resource sonoranradio_updatehelper
-[    c-scripting-core] Creating script environments for lb-phone
-[           resources] Started resource lb-phone
-[           resources] Started resource lb-phoneprop
-[    c-scripting-core] Creating script environments for jg-advancedgarages
-[           resources] Started resource jg-advancedgarages
-[    c-scripting-core] Creating script environments for jg-dealerships
-[           resources] Started resource jg-dealerships
-[    c-scripting-core] Creating script environments for jg-vehiclemileage
-[           resources] Started resource jg-vehiclemileage
-[    c-scripting-core] Creating script environments for jg-mechanic
-[           resources] Started resource jg-mechanic
-[           resources] Started resource jg-mechanic-props
-[           resources] Started resource jg-textui
-[    c-scripting-core] Creating script environments for tcr_entityremover
-[           resources] Started resource tcr_entityremover
-[    c-scripting-core] Creating script environments for tcr_logger
-[           resources] Started resource tcr_logger
-[    c-scripting-core] Creating script environments for eup-stream
-[    c-scripting-core] Failed to load script @WaveShield/resource/waveshield.lua.
-[resources:eup-stream] Warning: could not find client_script `client.lua` (defined in fxmanifest.lua:7)
-[resources:eup-stream] Asset eup-stream/mp_f_freemode_01_mp_f_importexport_01^jbib_diff_004_a_uni.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_f_freemode_01_mp_f_importexport_01^jbib_diff_004_b_uni.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_f_freemode_01_mp_f_importexport_01^jbib_diff_007_a_uni.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_f_freemode_01_mp_f_importexport_01^jbib_diff_007_b_uni.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_f_freemode_01_mp_f_importexport_01^jbib_diff_014_a_uni.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_f_freemode_01_p^p_head_diff_013_a.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_f_freemode_01_p^p_head_diff_013_b.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01^jbib_001_u.ydd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01^jbib_diff_001_a_uni.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01^task_002_u.ydd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01^task_004_u.ydd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01_mp_m_importexport_01^jbib_diff_004_a_uni.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01_mp_m_importexport_01^jbib_diff_004_b_uni.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01_mp_m_importexport_01^jbib_diff_007_a_uni.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01_mp_m_importexport_01^jbib_diff_007_b_uni.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01_mp_m_importexport_01^jbib_diff_014_a_uni.ytd uses 32.0 MiB of physical memory.
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01_mp_m_january2016^task_diff_003_a_uni.ytd uses 64.0 MiB of physical memory. Oversized assets can and WILL lead to streaming issues (such as models not loading/rendering).
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01_mp_m_january2016^task_diff_003_b_uni.ytd uses 64.0 MiB of physical memory. Oversized assets can and WILL lead to streaming issues (such as models not loading/rendering).
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01_mp_m_january2016^task_diff_007_a_uni.ytd uses 64.0 MiB of physical memory. Oversized assets can and WILL lead to streaming issues (such as models not loading/rendering).
-[resources:eup-stream] Asset eup-stream/mp_m_freemode_01_p^p_head_diff_013_a.ytd uses 32.0 MiB of physical memory.
-[           resources] Started resource eup-stream (21 warnings)
-[                 cmd] Argument count mismatch (passed 2, wanted 3)
-[ citizen-server-main] Warning: The players.json endpoint has been modified to no longer return the player identifiers without authentication.
-[ citizen-server-main] To learn more about this change read our announcement at https://aka.cfx.re/players-json-privacy
-[script:night_prop_sy] ========== Props & Speedzones Version Check ==========
-[script:night_prop_sy] Props & Speedzones is up to date: v3.3.1
-[script:night_prop_sy] Props & Speedzones config is up to date: v3.3.0
-[script:night_prop_sy] ========== ========== ==========
-[     script:lb-phone] [WARNING] You are not running the latest version, please update! (latest: 2.3.1, your version: 2.2.0)
-[     script:lb-phone] Cell Towers:
-[     script:lb-phone]   • Calling is now disabled when having no service.
-[     script:lb-phone]   • Added a config option to allow company calls & messages with no service`Config.Companies.AllowNoService`
-[     script:lb-phone]   • Notifications from service-required apps are now queued until you have service again
-[     script:lb-phone]   • Disabled the Crypto, Marketplace & Pages app if you don't have any service.
-[     script:lb-phone]   • The cell tower logic is now editable `client/custom/functions/cellTowers.lua`
-[     script:lb-phone] Locales:
-[     script:lb-phone]   • Updated English `en.json`
-[     script:lb-phone]   • Updated German `de.json`
-[     script:lb-phone]   • Updated French `fr.json`
-[     script:lb-phone]   • Updated Chinese `zh-cn.json`
-[     script:lb-phone] Other:
-[     script:lb-phone]   • Fixed a bug from last update that would not allow wallpapers from a custom url.
-[     script:lb-phone]   • Added a server event when a new phone number is generated `lb-phone:phoneNumberGenerated(source, phoneNumber)`
-[     script:lb-phone]   • Fixed app notification badges being buggy and not updating properly
-[     script:lb-phone]   • Added `Config.DisableFocusTalking` check for inputs (potentially fix PTT getting stuck)
-[     script:lb-phone]   • The home page in the Music app is now properly scrollable.
-[     script:lb-phone]   • Fixed an error that would cause a crash in the photos app.
-[     script:lb-phone]   • Added several crash prevention fallbacks.
-[     script:lb-phone]   • Fixed a bug causing the `phoneData is nil` error.
-[     script:lb-phone]   • Fixed a bug causing the battery level to not save when switching phone with unique phones enabled.
-[     script:lb-phone] Discord:
-[     script:lb-phone]   • Check the discord for patch notes
-[     script:lb-phone]   • discord.gg/lbphone
-[script:jg-dealership] Update available for jg-dealerships! (current: v1.5.0-hotfix1, latest: v1.5.1)
-[script:jg-dealership] Release notes: discord.gg/jgscripts
-[script:sonoranradio_] SCRIPT ERROR: @sonoranradio_updatehelper/s.lua:4: attempt to call a nil value (field 'input')
-[script:sonoranradio_] > fn (@sonoranradio_updatehelper/s.lua:4)
-[script:Badger_Discor] 
-[script:Badger_Discor] Badger_Discord_API (Badger_Discord_API) is up to date!
-[    c-scripting-core] script error in native 0000000076a9ee1f: Argument at index 0 was null.
-[script:sonoran-radio] SCRIPT ERROR: native 0000000076a9ee1f: Argument at index 0 was null.
-[script:sonoran-radio] > LoadResourceFile (LoadResourceFile.lua:8)
-[      script:oxmysql] [11.8.1-MariaDB] Database server connection established!
-[  script:ImperialCAD] 
-[  script:ImperialCAD] =======================[ ImperialCAD ]=======================
-[  script:ImperialCAD]   Current Version:   1.0.7
-[  script:ImperialCAD]   Latest Version:    1.0.7
-[  script:ImperialCAD]   Update Status:     Up to Date
-[  script:ImperialCAD]   Debug Mode:        Disabled
-[  script:ImperialCAD]   Community ID:      Present (Appears Valid)
-[  script:ImperialCAD]   API Key:           Present (Appears Valid)
-[  script:ImperialCAD] ============================================================
-[  script:ImperialCAD] 
-[    script:xt-prison] [xt-prison] [INFO] Initializing Table: xt_prison
-[    script:xt-prison] [xt-prison] [INFO] Initializing Table: xt_prison_items
-[script:qbx_propertie] SCRIPT ERROR: @qbx_properties/server/property.lua:384: No such export RegisterGarage in resource qbx_garages
-[script:qbx_propertie] > new StackDumpError (@oxmysql/citizen:/scripting/v8/main.js:416)
-[script:qbx_propertie] > <unknown> (@oxmysql/citizen:/scripting/v8/main.js:436)
-[script:qbx_propertie] > <unknown> (@oxmysql/citizen:/scripting/v8/main.js:97)
-[script:qbx_propertie] > Number.__cfx_wrap_342 (@oxmysql/citizen:/scripting/v8/main.js:24)
-[script:qbx_propertie] > <unknown> (@oxmysql/citizen:/scripting/v8/main.js:30)
-[script:qbx_propertie] > <unknown> (@oxmysql/citizen:/scripting/v8/main.js:94)
-[script:qbx_propertie] > rawQuery (@oxmysql/dist/build.js:26132)
-[script:qbx_propertie] > process.processTicksAndRejections (node:internal/process/task_queues:105)
-[       script:ox_lib] An update is available for qbx_core (current version: 1.22.5)
-[       script:ox_lib] https://github.com/Qbox-project/qbx_core/releases/tag/v1.23.0
-[script:Badger_Discor] [Badger_Discord_API] [Badger_Discord_API] Successful connection to Guild : NewLife Collective (1344861967982268547)
-[     script:qbx_core] [qbx_core] [INFO] Removed invalid groups from player_groups table
+================================================================
+======== Log Rotated - 6/8/2025, 12:00:00 AM                    
+================================================================
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
 [ script:sonoranradio] my: 2.18.4 remote: 2.18.4
-[ citizen-server-impl]         fff                          
-[ citizen-server-impl]   cccc ff   xx  xx     rr rr    eee  
-[ citizen-server-impl] cc     ffff   xx       rrr  r ee   e 
-[ citizen-server-impl] cc     ff     xx   ... rr     eeeee  
-[ citizen-server-impl]  ccccc ff   xx  xx ... rr      eeeee 
-[ citizen-server-impl]                                      
-[ citizen-server-impl] Authenticated with cfx.re Nucleus: https://newlife-collective-53dpa6.users.cfx.re/
-[ script:ox_inventory] [ox_inventory] [INFO] Inventory has loaded 360 items
-[script:scully_emotem] [scully_emotemenu] You are currently running the latest version.
-[          script:lvc] 
-[          script:lvc] 	 ________________________________________________________
-[          script:lvc] 	|	      __                       ___               |
-[          script:lvc] 	|	     / /       /\   /\        / __\              |
-[          script:lvc] 	|	    / /        \ \ / /       / /                 |
-[          script:lvc] 	|	   / /___       \ V /       / /___               |
-[          script:lvc] 	|	   \____/uxart   \_/ ehicle \____/ontrol         |
-[          script:lvc] 	|	                                                 |
-[          script:lvc] 	|	            COMMUNITY ID: newlifecollective      |
-[          script:lvc] 	|________________________________________________________|
-[          script:lvc] 	|	           INSTALLED: 3.2.9                      |
-[          script:lvc] 	|	       LATEST STABLE: 3.2.9                      |
-[          script:lvc] 	|________________________________________________________|
-[          script:lvc] 	|INSTALLED PLUGINS               | INSTALLED |  LATEST   |
-[          script:lvc] 	|  traffic_advisor               |   1.0.5   |   1.0.5   |
-[          script:lvc] 	|________________________________________________________|
-[          script:lvc] 	|      Updates, Support, Feedback: discord.link/LVC      |
-[          script:lvc] 	|________________________________________________________|
-[          script:lvc] 
-[          script:lvc] 
-[ script:sonoranradio] [SonoranRadio] - Attempting to set server IP for radio service... https://newlife-collective-53dpa6.users.cfx.re/sonoranradio/events
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ citizen-server-impl] sync thread hitch warning: timer interval of 107 milliseconds
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[ script:sonoranradio] my: 2.18.4 remote: 2.18.4
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!
+[  script:nfs-banking] [Saving] 0 cards and 0 transactions are saved!

@@ -41,4 +41,3 @@ escrow_ignore {
 }
 
 dependency '/assetpacks'
-dependency '/assetpacks-redm'

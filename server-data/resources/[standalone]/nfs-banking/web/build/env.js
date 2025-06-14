@@ -191,5 +191,6 @@ export default {
   min_rate: 1,
   max_rate: 50,
   max_reason_characters: 500,
-  min_reason_characters: 20,
+  min_reason_characters: 100,
+  currency_sign: "$",
 };
