@@ -232,7 +232,37 @@ Config.MechanicLocations = {
     logo = "bennys.png", -- logos go in /logos
     locations = {
       {
-        coords = vec3(449.75, -976.07, 25.7),
+        coords = vec3(1814.28, 3686.41, 33.5),
+        size = 10.0,
+        showBlip = false,
+      }
+    },
+    blip = {
+      id = 446,
+      color = 47,
+      scale = 0.7
+    },
+    mods = {
+      repair           = { enabled = true, price = 50, percentVehVal = 0.01 },
+      performance      = { enabled = true, price = 50, percentVehVal = 0.01, priceMult = 0.1 },
+      cosmetics        = { enabled = true, price = 20, percentVehVal = 0.01, priceMult = 0.1 },
+      stance           = { enabled = false, price = 500, percentVehVal = 0.01 },
+      respray          = { enabled = false, price = 500, percentVehVal = 0.01 },
+      wheels           = { enabled = true, price = 50, percentVehVal = 0.01, priceMult = 0.1 },
+      neonLights       = { enabled = false, price = 500, percentVehVal = 0.01 },
+      headlights       = { enabled = true, price = 20, percentVehVal = 0.01 },
+      tyreSmoke        = { enabled = false, price = 500, percentVehVal = 0.01 },
+      bulletproofTyres = { enabled = true, price = 50, percentVehVal = 0.01 },
+      extras           = { enabled = true, price = 5, percentVehVal = 0.01 }
+    },
+  },
+  sspd = {
+    type = "self-service",
+    job = 'police',
+    logo = "bennys.png", -- logos go in /logos
+    locations = {
+      {
+        coords = vec3(1815.03, 3679.81, 33.5),
         size = 10.0,
         showBlip = false,
       }
