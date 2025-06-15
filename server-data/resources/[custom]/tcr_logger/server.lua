@@ -141,21 +141,34 @@ AddEventHandler('playerDropped', function(reason)
     SendToDiscord(leaveMessage)
 end)
 
--- Player death
-AddEventHandler('playerDied', function(killer, reason)
-    local source = source
-    local playerName = GetPlayerName(source)
-    local discordId = GetDiscordFromIdentifiers(source) or 'The Boogeyman'
+-- Player death (enhanced)
+AddEventHandler('baseevents:onPlayerDied', function(killerId, deathData)
+    local victimSrc = source
+    local victimName = GetPlayerName(victimSrc) or 'Unknown'
+    local victimDiscord = GetDiscordFromIdentifiers(victimSrc) or 'Unknown'
 
-    local deathMessage
-    if killer and GetPlayerName(killer) then 
-        local killerName = GetPlayerName(killer)
-        local killerDiscordId = GetDiscordFromIdentifiers(killer) or 'A Ghost'
-        deathMessage = string.format('[%s] **%s** was killed by [%s] **%s** (Cause: %s)',
-            discordId, playername, killerDiscordId, killerName, reason or 'Unknown')
+    local deathMessage = ''
+
+    if killerId and killerId ~= victimSrc then
+        local killerName = GetPlayerName(killerId) or 'Unknown'
+        local killerDiscord = GetDiscordFromIdentifiers(killerId) or 'Unknown'
+        local weaponHash = deathData and deathData.weapon or 0
+        local weaponHex = string.format("0x%X", weaponHash)
+
+        deathMessage = string.format(
+            '[%s] **%s** was killed by [%s] **%s** using weapon hash: `%s`',
+            victimDiscord, victimName, killerDiscord, killerName, weaponHex
+        )
     else
-        deathMessage = string.format('[%s] **%s** died (Cause: %s)',
-            discordId, playerName, reason or 'Uknown')
+        local weaponHash = deathData and deathData.weapon or 0
+        local weaponHex = string.format("0x%X", weaponHash)
+
+        deathMessage = string.format(
+            '[%s] **%s** died (Weapon: `%s`)',
+            victimDiscord, victimName, weaponHex
+        )
     end
+
     SendToDiscord(deathMessage)
 end)
+
