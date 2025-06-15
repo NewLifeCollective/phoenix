@@ -10,9 +10,9 @@ Config.NumberAndDateFormat = "en-US"
 Config.Currency = "USD"
 
 -- Framework & Integrations
-Config.Framework = "auto" -- or "QBCore", "Qbox", "ESX"
-Config.FuelSystem = "none" -- or "LegacyFuel", "ps-fuel", "lj-fuel", "ox_fuel", "cdn-fuel", "hyon_gas_station", "okokGasStation", "nd_fuel", "myFuel", "ti_fuel", "Renewed-Fuel", "rcore_fuel", "none"
-Config.VehicleKeys = "none" -- or "qb-vehiclekeys", "MrNewbVehicleKeys", "jaksam-vehicles-keys", "qs-vehiclekeys", "mk_vehiclekeys", "wasabi_carlock", "cd_garage", "okokGarage", "t1ger_keys", "Renewed", "tgiann-hotwire" "none"
+Config.Framework = "Qbox" -- or "QBCore", "Qbox", "ESX"
+Config.FuelSystem = "ox_fuel" -- or "LegacyFuel", "ps-fuel", "lj-fuel", "ox_fuel", "cdn-fuel", "hyon_gas_station", "okokGasStation", "nd_fuel", "myFuel", "ti_fuel", "Renewed-Fuel", "rcore_fuel", "none"
+Config.VehicleKeys = "qb-vehiclekeys" -- or "qb-vehiclekeys", "MrNewbVehicleKeys", "jaksam-vehicles-keys", "qs-vehiclekeys", "mk_vehiclekeys", "wasabi_carlock", "cd_garage", "okokGarage", "t1ger_keys", "Renewed", "tgiann-hotwire" "none"
 Config.Notifications = "auto" -- or "default", "okokNotify", "ox_lib", "ps-ui"
 Config.Banking = "auto" -- or "qb-banking", "qb-management", "esx_addonaccount", "Renewed-Banking", "okokBanking", "fd_banking"
 Config.Gangs = "auto" -- "qb-gangs", "rcore_gangs"
@@ -297,9 +297,9 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
     markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
     vehiclesType = "owned", -- Use owned vehicles that can anyone in this society can access - more details: https://docs.jgscripts.com/advanced-garages/job-and-gang-garages
   },
-  ["Police"] = {
-    coords = vector3(434.48, -1016.97, 28.83),
-    spawn = vector4(434.55, -1014.54, 28.49, 91.56),
+  ["Mission Row PD"] = {
+    coords = vec3(440.22, -992.07, 25.7),
+    spawn = vec4(446.4, -988.72, 25.7, 268.25),
     distance = 15,
     job = {"police"},
     type = "car",
@@ -315,22 +315,150 @@ Config.JobGarageLocations = { -- IMPORTANT - Every garage name must be unique
     showLiveriesExtrasMenu = true, -- Allow player to select a livery and extras before pulling vehicle out 
     vehicles = {
       [1] = {
-        model = "police", -- spawn code for vehicle
-        plate = "PD", -- set as false for a random plate; do not use a plate already in use in the DB!
-        minJobGrade = 0, -- only available to players with set minimum grade
-        nickname = "Police car", -- Show a custom name instead of the vehicle's real name
-        livery = 1,
-        extras = {1, 2},
+        model = "2vdbuffalo4s", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 3, -- only available to players with set minimum grade
+        nickname = "Slicktop Buffalo", -- Show a custom name instead of the vehicle's real name
+        livery = 5,
+        extras = {1, 3, 4, 5, 6 },
         maxMods = true
       },
       [2] = {
-        model = "police2",
-        plate = false,
-        minJobGrade = 3,
+        model = "2vdbuffalo4m", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 0, -- only available to players with set minimum grade
+        nickname = "Marked Buffalo", -- Show a custom name instead of the vehicle's real name
         livery = 2,
-        extras = {},
+        extras = {1, 3, 4, 5, 6 },
         maxMods = true
-      }
+      },
+      [3] = {
+        model = "2vdvscout", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 6, -- only available to players with set minimum grade
+        nickname = "Marked Scout", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
+      [4] = {
+        model = "pdvigero", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 6, -- only available to players with set minimum grade
+        nickname = "Pursuit Camaro", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
+      [5] = {
+        model = "2vdscout2", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 6, -- only available to players with set minimum grade
+        nickname = "Patrol Scout", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
+      [6] = {
+        model = "2vdgresley", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 6, -- only available to players with set minimum grade
+        nickname = "Police Gresley", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
+      [7] = {
+        model = "2vdbuffalo4h", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 6, -- only available to players with set minimum grade
+        nickname = "Pursuit Buffalo", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
+    }
+  },
+  ["Sandy Shores PD"] = {
+    coords = vec3(1831.38, 3689.84, 33.97),
+    spawn = vec4(1831.37, 3690.18, 33.5, 28.84),
+    distance = 15,
+    job = {"police"},
+    type = "car",
+    hideBlip = false,
+    blip = {
+      id = 357,
+      color = 0,
+      scale = 0.7
+    },
+    hideMarkers = true,
+    markers = { id = 21, size = { x = 0.3, y = 0.3, z = 0.3 }, color = { r = 255, g = 255, b = 255, a = 120 }, bobUpAndDown = 0, faceCamera = 0, rotate = 1, drawOnEnts = 0 },
+    vehiclesType = "spawner", -- Spawn a basic vehicle from a list
+    showLiveriesExtrasMenu = false, -- Allow player to select a livery and extras before pulling vehicle out 
+    vehicles = {
+      [1] = {
+        model = "2vdbuffalo4s", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 3, -- only available to players with set minimum grade
+        nickname = "Slicktop Buffalo", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
+      [2] = {
+        model = "2vdbuffalo4m", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 0, -- only available to players with set minimum grade
+        nickname = "Marked Buffalo", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
+      [3] = {
+        model = "2vdvscout", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 6, -- only available to players with set minimum grade
+        nickname = "Marked Scout", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
+      [4] = {
+        model = "pdvigero", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 6, -- only available to players with set minimum grade
+        nickname = "Pursuit Camaro", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
+      [5] = {
+        model = "2vdscout2", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 6, -- only available to players with set minimum grade
+        nickname = "Patrol Scout", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
+      [6] = {
+        model = "2vdgresley", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 6, -- only available to players with set minimum grade
+        nickname = "Police Gresley", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
+      [7] = {
+        model = "2vdbuffalo4h", -- spawn code for vehicle
+        plate = "2D-SD", -- set as false for a random plate; do not use a plate already in use in the DB!
+        minJobGrade = 6, -- only available to players with set minimum grade
+        nickname = "Pursuit Buffalo", -- Show a custom name instead of the vehicle's real name
+        livery = 2,
+        extras = {1, 3, 4, 5 },
+        maxMods = true
+      },
     }
   }
 }
